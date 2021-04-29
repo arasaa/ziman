@@ -7,7 +7,7 @@ h1{
     color: teal;
     text-shadow: 2px 2px rgb(146, 182, 216);
 }
-nav{
+#story_nav{
     text-align: center;
     position: sticky;
     top: 2.9em;
@@ -33,3 +33,23 @@ div{
 :target{
     display: block;
 }
+
+
+
+
+
+
+
+#story_nav{
+    text-align: center;
+}
+#science nav{
+    
+}
+#science_fication{
+    
+}
+#science:target{
+    display: block;
+}
+
