@@ -10,7 +10,7 @@ const Options = (props) => {
       id: 1,
     },
     { text: "Python", handler: () => {}, id: 2 },
-    { text: "Golang", handler: () => {}, id: 3 },
+    { text: "Golg", handler: () => {}, id: 3 },
   ];
 
   const buttonsMarkup = options.map((option) => (
