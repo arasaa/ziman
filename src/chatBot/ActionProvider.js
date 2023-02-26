@@ -16,9 +16,19 @@ class ActionProvider {
         widget: "javascriptQuiz",
       }
     );
+  
 
     this.addMessageToState(message);
   };
+  handleA1 = () =>{
+    const message = this.createChatBotMessage(
+      "hier fängt alles an",
+      {
+        widget: "DA1Quiz",
+      }
+    );
+    this.addMessageToState(message);
+  }
 
   addMessageToState = (message) => {
     this.setState((prevState) => ({

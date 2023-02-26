@@ -1,9 +1,23 @@
-import React from 'react'
-import "dA1.css"
+import React,{useState} from 'react'
+import DA1FlaschCard from './DA1FlaschCard';
 
-const DA1quiz = () => {
+const DA1quiz = (props) => {
+    console.log(props);
+    let [questionIndex, setQuestionIndex] = useState(0);
+
+    const incrementIndex = () => setQuestionIndex((prev)=> (prev += 1));
+
+    const currentQuestion = props.questions[questionIndex];
+
+    if(!currentQuestion) {
+        return <div>lesson is over!</div>
+    }
   return (
-    <div>DA1quiz</div>
+    <DA1FlaschCard
+    question={currentQuestion.question}
+    answer={currentQuestion.answer}
+    incrementIndex={incrementIndex} 
+    />
   )
 }
 

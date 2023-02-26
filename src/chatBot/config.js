@@ -4,6 +4,7 @@ import { createChatBotMessage } from "react-chatbot-kit";
 import Options from "../option/Option";
 
 import Quiz from "../quiz/Quiz";
+import DA1quiz from "../deutsch/DA1quiz";
 
 const config = {
   botName: "LearningBot",
@@ -36,6 +37,49 @@ const config = {
           },
         ],
       },
+    },
+    {
+      widgetName: "DA1Quiz",
+      widgetFunc: (props) => <DA1quiz {...props} />,
+      props: {
+
+       questions: [
+          {
+            question: "Willcommen beim Ziman Bot",
+            id: 1,
+          },
+          {
+            question: "Drücken Sie nächst, um zu anfangen, اكبس التالي لبدء التعلم",
+            answer: "Gutn Morgen User, alles gut bei dir?",
+            id: 2,
+          },
+          {
+            question: "Guten Morgen",
+            answer: "تعني صباح الخير",
+            id: 3,
+          },
+          {
+            question: "Alles gut bei dir?",
+            answer: "هل كل شيء على مايرام؟",
+            id: 4,
+          }
+          ,
+          {
+            question: "Ja, alles gut und bei dir?",
+            answer: "نعم,كل شيء بخير وانت؟",
+            id: 5,
+          }
+        ]
+
+
+
+
+
+
+
+
+
+      }
     },
   ],
 };
