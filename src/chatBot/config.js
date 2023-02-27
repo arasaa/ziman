@@ -5,6 +5,7 @@ import Options from "../option/Option";
 
 import Quiz from "../quiz/Quiz";
 import DA1quiz from "../deutsch/DA1quiz";
+import Lessons from "../deutsch/Lessons";
 
 const config = {
   botName: "LearningBot",
@@ -68,6 +69,9 @@ const config = {
             question: "Ja, alles gut und bei dir?",
             answer: "نعم,كل شيء بخير وانت؟",
             id: 5,
+          },
+          {
+              Lessons: <Lessons />,
           }
         ]
 

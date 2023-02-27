@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import DA1FlaschCard from './DA1FlaschCard';
+import Lessons from './Lessons';
 
 const DA1quiz = (props) => {
     console.log(props);
@@ -10,13 +11,16 @@ const DA1quiz = (props) => {
     const currentQuestion = props.questions[questionIndex];
 
     if(!currentQuestion) {
-        return <div>lesson is over!</div>
+        return <div><Lessons/></div>
     }
   return (
     <DA1FlaschCard
     question={currentQuestion.question}
     answer={currentQuestion.answer}
+  
     incrementIndex={incrementIndex} 
+   
+
     />
   )
 }
