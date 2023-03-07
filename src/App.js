@@ -17,8 +17,7 @@ function App() {
         actionProvider={ActionProvider}
         />
       </div>
-      <EmblaCarousel />
-      <PreviousNextMethods />
+     
     </div>
   );
 }

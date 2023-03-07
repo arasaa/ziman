@@ -1,4 +1,4 @@
-export const greet = [
+const Data = [
     {
         greeding: "Hallo User",
         start: "lass uns starten, click Next um zu starten",
@@ -17,6 +17,7 @@ export const greet = [
     }
 ]
 
+export default Data
 
 
 

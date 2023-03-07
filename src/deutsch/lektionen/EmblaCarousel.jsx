@@ -1,34 +1,44 @@
-import React, { useCallback } from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
+import React from 'react'
+import Data from '../data/Data'
 
- const EmblaCarousel = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel()
+const EmblaCarousel = (props) => {
+  const list = Data.map(gree => <>
+    <p key={gree.id}>{gree.greeding}</p>
+    <p>{gree.start}</p>
+    </>
+    )
+  
+    const listOne = Data.map(gree => <>
+      <p key={gree.id}>{gree.givingWord}</p>
+      <p>{gree.wordExplanation}</p>
+      </>
+      ) 
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev()
-  }, [emblaApi])
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext()
-  }, [emblaApi])
-
-  return (
-    <div className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
-          <div className="embla__slide">Slide 1</div>
-          <div className="embla__slide">Slide 2</div>
-          <div className="embla__slide">Slide 3</div>
-        </div>
-      </div>
-      <button className="embla__prev" onClick={scrollPrev}>
-        Prev
-      </button>
-      <button className="embla__next" onClick={scrollNext}>
-        Next
-      </button>
-    </div>
-  )
-}
+  const [count, setCount] = React.useState(0);
+    
+  const components = [
+      <div>{list}</div>,
+      <div>{listOne}</div>,
+      <div>3</div>,
+      <div>4</div>
+  ]
+  
+  return <div>
+      {
+          // render component from our components array
+          components[count]
+      }
+  
+      {/* show previous button if we are not on first element */}
+      {count > 0 && <button onClick={() => setCount(count - 1)}>prev</button>}
+  
+      {/* hide next button if we are at the last element */}
+      {count < components.length - 1 && <button onClick={() => setCount(count + 1)}>next</button>}
+  </div>
+  }
 
 export default EmblaCarousel
+
+
+
+
