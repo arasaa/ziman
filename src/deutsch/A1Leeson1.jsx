@@ -20,9 +20,7 @@ const A1Leeson1 = () => {
           show && (<LektionEins />)
         }
       <button>lektion zwei</button>
-      <button>lektion drei</button>
-      <button>lektion vier</button>
-      <button>lektion funf</button>
+     
       
     </div>
   )

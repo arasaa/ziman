@@ -49,27 +49,7 @@ const config = {
             question: "Willcommen beim Ziman Bot",
             id: 1,
           },
-          {
-            question: "Drücken Sie nächst, um zu anfangen, اكبس التالي لبدء التعلم",
-            answer: "Gutn Morgen User, alles gut bei dir?",
-            id: 2,
-          },
-          {
-            question: "Guten Morgen",
-            answer: "تعني صباح الخير",
-            id: 3,
-          },
-          {
-            question: "Alles gut bei dir?",
-            answer: "هل كل شيء على مايرام؟",
-            id: 4,
-          }
-          ,
-          {
-            question: "Ja, alles gut und bei dir?",
-            answer: "نعم,كل شيء بخير وانت؟",
-            id: 5,
-          },
+     
           {
               Lessons: <Lessons />,
           }
