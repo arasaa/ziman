@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./option.css"
 
@@ -18,13 +18,21 @@ const Options = (props) => {
      id: 5},
   ];
 
+  const [visible, setVisible] = useState(true);
+
   const buttonsMarkup = options.map((option) => (
     <button key={option.id} onClick={option.handler} className="option-button">
       {option.text}
     </button>
   )); 
 
-  return <div className="options-container">{buttonsMarkup}</div>;
+  return <div className="options-container">
+    <button onClick={() => setVisible(!visible)}>
+      {visible ? buttonsMarkup : 'Back'}
+    </button>
+  
+    
+    </div>;
 };
 
 export default Options;
