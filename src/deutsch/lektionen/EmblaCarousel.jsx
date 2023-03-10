@@ -1,7 +1,7 @@
 import React from 'react'
 import Data from '../data/Data'
 
-const EmblaCarousel = (props) => {
+const EmblaCarousel = () => {
   const list = Data.map(gree => <>
     <p key={gree.id}>{gree.greeding}</p>
     <p>{gree.start}</p>

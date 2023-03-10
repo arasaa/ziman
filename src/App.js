@@ -5,8 +5,6 @@ import './App.css';
 import config from './chatBot/config';
 import ActionProvider from './chatBot/ActionProvider';
 import MessageParser from './chatBot/MessageParser';
-import EmblaCarousel from './deutsch/lektionen/EmblaCarousel'
-import PreviousNextMethods from './deutsch/lektionen/PreviousNextMethods ';
 
 function App() {
   return (

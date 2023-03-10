@@ -5,7 +5,7 @@ import LektionEins from './lektionen/LektionEins';
 const A1Leeson1 = () => {
   const [show, setShow] =useState(false);
   const showA1 =()=>{
-   if(show == true){
+   if(show === true){
      setShow(false)
    }else{
      setShow(true)

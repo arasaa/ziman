@@ -20,7 +20,7 @@ class ActionProvider {
 
     this.addMessageToState(message);
   };
-  handleA1 = () =>{
+  handleA1 = () => {
     const message = this.createChatBotMessage(
       "hier fängt alles an",
       {

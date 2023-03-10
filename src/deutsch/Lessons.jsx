@@ -5,7 +5,7 @@ const Lessons = () => {
 
   const [show, setShow] =useState(false);
  const showA1 =()=>{
-  if(show == true){
+  if(show === true){
     setShow(false)
   }else{
     setShow(true)
