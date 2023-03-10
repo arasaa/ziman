@@ -47,11 +47,14 @@ const config = {
        questions: [
           {
             question: "Willcommen beim Ziman Bot",
+            answer: "whal",
             id: 1,
           },
      
           {
-              Lessons: <Lessons />,
+            question:"Welcher nivau bist du" ,
+            answer:  <Lessons />,
+              id: 2
           }
         ]
 
