@@ -13,10 +13,20 @@ const Lessons = () => {
   
  }
 
+ const [hide, setHeide] =useState(false);
+ const heideA1 =()=>{
+  if(hide === true){
+    setHeide(false)
+  }else{
+    setHeide(true)
+  }
+  
+ }
+
   return (
     <div>
       
-        <button onClick={showA1} className='add-button'>A1</button>
+        <button onClick={showA1} onChange={heideA1} className='add-button'>A1</button>
         {
           show && (<A1Leeson1 />)
         }

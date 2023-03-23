@@ -41,37 +41,10 @@ const config = {
     },
     {
       widgetName: "DA1Quiz",
-      widgetFunc: (props) => <DA1quiz {...props} />,
+      widgetFunc: (props) => <Lessons {...props} />,
       props: {
-
-       questions: [
-          // {
-          //   question: "Willcommen beim Ziman Bot",
-          //   answer: "whal",
-          //   id: 1,
-          // },
-     
-          // {
-          //   question:"Welcher nivau bist du" ,
-          //   answer:  <Lessons />,
-          //     id: 2,
-          // },
-          {
-            question:"Welcher nivau bist du" ,
-            answer: "Click Next",
-            lessons:  <Lessons />,
-            id: 2,
-          }
-        ]
-
-
-
-
-
-
-
-
-
+        questions:  [{
+      }]
       }
     },
   ],
