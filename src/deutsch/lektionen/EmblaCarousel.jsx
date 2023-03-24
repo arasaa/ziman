@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Data from '../data/Data'
 
 const EmblaCarousel = () => {
@@ -14,7 +14,7 @@ const EmblaCarousel = () => {
       </>
       ) 
 
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState(0);
     
   const components = [
       <div>{list}</div>,
@@ -38,6 +38,7 @@ const EmblaCarousel = () => {
   }
 
 export default EmblaCarousel
+
 
 
 

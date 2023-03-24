@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import A1Leeson1 from './A1Leeson1';
+import A1Eins from './A1/A1Eins';
 
 const Lessons = () => {
 
@@ -18,22 +19,23 @@ const Lessons = () => {
   if(hide === true){
     setHeide(false)
   }else{
-    setHeide(true)
+    setHeide(false)
   }
   
  }
+ const [showResults, setShowResults] = React.useState(false)
+  const onClick = () => setShowResults(true)
 
   return (
     <div>
       
-        <button onClick={showA1} onChange={heideA1} className='add-button'>A1</button>
+        <button onClick={showA1} onChange={onClick} className='add-button'>A1</button>
+        
         {
-          show && (<A1Leeson1 />)
+          show && (<A1Eins />)
         }
-        <button>2</button>
-        <button>3</button>
-        <div>
-        </div>
+        
+    
     </div>
   )
 }

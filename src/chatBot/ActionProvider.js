@@ -22,7 +22,7 @@ class ActionProvider {
   };
   handleA1 = () => {
     const message = this.createChatBotMessage(
-      "hier fängt alles an",
+      "",
       {
         widget: "DA1Quiz",
       }

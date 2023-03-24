@@ -20,10 +20,11 @@ const A1Leeson1 = () => {
           show && (<LektionEins />)
         }
       <button>lektion zwei</button>
+      <button>lektion drei</button>
      
-      
     </div>
   )
+  
 }
 
 export default A1Leeson1

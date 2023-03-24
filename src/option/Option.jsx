@@ -28,7 +28,7 @@ const Options = (props) => {
 
   return <div className="options-container">
     <button className="option-button" onClick={() => setVisible(!visible)}>
-      {visible ? buttonsMarkup : 'Back'}
+      {visible ? buttonsMarkup : 'back'}
     </button>
   
     
