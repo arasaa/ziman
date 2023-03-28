@@ -6,74 +6,60 @@ function A1Eins() {
 
   const [count, setCount] = useState(0);
 
-  const list1 = Data.map(gree => <>
+  const hallo = Data.map(gree => <>
     <p key={gree.id}>{gree.hallo}</p>
-    <p>{gree.bedeutund}</p>
+    <p>{gree.marhaba}</p>
     </>
     )
-    const list2 = Data.map(gree => <>
-      <p key={gree.id}>{gree.ichBin}</p>
-      <p>{gree.ichbi}</p>
+    const gutenTag = Data.map(gree => <>
+      <p key={gree.id}>{gree.gutenTag}</p>
+      <p>{gree.naharukSaid}</p>
       </>
       )
-      const list3 = Data.map(gree => <>
-        <p key={gree.id}>{gree.ichBin1}</p>
-        <p>{gree.ichbi1}</p>
+      const gutenAbend = Data.map(gree => <>
+        <p key={gree.id}>{gree.gutenAbend}</p>
+        <p>{gree.massAlkhir}</p>
         </>
         )
 
-  const list = Data.map(gree => <>
-    <p key={gree.id}>{gree.greeding}</p>
-    <p>{gree.start}</p>
+  const AufwiederSehen = Data.map(gree => <>
+    <p key={gree.id}>{gree.AufwiederSehen}</p>
+    <p>{gree.ilaAlliqa}</p>
     </>
     )
 
-  const listOne = Data.map(gree => <>
-    <p key={gree.id}>{gree.givingWord}</p>
-    <p>{gree.wordExplanation}</p>
+  const wieGehtIhnen = Data.map(gree => <>
+    <p key={gree.id}>{gree.wieGehtIhnen}</p>
+    <p>{gree.kaifHalluk}</p>
     </>
     ) 
 
-    const listTow = Data.map(gree => <>
-      <p key={gree.id}>{gree.bot}</p>
-      <p>{gree.user}</p>
+    const ichHeisse = Data.map(gree => <>
+      <p key={gree.id}>{gree.ichHeisse}</p>
+      <p>{gree.anaIsmi}</p>
       </>
       ) 
-      const listTo = DataE.map(gree => <>
-        <p key={gree.id}>{gree.halloo}</p>
-        <p>{gree.bedeutun}</p>
+      const ichHeisseAli = Data.map(gree => <>
+        <p key={gree.id}>{gree.ichHeisseAli}</p>
+        <p>{gree.anaIsmiAli}</p>
         </>
         ) 
-        const listT = DataE.map(gree => <>
-          <p key={gree.id}>{gree.danke}</p>
-          <p>{gree.bedeutungg}</p>
+        const wieHeissenSie = Data.map(gree => <>
+          <p key={gree.id}>{gree.wieHeissenSie}</p>
+          <p>{gree.maIsmuk}</p>
           </>
           ) 
-    
-    {/**
-     const display = Object.keys(DataE).map((key) =>(
-        <>
-        <p key={key.id}>{DataE.halloo}</p>
-        <p>{DataE.bedeutun}</p>
-        </>
-      )) 
-      const displa = Object.entries(DataE).map((key) =>(
-        <>
-        <p key={key.id}>{DataE.danke}</p>
-        <p>{DataE.bedeutungg}</p>
-        </>
-      ))   */}
 
       
   const components = [
-        <div>{list1}</div>,
-        <div>{list2}</div>,
-        <div>{list3}</div>,
-      <div>{list}</div>,
-      <div>{listOne}</div>,
-      <div>{listTow}</div>,
-      <div>{listTo}</div>,
-      <div>{listT}</div>,
+        <div>{hallo}</div>,
+        <div>{gutenTag}</div>,
+        <div>{gutenAbend}</div>,
+      <div>{AufwiederSehen}</div>,
+      <div>{wieGehtIhnen}</div>,
+      <div>{ichHeisse}</div>,
+      <div>{ichHeisseAli}</div>,
+      <div>{wieHeissenSie}</div>,
       
   ]
 

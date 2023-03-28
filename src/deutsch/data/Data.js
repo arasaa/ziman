@@ -1,35 +1,44 @@
   const Data = [
     {
         hallo: "hallo",
-        bedeutund: "مرحبا",
-        id: 4,
-    },
-    {
-        ichBin: "ich bin Aras",
-        ichbi: "انا اراس",
-        id: 4,
-    },
-    {
-        ichBin1: "ich bin Ali",
-        ichbi1: "انا علي",
-        id: 4,
-    },
-    {
-        greeding: "Hallo User",
-        start: "lass uns starten, click Next um zu starten",
+        marhaba: "مرحبا",
         id: 1,
     },
- 
     {
-        givingWord: "Kennenlernen",
-        wordExplanation: "التعارف",
+        gutenTag: "Guten Tag",
+        naharukSaid: "نهارك سعيد",
         id: 2,
     },
     {
-        bot: "Ich bin ZimanBot, und du?",
-        user: "ich bin der lerner",
+        gutenAbend: "Guten Abend",
+        massAlkhir: "مساء الخير",
         id: 3,
+    },
+    {
+        AufwiederSehen: "Auf Wiedersehen",
+        ilaAlliqa: "الى اللقاء",
+        id: 4,
+    },
+    {
+        wieGehtIhnen: "Wie geht es Ihnen?",
+        kaifHalluk: "كيف حال حضرتك؟",
+        id: 5,
     },  
+    {
+        ichHeisse: "Ich heiße...",
+        anaIsmi: "انا اسمي",
+        id: 6,
+    },
+    {
+        ichHeisseAli: "Ich heiße Ali",
+        anaIsmiAli: "انا اسمي علي",
+        id: 7,
+    },
+    {
+        wieHeissenSie: "wie heißen Sie?",
+        maIsmuk: "مااسم حضرتك؟",
+        id: 8,
+    },
     
 ]
 
