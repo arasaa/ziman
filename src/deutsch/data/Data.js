@@ -1,7 +1,7 @@
-const Data = [
+  const Data = [
     {
         hallo: "hallo",
-        hallo1: "مرحبا",
+        bedeutund: "مرحبا",
         id: 4,
     },
     {
@@ -29,10 +29,13 @@ const Data = [
         bot: "Ich bin ZimanBot, und du?",
         user: "ich bin der lerner",
         id: 3,
-    }
+    },  
+    
 ]
 
 export default Data
+
+
 
 
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import Data from '../data/Data'
+import Data from '../data/Data';
+import DataE from '../data/DataE';
 
 function A1Eins() {
 
@@ -7,7 +8,7 @@ function A1Eins() {
 
   const list1 = Data.map(gree => <>
     <p key={gree.id}>{gree.hallo}</p>
-    <p>{gree.hallo1}</p>
+    <p>{gree.bedeutund}</p>
     </>
     )
     const list2 = Data.map(gree => <>
@@ -38,7 +39,32 @@ function A1Eins() {
       <p>{gree.user}</p>
       </>
       ) 
+      const listTo = DataE.map(gree => <>
+        <p key={gree.id}>{gree.halloo}</p>
+        <p>{gree.bedeutun}</p>
+        </>
+        ) 
+        const listT = DataE.map(gree => <>
+          <p key={gree.id}>{gree.danke}</p>
+          <p>{gree.bedeutungg}</p>
+          </>
+          ) 
     
+    {/**
+     const display = Object.keys(DataE).map((key) =>(
+        <>
+        <p key={key.id}>{DataE.halloo}</p>
+        <p>{DataE.bedeutun}</p>
+        </>
+      )) 
+      const displa = Object.entries(DataE).map((key) =>(
+        <>
+        <p key={key.id}>{DataE.danke}</p>
+        <p>{DataE.bedeutungg}</p>
+        </>
+      ))   */}
+
+      
   const components = [
         <div>{list1}</div>,
         <div>{list2}</div>,
@@ -46,6 +72,8 @@ function A1Eins() {
       <div>{list}</div>,
       <div>{listOne}</div>,
       <div>{listTow}</div>,
+      <div>{listTo}</div>,
+      <div>{listT}</div>,
       
   ]
 
