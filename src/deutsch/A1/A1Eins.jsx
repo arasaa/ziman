@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Data from '../data/Data';
-import DataE from '../data/DataE';
+import PartTow from '../../components/PartTow';
 
 function A1Eins() {
 
@@ -64,19 +64,28 @@ function A1Eins() {
   ]
 
 
+  const [isShown, setIsShown] = useState(false);
+  const handleClick = event => {
+    setIsShown(current => !current);
+  };
   return (
-    <div>
+    <>
     {
         // render component from our components array
         components[count]
+        
     }
-
+    {/**{count < 0 && <button onClick={() => setCount(count - 1)}>prev</button>} */}
     {/* show previous button if we are not on first element */}
-    {count > 0 && <button onClick={() => setCount(count - 1)}>prev</button>}
+    {count > components.length - 2 && <button onClick={handleClick}>prev</button>}
+    {isShown && <PartTow />}
 
     {/* hide next button if we are at the last element */}
-    {count < components.length - 1 && <button onClick={() => setCount(count + 1)}>next</button>}
-</div>
+    {count < components.length - 1 && <button onClick={() => setCount(count + 1 )}>next</button>}
+
+    
+
+</>
   )
 }
 
