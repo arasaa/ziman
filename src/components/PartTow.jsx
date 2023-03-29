@@ -2,7 +2,7 @@ import React from 'react'
 
 const PartTow = () => {
   return (
-    <div>PartTow</div>
+    <div>i am part tow</div>
   )
 }
 

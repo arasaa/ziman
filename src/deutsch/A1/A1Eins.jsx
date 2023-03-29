@@ -68,8 +68,22 @@ function A1Eins() {
   const handleClick = event => {
     setIsShown(current => !current);
   };
+
+  //hiding the button of the part one and displaying the PartTow component
+  const btn = document.getElementById('btn');
+  function hideButton(){
+    btn.style.display = 'none';
+    const box = document.getElementById('box');
+    box.style.display = 'block';
+  }
+
+  const part =() =>{
+  
+  }
+
   return (
     <>
+     <div id='box' style={{backgroundColor:'green', width: '100px',height: '200px', display: 'none'}}><PartTow /></div>
     {
         // render component from our components array
         components[count]
@@ -77,8 +91,8 @@ function A1Eins() {
     }
     {/**{count < 0 && <button onClick={() => setCount(count - 1)}>prev</button>} */}
     {/* show previous button if we are not on first element */}
-    {count > components.length - 2 && <button onClick={handleClick}>prev</button>}
-    {isShown && <PartTow />}
+    {count > components.length - 2 && <button id='btn'  onClick={() => {handleClick(); hideButton()}}>next</button>}
+    {/**{isShown && <PartTow />}*/}
 
     {/* hide next button if we are at the last element */}
     {count < components.length - 1 && <button onClick={() => setCount(count + 1 )}>next</button>}
