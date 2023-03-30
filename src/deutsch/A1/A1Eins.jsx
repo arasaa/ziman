@@ -83,7 +83,7 @@ function A1Eins() {
 
   return (
     <>
-     <div id='box' style={{backgroundColor:'green', width: '100px',height: '200px', display: 'none'}}><PartTow /></div>
+     <div className='A1' id='box' style={{backgroundColor:'green', width: '100px',height: '200px', display: 'none', position:'sticky'}}><PartTow /></div>
     {
         // render component from our components array
         components[count]
