@@ -1,19 +1,24 @@
 import React from 'react'
-import './partTow.css'
+import './partTow.css';
 import DataE from '../data/DataE'
 
 
 
 const PartTow = () => {
 
-  const hallo = DataE.map(gree => <>
-    <p key={gree.id}>{gree.halloo}</p>
-    <p>{gree.bedeutun}</p>
-    </>
-    )
+
+    const habo = DataE.map(gree => <div className='pic'>
+      <img className='pic' src={gree.img} alt='pico'/>
+      <p></p>
+    
+      </div>
+      )
   
   return (
-    <div className='list'>{hallo} iiiiiiii</div>
+    <div className='list'>
+    <p>{habo}</p>
+      </div>
+    
   )
 }
 
