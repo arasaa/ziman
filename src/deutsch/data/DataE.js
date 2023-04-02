@@ -1,7 +1,9 @@
+import hallo from '../../components/images/hallo.jpej'
 const DataE = [
     {
         halloo: 'hallo',
         bedeutun: 'مرحبا',
+        image: 'hallo.jpej',
         id: 1,
     },
     

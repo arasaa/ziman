@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Data from '../data/Data';
-import PartTow from '../../components/PartTow';
+import PartTow from '../parts/PartTow';
 import './a1.css'
 
 function A1Eins() {
@@ -97,7 +97,7 @@ function A1Eins() {
 
     {/* hide next button if we are at the last element */}
     {count < components.length - 1 && <button onClick={() => setCount(count + 1 )}>next</button>}
-    <div className='partTowa1' id='box' style={{backgroundColor:'green', display: 'none', position:'sticky'}}><PartTow /></div>
+    <div className='partTowa1' id='box' style={{ display: 'none'}}><PartTow /></div>
 
     
 

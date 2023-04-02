@@ -1,6 +1,9 @@
 .partTowa1{
-    position: absolute;
+    position: relative;
     height: 20rem;
     width: 20rem;
     margin-top: -10rem;
+    border-radius: 4PX;
+    box-shadow: 1px 1px 4px 4px rgb(219, 214, 214);
+    background-color:#16264c;
 }
