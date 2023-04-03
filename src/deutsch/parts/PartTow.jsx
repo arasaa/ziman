@@ -11,8 +11,14 @@ const PartTow = () => {
     setCurrentIndex(currentIndex + 1);
   }
   const currentImage = imagesData[currentIndex];
-  const currentWord = imagesData[currentIndex];
-  const currentBedeutung = imagesData[currentIndex];
+
+{/**   const imageElements = imagesData.map((imageData) =>(
+  <div key={imageData.id} className={currentIndex === imageData.id - 1 ? 'active' : ''}>
+    <img src={imageData.src} alt={`image ${imageData.id}`} />
+    <p>{imageData.word}</p>
+    <p>{imageData.bedeutung}</p>
+  </div>
+  ));*/}
  
 {/**
     const picList = DataE.map(item =>
@@ -23,15 +29,22 @@ const PartTow = () => {
      ) : null
     );
  */}
+ 
   return (
     <div className='part-tow-container'>
-      <img 
-      className='part-tow-image'
-      src={currentImage.src}
-     
-      alt={`image ${currentImage.id}`}
-      />
-      <button onClick={handelNextClick}>next</button>
+     <div className='elements-container' >
+      <img className='image-container' src={currentImage.src} alt={`image ${currentImage.id}`} />
+      <p className='word-container'>{currentImage.word}</p>
+    <p>{currentImage.bedeutung}</p>
+     </div>
+     <div className='partTow-button-container'>
+      {currentIndex < imagesData.length - 1 && (
+        <button onClick={handelNextClick}>next</button>
+      )}
+     {currentIndex === imagesData.length -1 && (
+      <p>could add button here</p>
+     )}
+      </div>
     
       </div>
     
