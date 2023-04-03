@@ -5,39 +5,44 @@
         id: 1,
     },
     {
+        gutenMorgen: "Guten Morgen",
+        sabahAlkhir: "صباح الخير",
+        id: 2,
+    },
+    {
         gutenTag: "Guten Tag",
         naharukSaid: "نهارك سعيد",
-        id: 2,
+        id: 3,
     },
     {
         gutenAbend: "Guten Abend",
         massAlkhir: "مساء الخير",
-        id: 3,
+        id: 4,
     },
     {
         AufwiederSehen: "Auf Wiedersehen",
         ilaAlliqa: "الى اللقاء",
-        id: 4,
+        id: 5,
     },
     {
         wieGehtIhnen: "Wie geht es Ihnen?",
         kaifHalluk: "كيف حال حضرتك؟",
-        id: 5,
+        id: 6,
     },  
     {
         ichHeisse: "Ich heiße...",
         anaIsmi: "انا اسمي",
-        id: 6,
+        id: 7,
     },
     {
         ichHeisseAli: "Ich heiße Ali",
         anaIsmiAli: "انا اسمي علي",
-        id: 7,
+        id: 8,
     },
     {
         wieHeissenSie: "wie heißen Sie?",
         maIsmuk: "مااسم حضرتك؟",
-        id: 8,
+        id: 9,
     },
     
 ]

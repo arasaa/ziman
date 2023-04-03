@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './partTow.css';
-import DataE from '../data/DataE'
+import imagesData from '../data/imagesData'
 
 
 
 const PartTow = () => {
 
-  
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const handelNextClick = () => {
+    setCurrentIndex(currentIndex + 1);
+  }
+  const currentImage = imagesData[currentIndex];
+  const currentWord = imagesData[currentIndex];
+  const currentBedeutung = imagesData[currentIndex];
  
-
+{/**
     const picList = DataE.map(item =>
       item.img ? (
       <div className={`picsc-${item.id}`}>
@@ -16,10 +22,16 @@ const PartTow = () => {
      </div>
      ) : null
     );
-
+ */}
   return (
-    <div className='list'>
-    {picList}
+    <div className='part-tow-container'>
+      <img 
+      className='part-tow-image'
+      src={currentImage.src}
+     
+      alt={`image ${currentImage.id}`}
+      />
+      <button onClick={handelNextClick}>next</button>
     
       </div>
     

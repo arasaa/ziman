@@ -7,6 +7,11 @@ function A1Eins() {
 
   const [count, setCount] = useState(0);
 
+  const gutenMorgen = Data.map(gree => <>
+    <p key={gree.id}>{gree.gutenMorgen}</p>
+    <p>{gree.sabahAlkhir}</p>
+    </>
+    )
   const hallo = Data.map(gree => <>
     <p key={gree.id}>{gree.hallo}</p>
     <p>{gree.marhaba}</p>
@@ -55,6 +60,7 @@ function A1Eins() {
   const components = [
         <div>{hallo}</div>,
         <div>{gutenTag}</div>,
+        <div>{gutenMorgen}</div>,
         <div>{gutenAbend}</div>,
       <div>{AufwiederSehen}</div>,
       <div>{wieGehtIhnen}</div>,
@@ -69,11 +75,13 @@ function A1Eins() {
   const handleClick = event => {
     setIsShown(current => !current);
   };
+  const hadleButtonClick = () => {
+    setIsShown(true)
+  }
 
   //hiding the button of the part one and displaying the PartTow component
   const btn = document.getElementById('btn');
   function hideButton(){
-    btn.style.display = 'none';
     const box = document.getElementById('box');
     box.style.display = 'block';
   }
@@ -94,9 +102,11 @@ function A1Eins() {
     {/* hide next button if we are at the last element */}
     {count < components.length - 1 && <button onClick={() => setCount(count + 1 )}>next</button>}
    
-
-    <div className='partTowa1' id='box' style={{ display: 'none'}}><PartTow /></div>
-
+      {/** <div className='partTowa1' id='box' style={{ display: 'none'}}><PartTow /></div> */}
+   
+      <div className='partTowa1' id='box' onClick={hadleButtonClick}>
+      {isShown && <PartTow />}
+      </div>
 </>
   )
 }
