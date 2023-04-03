@@ -78,13 +78,9 @@ function A1Eins() {
     box.style.display = 'block';
   }
 
-  const part =() =>{
-  
-  }
-
   return (
     <>
-   
+  
     {
         // render component from our components array
         components[count]
@@ -97,9 +93,9 @@ function A1Eins() {
 
     {/* hide next button if we are at the last element */}
     {count < components.length - 1 && <button onClick={() => setCount(count + 1 )}>next</button>}
-    <div className='partTowa1' id='box' style={{ display: 'none'}}><PartTow /></div>
+   
 
-    
+    <div className='partTowa1' id='box' style={{ display: 'none'}}><PartTow /></div>
 
 </>
   )

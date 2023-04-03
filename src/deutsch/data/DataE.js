@@ -1,8 +1,8 @@
 const DataE = [
     {
-        halloo: 'hallo',
-        bedeutun: 'مرحبا',
-        img: 'images/cat.jpg',
+        halloo: 'sjsjsj',
+        bedeutun: 'مرح',
+        img: './images/cat.jpg',
         id: 1,
     },
     

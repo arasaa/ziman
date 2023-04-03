@@ -6,17 +6,21 @@ import DataE from '../data/DataE'
 
 const PartTow = () => {
 
-
-    const habo = DataE.map(gree => <div className='pic'>
-      <img className='pic' src={gree.img} alt='pico'/>
-      <p></p>
-    
-      </div>
-      )
   
+ 
+
+    const picList = DataE.map(item =>
+      item.img ? (
+      <div className={`picsc-${item.id}`}>
+      <img className='pic' key={item.id} src={item.img} alt='pico'/>
+     </div>
+     ) : null
+    );
+
   return (
     <div className='list'>
-    <p>{habo}</p>
+    {picList}
+    
       </div>
     
   )
