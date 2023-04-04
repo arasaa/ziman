@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './partTow.css';
 import imagesData from '../data/imagesData'
 import PartThree from './PartThree';
+import words from '../data/words';
 
 
 
@@ -42,10 +43,10 @@ const PartTow = () => {
     <p>{currentImage.bedeutung}</p>
      </div>
      <div className='partTow-button-container'>
-      {currentIndex < imagesData.length - 1 && <button onClick={handelNextClick}>next</button>}
-     {currentIndex === imagesData.length -1 && <button onClick={() => setCurrentIndex(0)}>play again</button>}    
+      {currentIndex < imagesData.length - 1 && ( <button onClick={handelNextClick}>next</button>)}
+     {currentIndex === imagesData.length -1 && ( <button onClick={() => setCurrentIndex(0)}>Wiederholen</button>)}    
       </div>
-      <div className='partThree-container'><PartThree /></div>
+      <div className='partThree-container'></div>
     
       </div>
 

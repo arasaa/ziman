@@ -1,11 +1,16 @@
 import React from 'react'
 import { useState } from 'react'
+import words from '../data/words';
 
 const PartThree = ({words}) => {
 
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [selectBedeutungIndex, setSelectBedeutungIndex] = useState(null);
+
+    const handleBeudeutngOptionClick = (index) => {
+        setSelectBedeutungIndex(index);
+    };
 
     const handleNextWordClick = () => {
         if(selectBedeutungIndex === null){
@@ -22,11 +27,6 @@ const PartThree = ({words}) => {
             setCurrentWordIndex(currentWordIndex + 1);
             setScore(newScore);
         };
-
-        const handleBeudeutngOptionClick = (index) => {
-            setSelectBedeutungIndex(index);
-        };
-
     
   return (
     <div>

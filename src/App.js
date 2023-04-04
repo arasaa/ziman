@@ -5,17 +5,20 @@ import './App.css';
 import config from './chatBot/config';
 import ActionProvider from './chatBot/ActionProvider';
 import MessageParser from './chatBot/MessageParser';
+import PartThree from './deutsch/parts/PartThree';
+import words from './deutsch/data/words';
 
 function App() {
   return (
     <div className="App">
+     
       <div style={{maxWidth: "300px"}}>
         <Chatbot config={config} 
         messageParser={MessageParser}
         actionProvider={ActionProvider}
         />
       </div>
-     
+      <PartThree words={words} />
     </div>
   );
 }
