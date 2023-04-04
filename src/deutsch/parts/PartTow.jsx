@@ -9,6 +9,10 @@ import words from '../data/words';
 const PartTow = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showPartThree, setShowPartThree] = useState(false);
+  const hadleFinishImages = () =>{
+    setShowPartThree(true);
+  }
   const handelNextClick = () => {
     setCurrentIndex(currentIndex + 1);
   }
@@ -45,8 +49,12 @@ const PartTow = () => {
      <div className='partTow-button-container'>
       {currentIndex < imagesData.length - 1 && ( <button onClick={handelNextClick}>next</button>)}
      {currentIndex === imagesData.length -1 && ( <button onClick={() => setCurrentIndex(0)}>Wiederholen</button>)}    
+    
       </div>
-      <div className='partThree-container'></div>
+      
+      <div className='partThree-container'>
+      {showPartThree && <PartThree words={words} />}
+      </div>
     
       </div>
 

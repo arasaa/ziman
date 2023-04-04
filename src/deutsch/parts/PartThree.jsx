@@ -13,12 +13,9 @@ const PartThree = ({words}) => {
     };
 
     const handleNextWordClick = () => {
-        if(selectBedeutungIndex === null){
-            return; //don't alloq user to move on without selecting an option
-        }
-    }
-        const isCorrect = selectBedeutungIndex === words[currentWordIndex].currectBedeutungIndex;
-        const newScore = isCorrect ? score + 1 : score;
+        if(selectBedeutungIndex !== null){
+            const isCorrect = selectBedeutungIndex === words[currentWordIndex].currectBedeutungIndex;
+        const newScore = isCorrect ? score + 1 : score;        
 
         if(currentWordIndex === words.length - 1){
             alert(`Quiz beendet! Sie haben ${newScore} von ${words.length} Punkten erzielt.`);
@@ -26,7 +23,7 @@ const PartThree = ({words}) => {
             setSelectBedeutungIndex(null);
             setCurrentWordIndex(currentWordIndex + 1);
             setScore(newScore);
-        };
+        }}};
     
   return (
     <div>

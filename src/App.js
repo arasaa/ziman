@@ -18,7 +18,8 @@ function App() {
         actionProvider={ActionProvider}
         />
       </div>
-      <PartThree words={words} />
+      <div  className="parthree"><PartThree words={words} /></div>
+      
     </div>
   );
 }
