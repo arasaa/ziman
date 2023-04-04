@@ -20,7 +20,7 @@
         id: 4,
     },
     {
-        AufwiederSehen: "Auf Wiedersehen",
+        AufwiederSehen: "Auf Wiedersehen!",
         ilaAlliqa: "الى اللقاء",
         id: 5,
     },
@@ -31,12 +31,12 @@
     },  
     {
         ichHeisse: "Ich heiße...",
-        anaIsmi: "انا اسمي",
+        anaIsmi: "...انا اسمي",
         id: 7,
     },
     {
-        ichHeisseAli: "Ich heiße Ali",
-        anaIsmiAli: "انا اسمي علي",
+        ichHeisseAli: "Ich heiße Ali!",
+        anaIsmiAli: "!انا اسمي علي",
         id: 8,
     },
     {
