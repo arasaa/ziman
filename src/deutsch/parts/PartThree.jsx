@@ -1,32 +1,106 @@
 import React from 'react'
 import { useState } from 'react'
-import words from '../data/words';
+import './partThree.css'
+import { useEffect } from 'react';
 
-const PartThree = ({words}) => {
+const PartThree = ({words, onFinish }) => {
 
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [selectBedeutungIndex, setSelectBedeutungIndex] = useState(null);
+    const [countdown, setCountdown] = useState(5);
+
+  
+    const handleFinish = () => {
+        alert('Quiz finished!');
+      }
+    useEffect(() => {
+        const timer = setInterval(() => {
+          setCountdown(countdown => countdown - 1);
+        }, 1000);
+    
+        return () => {
+          clearInterval(timer);
+        };
+      }, []);
+    
+      useEffect(() => {
+        if (countdown === 0) {
+          handleNextWordClick();
+        }
+      }, [countdown]);
+
 
     const handleBeudeutngOptionClick = (index) => {
         setSelectBedeutungIndex(index);
     };
 
-    const handleNextWordClick = () => {
-        if(selectBedeutungIndex !== null){
-            const isCorrect = selectBedeutungIndex === words[currentWordIndex].currectBedeutungIndex;
-        const newScore = isCorrect ? score + 1 : score;        
+
+
+
+   {/** const handleNextWordClick = () => {
+     if(selectBedeutungIndex !== null){
+      const isCorrect =
+      selectBedeutungIndex === words[currentWordIndex].currectBedeutungIndex;
+      const newScore = isCorrect ? score + 1 : score;        
 
         if(currentWordIndex === words.length - 1){
             alert(`Quiz beendet! Sie haben ${newScore} von ${words.length} Punkten erzielt.`);
+            onFinish();
         }else {
             setSelectBedeutungIndex(null);
             setCurrentWordIndex(currentWordIndex + 1);
             setScore(newScore);
-        }}};
+            setCountdown(10)
+        }}}; */}
+
+
+      {/**  const handleNextWordClick = () => {
+            const isAnswered = selectBedeutungIndex !== null;
+            const isLastWord = currentWordIndex === words.length - 1;
+          
+            if (isAnswered || isLastWord) {
+              const isCorrect =
+                selectBedeutungIndex === words[currentWordIndex].currectBedeutungIndex;
+              const newScore = isCorrect ? score + 1 : score;
+          
+              if (isLastWord) {
+                alert(`Quiz beendet! Sie haben ${newScore} von ${words.length} Punkten erzielt.`);
+                onFinish();
+              } else {
+                setSelectBedeutungIndex(null);
+                setCurrentWordIndex(currentWordIndex + 1);
+                setScore(newScore);
+                setCountdown(5);
+              }
+            }
+          };*/}
+ 
+          const handleNextWordClick = () => {
+            const isLastWord = currentWordIndex === words.length - 1;
+          
+            if (isLastWord) {
+              alert(`Quiz beendet! Sie haben ${score} von ${words.length} Punkten erzielt.`);
+             // onFinish();
+            } else {
+              const isAnswered = selectBedeutungIndex !== null;
+              const isTimeout = countdown === 0;
+          
+              if (isAnswered || isTimeout) {
+                const isCorrect = selectBedeutungIndex === words[currentWordIndex].currectBedeutungIndex;
+                const newScore = isCorrect ? score + 1 : score;
+            
+                setSelectBedeutungIndex(null);
+                setCurrentWordIndex(currentWordIndex + 1);
+                setScore(newScore);
+                setCountdown(5);
+              }
+            }
+          };
+       
     
   return (
-    <div>
+    <div className='part-three-container'>
         <h2>Wortschatztest</h2>
         <p>{`Punkt: ${score}/${words.length}`}</p>
         <p>{`Wort ${currentWordIndex + 1}/${words.length}: ${words[currentWordIndex].word}`}</p>
@@ -40,6 +114,7 @@ const PartThree = ({words}) => {
 
         </ul>
         <button onClick={handleNextWordClick}>Nächstes Wort</button>
+        <p>{`Verbleibende Zeit: ${countdown} Sekunden`}</p>
     </div>
   )
 }

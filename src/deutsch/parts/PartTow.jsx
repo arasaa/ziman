@@ -6,35 +6,25 @@ import words from '../data/words';
 
 
 
-const PartTow = () => {
+const PartTow = ({handleFinish}) => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showPartThree, setShowPartThree] = useState(false);
+  
   const hadleFinishImages = () => {
     setShowPartThree(true);
   }
+
   const handelNextClick = () => {
     setCurrentIndex(currentIndex + 1);
   }
   const currentImage = imagesData[currentIndex];
+  if (showPartThree) {
+    return <PartThree words={words} onFinish={handleFinish}/>;
+  }
 
-  {/**   const imageElements = imagesData.map((imageData) =>(
-  <div key={imageData.id} className={currentIndex === imageData.id - 1 ? 'active' : ''}>
-    <img src={imageData.src} alt={`image ${imageData.id}`} />
-    <p>{imageData.word}</p>
-    <p>{imageData.bedeutung}</p>
-  </div>
-  ));*/}
 
-  {/**
-    const picList = DataE.map(item =>
-      item.img ? (
-      <div className={`picsc-${item.id}`}>
-      <img className='pic' key={item.id} src={item.img} alt='pico'/>
-     </div>
-     ) : null
-    );
- */}
+
 
   return (
     <div className='part-tow-container'>
@@ -62,12 +52,9 @@ const PartTow = () => {
             <button onClick={hadleFinishImages}>quiz</button>
           )}
         
-
       </div>
-      <div className='partThree-container'>
-        {showPartThree && <PartThree words={words} />}
 
-      </div>
+      
 
 
     </div>
