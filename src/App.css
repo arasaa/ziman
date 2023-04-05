@@ -5,7 +5,9 @@
   align-items: center;
 }
 .parthree{
-  margin-left: 300px;
+  margin-left: 200px;
+  margin-top: 40rem;
+  position: absolute;
 }
 .App-logo {
       /* height: 40vmin;

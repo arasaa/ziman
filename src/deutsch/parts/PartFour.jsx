@@ -1,0 +1,44 @@
+import React, { useState, useEffect } from 'react';
+
+const ParFour = () => {
+  const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
+  const containerSize = { width: 400, height: 400 };
+  const boxSize = { width: 50, height: 50 };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const maxX = containerSize.width - boxSize.width;
+      const maxY = containerSize.height - boxSize.height;
+      const nextX = Math.floor(Math.random() * maxX);
+      const nextY = Math.floor(Math.random() * maxY);
+      setBoxPosition({ x: nextX, y: nextY });
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  return (
+    <div
+      style={{
+        position: 'relative',
+        width: `${containerSize.width}px`,
+        height: `${containerSize.height}px`,
+        border: '1px solid black',
+      }}
+    >
+      <div
+        style={{
+          position: 'absolute',
+          top: `${boxPosition.y}px`,
+          left: `${boxPosition.x}px`,
+          width: `${boxSize.width}px`,
+          height: `${boxSize.height}px`,
+          backgroundColor: 'blue',
+          transition: 'all 0.5s ease-out',
+        }}
+      ></div>
+    </div>
+  );
+};
+
+export default ParFour;

@@ -6,7 +6,7 @@ import config from './chatBot/config';
 import ActionProvider from './chatBot/ActionProvider';
 import MessageParser from './chatBot/MessageParser';
 import PartThree from './deutsch/parts/PartThree';
-import words from './deutsch/data/words';
+import ParFour from './deutsch/parts/PartFour';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         actionProvider={ActionProvider}
         />
       </div>
-      {/**<div  className="parthree"><PartThree words={words} /></div>*/}
+      <div  className="parthree"><ParFour /></div>
       
     </div>
   );
