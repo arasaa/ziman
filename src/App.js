@@ -18,7 +18,7 @@ function App() {
         actionProvider={ActionProvider}
         />
       </div>
-      <div  className="parthree"><PartThree words={words} /></div>
+      {/**<div  className="parthree"><PartThree words={words} /></div>*/}
       
     </div>
   );
