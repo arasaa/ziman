@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './partFour.css';
+import words from '../data/words';
 
-const ParFour = () => {
+const ParFour = ({words}) => {
   const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
   const containerSize = { width: 400, height: 400 };
   const boxSize = { width: 50, height: 50 };
   const [gameOver, setGameOver] = useState(false);
+  const [currentWordIndex, setCurrentWordIndex] =useState(0);
   //the total numbers of boxes/ to help gameover button apearing when
   // all boxes are clicked
   const [boxesClicked, setBoxesClicked] = useState(0);
@@ -47,8 +49,15 @@ const ParFour = () => {
     setBoxesClicked(0);
   }
 
+  const mapWords = words.map((gf , index)=> {
+    <li id={index}>
+      <p>{gf.word}</p>
+    </li>
+  })
+
   return (
     <div className='part-four-container'>
+      
 {!gameOver && (
       <div>
       
@@ -86,7 +95,7 @@ const ParFour = () => {
 
         {gameOver && (
       <div >
-        <p className=''>Spiel ist aus</p>
+        <p className='game-over'>Spiel ist aus</p>
       <button className='gam-over-button' onClick={handleRefreshClick}>nochmal abspielen</button>
        
       </div>

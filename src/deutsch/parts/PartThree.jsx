@@ -34,47 +34,6 @@ const PartThree = ({words, onFinish }) => {
     const handleBeudeutngOptionClick = (index) => {
         setSelectBedeutungIndex(index);
     };
-
-
-
-
-   {/** const handleNextWordClick = () => {
-     if(selectBedeutungIndex !== null){
-      const isCorrect =
-      selectBedeutungIndex === words[currentWordIndex].currectBedeutungIndex;
-      const newScore = isCorrect ? score + 1 : score;        
-
-        if(currentWordIndex === words.length - 1){
-            alert(`Quiz beendet! Sie haben ${newScore} von ${words.length} Punkten erzielt.`);
-            onFinish();
-        }else {
-            setSelectBedeutungIndex(null);
-            setCurrentWordIndex(currentWordIndex + 1);
-            setScore(newScore);
-            setCountdown(10)
-        }}}; */}
-
-
-      {/**  const handleNextWordClick = () => {
-            const isAnswered = selectBedeutungIndex !== null;
-            const isLastWord = currentWordIndex === words.length - 1;
-          
-            if (isAnswered || isLastWord) {
-              const isCorrect =
-                selectBedeutungIndex === words[currentWordIndex].currectBedeutungIndex;
-              const newScore = isCorrect ? score + 1 : score;
-          
-              if (isLastWord) {
-                alert(`Quiz beendet! Sie haben ${newScore} von ${words.length} Punkten erzielt.`);
-                onFinish();
-              } else {
-                setSelectBedeutungIndex(null);
-                setCurrentWordIndex(currentWordIndex + 1);
-                setScore(newScore);
-                setCountdown(5);
-              }
-            }
-          };*/}
  
           const handleNextWordClick = () => {
             const isLastWord = currentWordIndex === words.length - 1;

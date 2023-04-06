@@ -4,6 +4,13 @@
     height: 400px;
     border: 1px solid black;
   }
+  .game-over{
+    font-size: 2rem;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    margin-left: -12px;
+  }
   .gam-over-button{
     padding: 25px 30px;
     background-color: #050801;
@@ -39,6 +46,7 @@
     color: blanchedalmond;
     transition: all 0.5s ease-out;
     border-radius: 45%;
+    cursor: pointer;
   }
   .danke {
     display: flex;
