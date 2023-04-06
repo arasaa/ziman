@@ -20,26 +20,16 @@ const ParFour = () => {
       const nextY = Math.floor(Math.random() * maxY);
       setBoxPosition({ x: nextX, y: nextY });
     }, 1000);
-
     return () => clearInterval(intervalId);
   }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameOver]);
 
-{/**  const handleBoxClick = () => {
-    if (!gameOver) {
-      const box = document.getElementById('box');
-      if (box.style.display !== 'none') {
-        box.style.display = 'none';
-        setBoxesClicked(boxesClicked + 1);
-      }
-      if (boxesClicked + 1 === totalBoxes) {
-        setGameOver(true);
-      }
-    }
-  }; */}
 
   const handleBoxClick = (event) => {
     if (!gameOver) {
+      //the Target here is to calculate the nuber of the boxes to help
+      //excuting gameOver button
       const box = event.target;
       if (box.style.display !== 'none') {
         box.style.display = 'none';
@@ -50,20 +40,6 @@ const ParFour = () => {
       }
     }
   };
-{/**
-  const handleBoxClick1 = () => {
-    document.getElementById('gutenMorgen').style.display = 'none';
-    if(boxesClicked + 1 === totalBoxes){
-      setGameOver(true);
-    }
-  }
-  const handleBoxClick2 = () => {
-    document.getElementById('danke').style.display = 'none';
-    if(boxesClicked + 1 === totalBoxes){
-      setGameOver(true);
-    }
-  }
-   */}
 
   const handleRefreshClick = () => {
     setBoxPosition({ x: 0, y: 0 });
@@ -110,8 +86,9 @@ const ParFour = () => {
 
         {gameOver && (
       <div >
-        <p>gameOver</p>
-      <button style={{ display: 'block' }} className='gam-over-button' onClick={handleRefreshClick}>Play again</button>
+        <p className=''>Spiel ist aus</p>
+      <button className='gam-over-button' onClick={handleRefreshClick}>nochmal abspielen</button>
+       
       </div>
       )}
 
