@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+{/**import React, { useState, useEffect } from 'react';
 import './partFour.css';
 import words from '../data/words';
 
-const ParFour = ({words}) => {
+const ParFour = () => {
   const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
   const containerSize = { width: 400, height: 400 };
   const boxSize = { width: 50, height: 50 };
@@ -47,16 +47,37 @@ const ParFour = ({words}) => {
     setBoxPosition({ x: 0, y: 0 });
     setGameOver(false);
     setBoxesClicked(0);
+    setCurrentWordIndex(0); // reset current word index
   }
-
-  const mapWords = words.map((gf , index)=> {
-    <li id={index}>
-      <p>{gf.word}</p>
-    </li>
-  })
+  const currentWord = words[currentWordIndex]; // get the current word object
+  {/**const mapWords = words.map((item) => (
+    <div key={item.word}>
+        <h2>{item.word}</h2>
+        <ul>
+            {item.bedeutung.map((meaning, index) => (
+                <li key={index}>{meaning}</li>
+            ))}
+        </ul>
+    </div>
+            ));*/}
+          {/*  const mapWords = words.map((item, index) => {
+              if (index === currentWordIndex) {
+                return (
+                  <div key={item.word}>
+                    <h2>{item.word}</h2>
+                    <ul>
+                      <li key={currentBedeutungIndex}>{item.bedeutung[currectBedeutungIndex]}</li>
+                    </ul>
+                  </div>
+                );
+              }
+            });
 
   return (
     <div className='part-four-container'>
+       <div className='bedeutung-container'>
+       {mapWords}
+      </div>
       
 {!gameOver && (
       <div>
@@ -105,4 +126,4 @@ const ParFour = ({words}) => {
   );
 };
 
-export default ParFour;
+export default ParFour;*/}

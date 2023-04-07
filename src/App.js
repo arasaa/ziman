@@ -5,8 +5,9 @@ import './App.css';
 import config from './chatBot/config';
 import ActionProvider from './chatBot/ActionProvider';
 import MessageParser from './chatBot/MessageParser';
-import PartThree from './deutsch/parts/PartThree';
-import ParFour from './deutsch/parts/PartFour';
+//import ParFour from './deutsch/parts/PartFour';
+import Testp from './deutsch/parts/Testp'
+
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         actionProvider={ActionProvider}
         />
       </div>
-      <div  className="parthree"><ParFour /></div>
+      <div  className="parthree"><Testp /></div>
       
     </div>
   );
