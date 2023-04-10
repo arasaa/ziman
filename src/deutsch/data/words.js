@@ -21,7 +21,7 @@ const words = [
     },
     {
         word: 'Auf wiedersehen!',
-        bedeutung: ['اللا اللقاء','مرحبا'],
+        bedeutung: ['الى اللقاء','مرحبا'],
         currectBedeutungIndex: 0,
     },
     {

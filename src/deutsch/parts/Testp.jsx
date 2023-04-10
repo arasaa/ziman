@@ -25,26 +25,25 @@ const ParFour = () => {
   }, [gameOver]);
 
 
-  const handleBoxClick = (event) => {
-    if (!gameOver) {
-      const box = event.target;
-      const word = box.getAttribute('data-word');
-      const currentWord = words[currentWordIndex];
-      const bedeutungIndex = currentWord.bedeutung.indexOf(word);
-      if (bedeutungIndex) {
-        currentWord.currectBedeutungIndex = bedeutungIndex;
+ const handleBoxClick = (event) => {
+  if (!gameOver) {
+    const box = event.target;
+    const currentMeaning = words[currentWordIndex].bedeutung[0];
+    const clickedWord = box.getAttribute('data-word');
+    if (box.style.display !== 'none') {
+      if (clickedWord === currentMeaning) {
         box.style.display = 'none';
         setBoxesClicked((prevBoxesClicked) => prevBoxesClicked + 1);
-        console.log(`Boxes clicked: ${boxesClicked}`);
         setCurrentWordIndex((prevIndex) => prevIndex + 1);
       } else {
-        box.classList.add('wrong-answer');
-      }
-      if (boxesClicked + 1 === totalBoxes || currentWordIndex === words.length - 1 || bedeutungIndex === +1) {
-        setGameOver(true);
+        alert('Wrong word!');
       }
     }
-  };
+    if (boxesClicked + 1 === totalBoxes) {
+      setGameOver(true);
+    }
+  }
+};
 
 
   //const currectWord = box.getAttribute('data-word');
@@ -68,72 +67,6 @@ const ParFour = () => {
 
 */}
 
-{/**
-  const handleBoxClick = (event) => {
-    if (!gameOver) {
-      const box = event.target;
-      if (box.style.display !== 'none') {
-        box.style.display = 'none';
-        setBoxesClicked((prevBoxesClicked) => prevBoxesClicked + 1);
-        setCurrentWordIndex((prevIndex) => prevIndex + 1);
-      }
-      if (boxesClicked + 1 === totalBoxes) {
-        setGameOver(true);
-      }
-    }
-  }; 
-   */}
-
-{/**
-   const handleBoxClick = (event) => {
-    if (!gameOver) {
-      const box = event.target;
-      const word = box.getAttribute('data-word');
-      if (word === words[currentWordIndex].word) {
-        box.style.display = 'none';
-        setBoxesClicked((prevBoxesClicked) => prevBoxesClicked + 1);
-        setCurrentWordIndex((prevIndex) => prevIndex + 1);
-      } else {
-        box.classList.add('wrong-answer');
-      }
-      if (boxesClicked + 1 === totalBoxes || currentWordIndex === words.length - 1) {
-        setGameOver(true);
-      }
-    }
-  };
- */}
-
-{/**
-  const hadleRightClick=(event)=>{
-    const box = event.target;
-    const word = box.getAttribute('data-word');
-    if (word === words[currentWordIndex].word) {
-      box.classList.add('wrong-answer');
-    }
-  }
-
-  const handleBoxClickAndRightClick = (event) => {
-    handleBoxClick(event);
-    hadleRightClick(event);
-  };
- */}
-{/**  const handleBoxClick = (event) => {
-    if (!gameOver) {
-      const box = event.target;
-      const word = box.getAttribute('data-word');
-      if (word === words[currentWordIndex].word) {
-        box.style.display = 'none';
-        setBoxesClicked((prevBoxesClicked) => prevBoxesClicked + 1);
-        setCurrentWordIndex((prevIndex) => prevIndex + 1);
-      } else {
-        box.classList.add('wrong-answer');
-      }
-      if (boxesClicked + 1 === totalBoxes) {
-        setGameOver(true);
-      }
-    }
-  };
-   */}
   const currentWord = words[currentWordIndex];
 
   
@@ -157,7 +90,7 @@ const ParFour = () => {
         <div>
           <div
             className='hallo'
-            data-word="hallo"
+            data-word="مرحبا"
             style={{
               top: `${boxPosition.y}px`,
               left: `${boxPosition.x}px`,
@@ -172,35 +105,84 @@ const ParFour = () => {
           </div>
 
           <div
-            className='danke'
-            data-word="danke"
+            className='gutenMorgen'
+            data-word="صباح الخير"
             style={{
               top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
               left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
             }}
             onClick={handleBoxClick}
-           // onClick={(event) => handleBoxClick(event, 'danke')}
-          // onClick={(event) => handleBoxClick(event)}
-           //onClick={hadleRightClick}
-          // onClick={handleBoxClickAndRightClick}
-          >
-            danke
-          </div>
+          > Guten Morgen</div>
 
           <div
-            className='gutenMorgen'
-            data-word="gutenMorgen"
+            className='gutenTag'
+            data-word="انهارك سعيد"
             style={{
               top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
               left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
             }}
             onClick={handleBoxClick}
-          // onClick={(event) => handleBoxClick(event, 'gutenMorgen')}
-       //   onClick={(event) => handleBoxClick(event)}
-          //onClick={hadleRightClick}
-         // onClick={handleBoxClickAndRightClick}
-      > Guten Morgen</div>
+          > Guten Morgen</div>
+
+<div
+            className='gutenAbend'
+            data-word="مساء الخير"
+            style={{
+              top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
+              left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
+            }}
+            onClick={handleBoxClick}
+          > Guten Morgen</div>
       
+      <div
+            className='aufWiedersehen'
+            data-word="الى اللقاء"
+            style={{
+              top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
+              left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
+            }}
+            onClick={handleBoxClick}
+          > Guten Morgen</div>
+
+<div
+            className='WieGehtsIhnen'
+            data-word="كيف حال حضرتك؟"
+            style={{
+              top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
+              left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
+            }}
+            onClick={handleBoxClick}
+          > Guten Morgen</div>
+
+<div
+            className='ichHeiß'
+            data-word="...انا اسمي"
+            style={{
+              top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
+              left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
+            }}
+            onClick={handleBoxClick}
+          > Guten Morgen</div>
+
+<div
+            className='ichHeißAli'
+            data-word="انا اسمي علي"
+            style={{
+              top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
+              left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
+            }}
+            onClick={handleBoxClick}
+          > Guten Morgen</div>
+
+<div
+            className='wieHeißenSie'
+            data-word="ما اسم حضرتك؟"
+            style={{
+              top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
+              left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
+            }}
+            onClick={handleBoxClick}
+          > Guten Morgen</div>
 
 </div>)}
 
