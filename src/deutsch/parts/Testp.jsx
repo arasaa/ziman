@@ -24,7 +24,35 @@ const ParFour = () => {
     }
   }, [gameOver]);
 
+
   const handleBoxClick = (event) => {
+    if (!gameOver) {
+      const box = event.target;
+      const word = box.getAttribute('data-word');
+      const currentWord = words[currentWordIndex];
+      const bedeutungIndex = currentWord.bedeutung.indexOf(word);
+      if (bedeutungIndex) {
+        currentWord.currectBedeutungIndex = bedeutungIndex;
+        box.style.display = 'none';
+        setBoxesClicked((prevBoxesClicked) => prevBoxesClicked + 1);
+        console.log(`Boxes clicked: ${boxesClicked}`);
+        setCurrentWordIndex((prevIndex) => prevIndex + 1);
+      } else {
+        box.classList.add('wrong-answer');
+      }
+      if (boxesClicked + 1 === totalBoxes || currentWordIndex === words.length - 1 || bedeutungIndex === +1) {
+        setGameOver(true);
+      }
+    }
+  };
+
+
+  //const currectWord = box.getAttribute('data-word');
+
+{/**origin hadleboxclick
+
+
+ const handleBoxClick = (event) => {
     if (!gameOver) {
       const box = event.target;
       if (box.style.display !== 'none') {
@@ -38,53 +66,139 @@ const ParFour = () => {
     }
   };
 
+*/}
+
+{/**
+  const handleBoxClick = (event) => {
+    if (!gameOver) {
+      const box = event.target;
+      if (box.style.display !== 'none') {
+        box.style.display = 'none';
+        setBoxesClicked((prevBoxesClicked) => prevBoxesClicked + 1);
+        setCurrentWordIndex((prevIndex) => prevIndex + 1);
+      }
+      if (boxesClicked + 1 === totalBoxes) {
+        setGameOver(true);
+      }
+    }
+  }; 
+   */}
+
+{/**
+   const handleBoxClick = (event) => {
+    if (!gameOver) {
+      const box = event.target;
+      const word = box.getAttribute('data-word');
+      if (word === words[currentWordIndex].word) {
+        box.style.display = 'none';
+        setBoxesClicked((prevBoxesClicked) => prevBoxesClicked + 1);
+        setCurrentWordIndex((prevIndex) => prevIndex + 1);
+      } else {
+        box.classList.add('wrong-answer');
+      }
+      if (boxesClicked + 1 === totalBoxes || currentWordIndex === words.length - 1) {
+        setGameOver(true);
+      }
+    }
+  };
+ */}
+
+{/**
+  const hadleRightClick=(event)=>{
+    const box = event.target;
+    const word = box.getAttribute('data-word');
+    if (word === words[currentWordIndex].word) {
+      box.classList.add('wrong-answer');
+    }
+  }
+
+  const handleBoxClickAndRightClick = (event) => {
+    handleBoxClick(event);
+    hadleRightClick(event);
+  };
+ */}
+{/**  const handleBoxClick = (event) => {
+    if (!gameOver) {
+      const box = event.target;
+      const word = box.getAttribute('data-word');
+      if (word === words[currentWordIndex].word) {
+        box.style.display = 'none';
+        setBoxesClicked((prevBoxesClicked) => prevBoxesClicked + 1);
+        setCurrentWordIndex((prevIndex) => prevIndex + 1);
+      } else {
+        box.classList.add('wrong-answer');
+      }
+      if (boxesClicked + 1 === totalBoxes) {
+        setGameOver(true);
+      }
+    }
+  };
+   */}
+  const currentWord = words[currentWordIndex];
+
+  
   const handleRefreshClick = () => {
     setBoxPosition({ x: 0, y: 0 });
     setGameOver(false);
     setBoxesClicked(0);
     setCurrentWordIndex(0);
-  };
+  }; 
 
-  const currentWord = words[currentWordIndex];
+  
   const currentMeaning = currentWord.bedeutung[0];
 
   return (
     <div className='part-four-container'>
       <div>
-          <p key={0}>{currentMeaning}</p>
+          <p className='bedeutung-container' key={0}>{currentMeaning}</p>
       </div>
 
       {!gameOver && (
         <div>
           <div
             className='hallo'
+            data-word="hallo"
             style={{
               top: `${boxPosition.y}px`,
               left: `${boxPosition.x}px`,
             }}
             onClick={handleBoxClick}
+            //onClick={(event) => handleBoxClick(event, 'hallo')}
+           // onClick={(event) => handleBoxClick(event)}
+            //onClick={hadleRightClick}
+           //onClick={handleBoxClickAndRightClick}
           >
             hallo
           </div>
 
           <div
             className='danke'
+            data-word="danke"
             style={{
               top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
               left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
             }}
             onClick={handleBoxClick}
+           // onClick={(event) => handleBoxClick(event, 'danke')}
+          // onClick={(event) => handleBoxClick(event)}
+           //onClick={hadleRightClick}
+          // onClick={handleBoxClickAndRightClick}
           >
             danke
           </div>
 
           <div
             className='gutenMorgen'
+            data-word="gutenMorgen"
             style={{
               top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
               left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
             }}
-        onClick={handleBoxClick}
+            onClick={handleBoxClick}
+          // onClick={(event) => handleBoxClick(event, 'gutenMorgen')}
+       //   onClick={(event) => handleBoxClick(event)}
+          //onClick={hadleRightClick}
+         // onClick={handleBoxClickAndRightClick}
       > Guten Morgen</div>
       
 

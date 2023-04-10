@@ -3,10 +3,13 @@
     width: 400px;
     height: 400px;
     border: 1px solid black;
-    margin-top: 200px;
+    margin-top: 150px;
   }
   .bedeutung-container{
-    margin-top: -100px;
+    margin-top: -40px;
+  }
+  .wrong-answer {
+    background-color: red;
   }
   .game-over{
     font-size: 2rem;
