@@ -1,19 +1,12 @@
 .partTowa1{
-    position: relative;
-    height: 30rem;
-    width: 25rem;
-    margin-top: -22rem;
     border-radius: 4PX;
     box-shadow: 1px 1px 4px 4px rgb(123, 126, 151);
     background-color:#16264c;
     display: none;
 }
 .p1Container{
-    display: flex;
-    justify-content: center;
     background-color: rgb(175, 175, 171);
-    height: 25rem;
-    width: 50rem;
+   
 }
 .p1Hallo{
     display: flex;

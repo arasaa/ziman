@@ -21,6 +21,7 @@ const DA1quiz = (props) => {
     incrementIndex={incrementIndex} 
    
 
+    
     />
 
   )
