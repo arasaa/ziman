@@ -130,7 +130,37 @@
     box-shadow: rgb(85, 3, 3) 0.5px 0.5px 5px;
     cursor: pointer;
   }
-  .gutenMorgen{
+  .ichHeiß{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(12, 12, 98);
+    color: rgb(238, 207, 160);
+    transition: all 0.8s ease-out;
+    border-radius: 45%;
+    font-size: 10px;
+    box-shadow: rgb(85, 3, 3) 0.5px 0.5px 5px;
+    cursor: pointer;
+  }
+  .ichHeißAli{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(12, 12, 98);
+    color: rgb(238, 207, 160);
+    transition: all 0.8s ease-out;
+    border-radius: 45%;
+    font-size: 10px;
+    box-shadow: rgb(85, 3, 3) 0.5px 0.5px 5px;
+    cursor: pointer;
+  }
+  .wieHeißenSie{
     display: flex;
     justify-content: center;
     align-items: center;

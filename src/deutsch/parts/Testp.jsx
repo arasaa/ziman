@@ -3,8 +3,8 @@ import './partFour.css';
 import words from '../data/words';
 
 const ParFour = () => {
-  const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
-  const containerSize = { width: 400, height: 400 };
+  const [boxPosition, setBoxPosition] = useState({ x: 5, y: 3 });
+  const containerSize = { width: 350, height: 400 };
   const boxSize = { width: 50, height: 50 };
   const [gameOver, setGameOver] = useState(false);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -108,7 +108,7 @@ const ParFour = () => {
             className='gutenMorgen'
             data-word="صباح الخير"
             style={{
-              top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
+              top: `${boxPosition.y * Math.floor(Math.random() * 4.4)}px`,
               left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
             }}
             onClick={handleBoxClick}
@@ -118,71 +118,71 @@ const ParFour = () => {
             className='gutenTag'
             data-word="انهارك سعيد"
             style={{
-              top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
-              left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
+              top: `${boxPosition.y * Math.floor(Math.random() * 3.3)}px`,
+              left: `${boxPosition.x * Math.floor(Math.random() * 6)}px`,
             }}
             onClick={handleBoxClick}
-          > Guten Morgen</div>
+          >Guten Tag</div>
 
 <div
             className='gutenAbend'
             data-word="مساء الخير"
             style={{
-              top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
-              left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
+              top: `${boxPosition.y * Math.floor(Math.random() * 5.2)}px`,
+              left: `${boxPosition.x * Math.floor(Math.random() * 6.1)}px`,
             }}
             onClick={handleBoxClick}
-          > Guten Morgen</div>
+          >Guten Abend</div>
       
       <div
             className='aufWiedersehen'
             data-word="الى اللقاء"
             style={{
-              top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
-              left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
+              top: `${boxPosition.y * Math.floor(Math.random() * 5.3)}px`,
+              left: `${boxPosition.x * Math.floor(Math.random() * 6.2)}px`,
             }}
             onClick={handleBoxClick}
-          > Guten Morgen</div>
+          >Auf wiedersehen!</div>
 
 <div
             className='WieGehtsIhnen'
             data-word="كيف حال حضرتك؟"
             style={{
-              top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
-              left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
+              top: `${boxPosition.y * Math.floor(Math.random() * 5.4)}px`,
+              left: `${boxPosition.x * Math.floor(Math.random() * 6.3)}px`,
             }}
             onClick={handleBoxClick}
-          > Guten Morgen</div>
+          >Wie geht es Ihnen?</div>
 
 <div
             className='ichHeiß'
             data-word="...انا اسمي"
             style={{
-              top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
-              left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
+              top: `${boxPosition.y * Math.floor(Math.random() * 5.5)}px`,
+              left: `${boxPosition.x * Math.floor(Math.random() * 7.4)}px`,
             }}
             onClick={handleBoxClick}
-          > Guten Morgen</div>
+          >Ich heiße...</div>
 
 <div
             className='ichHeißAli'
             data-word="انا اسمي علي"
             style={{
-              top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
-              left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
+              top: `${boxPosition.y * Math.floor(Math.random() * 5.6)}px`,
+              left: `${boxPosition.x * Math.floor(Math.random() * 5.5)}px`,
             }}
             onClick={handleBoxClick}
-          > Guten Morgen</div>
+          >Ich heiße Ali!</div>
 
 <div
             className='wieHeißenSie'
             data-word="ما اسم حضرتك؟"
             style={{
-              top: `${boxPosition.y * Math.floor(Math.random() * 5)}px`,
-              left: `${boxPosition.x * Math.floor(Math.random() * 5)}px`,
+              top: `${boxPosition.y * Math.floor(Math.random() * 5.7)}px`,
+              left: `${boxPosition.x * Math.floor(Math.random() * 4.6)}px`,
             }}
             onClick={handleBoxClick}
-          > Guten Morgen</div>
+          >Wie heißen Sie?</div>
 
 </div>)}
 
