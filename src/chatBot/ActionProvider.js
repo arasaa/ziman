@@ -5,7 +5,11 @@ class ActionProvider {
   }
 
   greet = () => {
-    const message = this.createChatBotMessage("Hello friend.");
+    const message = this.createChatBotMessage("Hello friend. what do you want?");
+    this.addMessageToState(message);
+  };
+  omar = () => {
+    const message = this.createChatBotMessage("Omar is at home");
     this.addMessageToState(message);
   };
 

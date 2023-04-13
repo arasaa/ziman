@@ -13,8 +13,8 @@ function ParOne() {
   </>
   )
   const hallo = Data.map(gree => <>
-    <p key={gree.id}>{gree.hallo}</p>
-    <p>{gree.marhaba}</p>
+    <p className='partOne-hallo Deut-hallo' key={gree.id}>{gree.hallo}</p>
+    <p className='partOne-hallo Arab-hallo'>{gree.marhaba}</p>
   </>
   )
   const gutenTag = Data.map(gree => <>

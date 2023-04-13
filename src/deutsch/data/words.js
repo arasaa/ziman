@@ -3,6 +3,7 @@ const words = [
         word: 'Hallo',
         bedeutung: ['مرحبا','اهلا'],
         currectBedeutungIndex: 0,
+        color: colors[0],
     },
     {
         word: 'Guten Morgen',
@@ -45,5 +46,7 @@ const words = [
         currectBedeutungIndex: 0,
     },
 ]
+const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink'];
+
 
 export default words
