@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import words from '../data/words';
 import PartTow from './PartTow';
-//import './partOne.css';
 import './partTest.css'
+import { words, colors } from '../data/words';
 
-function ParOne() {
+
+function PartOneTest() {
   const [count, setCount] = useState(0);
   const [isShown, setIsShown] = useState(false);
-  const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink'];
 
   const handleNextClick = () => {
     setCount(count + 1);
@@ -17,18 +16,24 @@ function ParOne() {
     setIsShown(true);
   };
 
-  const renderGreeting = (word) => (
+{/**   const renderGreeting = (word) => (
     <div className='p1Container' key={word.word}>
       <p>{word.word}</p>
       <p>{word.bedeutung[word.currectBedeutungIndex]}</p>
     </div>
-  );
+);*/}
+const renderGreeting = (word) => (
+  <div className='p1Container' key={word.word} style={{ color: word.color }}>
+    <p>{word.word}</p>
+    <p>{word.bedeutung[word.currectBedeutungIndex]}</p>
+  </div>
+);
 
   return (
     <>
       {renderGreeting(words[count])}
 
-      {count > 0 && <button className='partOneButtons' onClick={() => setCount(count - 1)}>prev</button>}
+      {count > 0 && <button className='partOneButtons prev-partOneButtons' onClick={() => setCount(count - 1)}>prev</button>}
       {count < words.length - 1 && (
         <button className='partOneButtons' onClick={handleNextClick}>next</button>
       )}
@@ -40,4 +45,4 @@ function ParOne() {
   );
 }
 
-export default ParOne;
+export default PartOneTest;

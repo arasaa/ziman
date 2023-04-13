@@ -1,4 +1,5 @@
-const words = [
+export  const colors = ['rgb(187, 209, 5)', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'gold', '#BBD105'];
+export const words = [
     {
         word: 'Hallo',
         bedeutung: ['مرحبا','اهلا'],
@@ -9,44 +10,52 @@ const words = [
         word: 'Guten Morgen',
         bedeutung: ['صباح الخير','مرحبا'],
         currectBedeutungIndex: 0,
+        color: colors[1],
     },
     {
         word: 'Guten Tag',
         bedeutung: ['نهارك سعيد','مرحبا'],
         currectBedeutungIndex: 0,
+        color: colors[2],
     },
     {
         word: 'Guten Abend',
         bedeutung: ['مساء الخير','صباح الخير'],
         currectBedeutungIndex: 0,
+        color: colors[3],
     },
     {
         word: 'Auf wiedersehen!',
         bedeutung: ['الى اللقاء','مرحبا'],
         currectBedeutungIndex: 0,
+        color: colors[4],
     },
     {
         word: 'Wie geht es Ihnen?',
         bedeutung: ['كيف حال حضرتك؟','اين انت'],
         currectBedeutungIndex: 0,
+        color: colors[5],
     },
     {
         word: 'Ich heiße...',
         bedeutung: ['...انا اسمي','انا ذاهب'],
         currectBedeutungIndex: 0,
+        color: colors[6],
     },
     {
         word: 'Ich heiße Ali!',
         bedeutung: ['!انا اسمي علي','مرحبا بك'],
         currectBedeutungIndex: 0,
+        color: colors[7],
     },
     {
         word: 'Wie heißen Sie?',
         bedeutung: ['ما اسم حضرتك؟','كيف حالك؟'],
         currectBedeutungIndex: 0,
+        color: colors[8],
     },
-]
-const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink'];
+];
 
 
-export default words
+
+export default { words, colors };
