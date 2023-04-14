@@ -1,4 +1,16 @@
-export  const colors = ['rgb(187, 209, 5)', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'gold', '#BBD105'];
+
+
+export  const colors = [
+'rgb(187, 209, 5)',
+ 'rgb(0, 95, 192)',
+  'rgb(4, 88, 77)',
+   'rgb(5, 188, 162)',
+    'rgb155, 39, 11)',
+     'rgb(172, 240, 70)',
+     'rgb(63, 102, 4)',
+      'rgb(92, 102, 4)'
+    ];
+
 export const words = [
     {
         word: 'Hallo',

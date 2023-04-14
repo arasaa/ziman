@@ -1,19 +1,135 @@
 .p1Container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  gap: 80px;
+}
+
+.words-elements {
+  border-radius: 50%;
+  animation: drop 1.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes drop {
+  0% {
+    transform: translateY(-50%);
+    opacity: 5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.span-words-elements {
+  width: 50px;
+  font-size: 40px;
+}
+
+.partOneButtons {
+  display: flex;
+  justify-content: space-between;
+  right: 40rem;
+  position: fixed;
+}
+
+.prev-partOneButtons {
+  right: 50rem;
+}
+
+.rgb-4-88-77 {
+  background-color: rgb(253, 253, 253);
+}
+
+.word-0 {
+  width: 200px;
+  background-color: red;
+}
+
+.word-1 {
+  width: 250px;
+  background-color: blue;
+}
+
+.word-2 {
+  width: 200px;
+  background-color: green;
+}
+
+.word-animation {
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 5;
+  position: fixed;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.word-animation.appear {
+  animation-name: appear;
+}
+
+.word-animation.disappear {
+  animation-name: disappear;
+}
+ /** .word-animation {
+    animation-name: drop;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    opacity: 0;
   }
   
-  .partOneButtons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20rem;
-    right: 35rem;
-    position: absolute;
+  @keyframes drop {
+    from {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }*/
 
-  }
-  .prev-partOneButtons{
-    right: 20rem;
-  }
+  /***
+
+return (
+  <>
+    {renderGreeting(wordsWithClassName[count])}
+
+    {count > 0 && <button className='partOneButtons prev-partOneButtons' onClick={() =>
+       setCount(count - 1)}>prev</button>}
+    {count < words.length - 1 && (
+      <button className='partOneButtons' onClick={handleNextClick}>next</button>
+    )}
+
+    <div className='partTowa1' id='box' onClick={handleButtonClick}>
+      {isShown && <PartTow />}
+    </div>
+  </>
+);
+
+
+
+  */
