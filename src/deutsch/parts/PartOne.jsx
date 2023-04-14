@@ -66,9 +66,11 @@ function ParOne() {
 
       {count === words.length - 1 && (
         <button className="partOneButtons next-partOneButtons" onClick={handleButtonClick}>
-         &&( isShown ? <PartTow />)
+          nextt
         </button>
+        
       ) }
+      {isShown && ( <PartTow /> )}
     </div>
   );
 }

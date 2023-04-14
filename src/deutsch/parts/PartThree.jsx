@@ -2,8 +2,9 @@ import React from 'react'
 import { useState } from 'react'
 import './partThree.css'
 import { useEffect } from 'react';
+import { words } from "../data/words";
 
-const PartThree = ({words, onFinish }) => {
+const PartThree = () => {
 
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [score, setScore] = useState(0);
@@ -79,3 +80,4 @@ const PartThree = ({words, onFinish }) => {
 }
 
 export default PartThree
+export { words };
