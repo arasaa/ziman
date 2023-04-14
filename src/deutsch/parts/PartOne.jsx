@@ -3,7 +3,7 @@ import PartTow from "./PartTow";
 import { words } from "../data/words";
 import "./partTest.css";
 
-function ParOne() {
+function PartOne() {
   const [count, setCount] = useState(0);
   const [isShown, setIsShown] = useState(false);
 
@@ -75,5 +75,5 @@ function ParOne() {
   );
 }
 
-export default ParOne;
+export default PartOne;
 export { words };
