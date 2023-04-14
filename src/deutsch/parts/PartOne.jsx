@@ -1,115 +1,77 @@
-import React, { useState } from 'react'
-import Data from '../data/Data';
-import PartTow from './PartTow';
-import './partOne.css'
+import React, { useState } from "react";
+import PartTow from "./PartTow";
+import { words } from "../data/words";
+import "./partTest.css";
 
 function ParOne() {
-
   const [count, setCount] = useState(0);
-
-  const gutenMorgen = Data.map(gree => <>
-    <p key={gree.id}>{gree.gutenMorgen}</p>
-    <p>{gree.sabahAlkhir}</p>
-  </>
-  )
-  const hallo = Data.map(gree => <>
-    <p className='partOne-hallo Deut-hallo' key={gree.id}>{gree.hallo}</p>
-    <p className='partOne-hallo Arab-hallo'>{gree.marhaba}</p>
-  </>
-  )
-  const gutenTag = Data.map(gree => <>
-    <p key={gree.id}>{gree.gutenTag}</p>
-    <p>{gree.naharukSaid}</p>
-  </>
-  )
-  const gutenAbend = Data.map(gree => <>
-    <p key={gree.id}>{gree.gutenAbend}</p>
-    <p>{gree.massAlkhir}</p>
-  </>
-  )
-
-  const AufwiederSehen = Data.map(gree => <>
-    <p key={gree.id}>{gree.AufwiederSehen}</p>
-    <p>{gree.ilaAlliqa}</p>
-  </>
-  )
-
-  const wieGehtIhnen = Data.map(gree => <>
-    <p key={gree.id}>{gree.wieGehtIhnen}</p>
-    <p>{gree.kaifHalluk}</p>
-  </>
-  )
-
-  const ichHeisse = Data.map(gree => <>
-    <p key={gree.id}>{gree.ichHeisse}</p>
-    <p>{gree.anaIsmi}</p>
-  </>
-  )
-  const ichHeisseAli = Data.map(gree => <>
-    <p key={gree.id}>{gree.ichHeisseAli}</p>
-    <p>{gree.anaIsmiAli}</p>
-  </>
-  )
-  const wieHeissenSie = Data.map(gree => <>
-    <p key={gree.id}>{gree.wieHeissenSie}</p>
-    <p>{gree.maIsmuk}</p>
-  </>
-  )
-
-
-  const components = [
-    
-    <div className='p1Container p1Hallo'>{hallo}</div>,
-    <div className='p1Container'>{gutenTag}</div>,
-    <div className='p1Container'>{gutenMorgen}</div>,
-    <div className='p1Container'>{gutenAbend}</div>,
-    <div className='p1Container'>{AufwiederSehen}</div>,
-    <div className='p1Container'>{wieGehtIhnen}</div>,
-    <div className='p1Container'>{ichHeisse}</div>,
-    <div className='p1Container'>{ichHeisseAli}</div>,
-    <div className='p1Container'>{wieHeissenSie}</div>,
-
-  ]
-
-
   const [isShown, setIsShown] = useState(false);
-  const handleClick = event => {
-    setIsShown(current => !current);
-  };
-  const hadleButtonClick = () => {
-    setIsShown(true)
-  }
 
-  //hiding the button of the part one and displaying the PartTow component
-  const btn = document.getElementById('btn');
-  function hideButton() {
-    const box = document.getElementById('box');
-    box.style.display = 'block';
-  }
+  const handleNextClick = () => {
+    setCount((count) => count + 1);
+  };
+
+  const handleButtonClick = () => {
+    if (count < words.length - 1) {
+      setCount((count) => count + 1);
+    } else {
+      setIsShown(!isShown);
+    }
+  };
+
+  const renderGreeting = (word, index) => (
+    <div
+      className={`p1Container ${word.className}`}
+      key={word.word}
+      style={{ color: word.color }}
+    >
+      <p className="words-elements">
+        <span className="span-words-elements">{word.word}</span>
+      </p>
+      <p>{word.bedeutung[word.currectBedeutungIndex]}</p>
+    </div>
+  );
+
+  const wordsWithClassName = words.map((word, index) => {
+    return { ...word, className: `word-${index}` };
+  });
 
   return (
-    <>
+    <div className="partOneTestContainer">
+      {wordsWithClassName.slice(0, count + 1).map((word, index) => (
+        <div
+          key={word.word}
+          className={`word-animation ${word.className} ${
+            index === count ? "appear" : index < count ? "" : "disappear"
+          }`}
+        >
+          {renderGreeting(word, index)}
+        </div>
+      ))}
 
-      {
-        // render component from our components array
-        components[count]
+      {count > 0 && (
+        <button
+          className="partOneButtons prev-partOneButtons"
+          onClick={() => setCount((count) => count - 1)}
+        >
+          prev
+        </button>
+      )}
 
-      }
-      {/**{count < 0 && <button onClick={() => setCount(count - 1)}>prev</button>} */}
-      {/* show previous button if we are not on first element */}
-      {count > components.length - 2 && <button id='btn' onClick={() => { handleClick(); hideButton() }}>next</button>}
-      {/**{isShown && <PartTow />}*/}
+      {count < words.length - 1 && (
+        <button className="partOneButtons next-partOneButtons" onClick={handleNextClick}>
+          next
+        </button>
+      )}
 
-      {/* hide next button if we are at the last element */}
-      {count < components.length - 1 && <button onClick={() => setCount(count + 1)}>next</button>}
-
-      {/** <div className='partTowa1' id='box' style={{ display: 'none'}}><PartTow /></div> */}
-
-      <div className='partTowa1' id='box' onClick={hadleButtonClick}>
-        {isShown && <PartTow />}
-      </div>
-    </>
-  )
+      {count === words.length - 1 && (
+        <button className="partOneButtons next-partOneButtons" onClick={handleButtonClick}>
+         &&( isShown ? <PartTow />)
+        </button>
+      ) }
+    </div>
+  );
 }
 
-export default ParOne
+export default ParOne;
+export { words };

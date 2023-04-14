@@ -20,7 +20,7 @@ function App() {
         actionProvider={ActionProvider}
         />
       </div>
-      <PartOneTest />
+      {/*<PartOneTest />*/}
     {/**  <div  className="parthree"><Testp /></div> */ }   
     </div>
   );

@@ -2,7 +2,7 @@
     border-radius: 4PX;
     box-shadow: 1px 1px 4px 4px rgb(123, 126, 151);
     background-color:#16264c;
-    display: none;
+   /** display: none;*/
 }
 .p1Container{
     display: flex;
@@ -26,3 +26,45 @@
 .Deut-hallo{
     
 }
+
+
+/** .word-animation {
+    animation-name: drop;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    opacity: 0;
+  }
+  
+  @keyframes drop {
+    from {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }*/
+
+  /***
+
+return (
+  <>
+    {renderGreeting(wordsWithClassName[count])}
+
+    {count > 0 && <button className='partOneButtons prev-partOneButtons' onClick={() =>
+       setCount(count - 1)}>prev</button>}
+    {count < words.length - 1 && (
+      <button className='partOneButtons' onClick={handleNextClick}>next</button>
+    )}
+
+    <div className='partTowa1' id='box' onClick={handleButtonClick}>
+      {isShown && <PartTow />}
+    </div>
+  </>
+);
+
+
+
+  */
