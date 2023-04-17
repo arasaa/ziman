@@ -41,7 +41,9 @@ const PartTow = ({handleFinish}) => {
 
       <div className='partTow-button-container'>
         {currentIndex < imagesData.length - 1 && (
-        <button onClick={handelNextClick}>next</button>
+        <button className='part-tow-buttons' onClick={handelNextClick}>
+        <span className=' part-tow-next-button'>nächste</span>
+          </button>
         )}
 
         {currentIndex === imagesData.length - 1 && (
@@ -49,7 +51,7 @@ const PartTow = ({handleFinish}) => {
         )}
 
           {currentIndex === imagesData.length -1 && !showPartThree &&(
-            <button onClick={hadleFinishImages}>quiz</button>
+            <button  onClick={hadleFinishImages}>quiz</button>
           )}
         
       </div>

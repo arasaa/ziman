@@ -63,7 +63,7 @@ function PartOne() {
               className="partOneButtons prev-partOneButtons"
               onClick={() => setCount((count) => count - 1)}
             >
-             <span className="partOneButtons-prev">prev</span> 
+             <span className="partOneButtons-prev">vorschau</span> 
             </button>
           )}
 
