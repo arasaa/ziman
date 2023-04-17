@@ -6,12 +6,9 @@
   }
   
   .p1Container {
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 50vh;
     gap: 80px;
+    background-color: blue;
   }
   .partTowa1{
     border-radius: 4PX;
@@ -24,8 +21,6 @@
     display: none;
   }
   .words-elements {
-    margin-top: 20rem;
-
     border-radius: 50%;
     animation: drop 1.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
@@ -60,50 +55,25 @@
   }
  
 .word-animation {
-    animation-duration: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
     position: fixed;
+    background-color: red;
+    height: 36rem;
+    width: 50rem;
    
   }
    
-  
-  @keyframes appear {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .disappear{
-    display: none !important;
-  }
-  .word-animation.disappear {
-    animation-name: disappear;
-    animation-duration: 0s; /* Add this line to make it disappear immediately */
-  }
-  @keyframes disappear {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
-  
-  
-  .word-animation.appear {
-    animation-name: appear;
-  }
-  
+ 
 
   
  
   .word-0 {
-    width: 23.3rem;
-          height: 23.3rem;
+          width: 30rem;
+          height: 30rem;
           box-shadow: 16px 14px 20px #0000008c;
           border-radius: 10px;
           position: relative;
@@ -147,7 +117,7 @@
     height: 23.3rem;
     position: absolute;
     border-radius: 10px;
-    box-shadow: inset 20px 20px 20px #0000008c;
+    box-shadow: inset 30px 10px 60px 20px #0609418c;
   }
   
   
