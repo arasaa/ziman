@@ -1,4 +1,6 @@
-
+.part-tow-container{
+    z-index: 1;
+}
 .elements-container{
     justify-content: center;
     text-align: center;
