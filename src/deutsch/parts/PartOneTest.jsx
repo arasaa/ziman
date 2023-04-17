@@ -1,63 +1,85 @@
-import React, { useState } from 'react';
-import PartTow from './PartTow';
-import './partTest.css'
-import { words, colors } from '../data/words';
-
+import React, { useState } from "react";
+import PartTow from "./PartTow";
+import { words } from "../data/words";
+import "./tee.css";
 
 function PartOneTest() {
   const [count, setCount] = useState(0);
   const [isShown, setIsShown] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const handelNext = () => {
+    setCurrentIndex(currentIndex + 1);
+  };
 
   const handleNextClick = () => {
-    setCount(count + 1);
+    setCount((count) => count + 1);
   };
 
   const handleButtonClick = () => {
+    // hide current words element
+    const currentWords = document.getElementsByClassName(`word-${count}`);
+    for (let i = 0; i < currentWords.length; i++) {
+      currentWords[i].style.display = "none";
+    }
     setIsShown(true);
   };
 
-{/**   const renderGreeting = (word) => (
-    <div className='p1Container' key={word.word}>
-      <p>{word.word}</p>
+  const renderGreeting = (word, index) => (
+    <div
+      className={`p1Container ${word.className}`}
+      key={word.word}
+      style={{ color: word.color }}
+    >
+      <p className="words-elements">
+        <span className="span-words-elements">{word.word}</span>
+      </p>
       <p>{word.bedeutung[word.currectBedeutungIndex]}</p>
     </div>
-);*/}
-const renderGreeting = (word, index) => (
-  <div className={`p1Container ${word.className}`} key={word.word} style={{ color: word.color }}>
-    <p className='words-elements'><span className='span-words-elements'>{word.word}</span></p>
-    <p>{word.bedeutung[word.currectBedeutungIndex]}</p>
-  </div>
-);
-const wordsWithClassName = words.map((word, index) => {
-  return { ...word, className: `word-${index}` };
-});
+  );
 
-return (
-  <div className='partOneTestContainer'>
-  {wordsWithClassName.slice(0, count + 1).map((word, index) => (
-  <div key={word.word} className={`word-animation ${word.className} ${index === count ? 'appear' : index < count ? '' : 'disappear'}`}>
-    {renderGreeting(word, index)}
-  </div>
-))}
+  const wordsWithClassName = words.map((word, index) => {
+    return { ...word, className: `word-${index}` };
+  });
 
-    {count > 0 && <button className='partOneButtons prev-partOneButtons' onClick={() => setCount(count - 1)}>prev</button>}
-    {count < words.length - 1 && (
-      <button className='partOneButtons' onClick={handleNextClick}>next</button>
-    )}
+  return (
+    <div className="partOneTestContainer">
+      {wordsWithClassName.slice(0, count + 1).map((word, index) => (
+        <div
+          key={word.word}
+          className={`word-animation ${index === count ? "appear" : index < count ? "disappear-none" : "disappear"
+          }`}
+        >
+          {renderGreeting(word, index)}
+        </div>
+      ))}
 
-    <div className='partTowa1' id='box' onClick={handleButtonClick}>
-      {isShown && <PartTow />}
+      {count > 0 && (
+        <button
+          className="partOneButtons prev-partOneButtons"
+          onClick={() => setCount((count) => count - 1)}
+        >
+          prev
+        </button>
+      )}
+
+      {count < words.length - 1 && (
+        <button className="partOneButtons next-partOneButtons" onClick={handleNextClick}>
+          next
+        </button>
+      )}
+
+      {count === words.length - 1 && (
+        <button className="partOneButtons next-partOneButtons" onClick={handleButtonClick}>
+          nextt
+        </button>
+      )}
+      {isShown && <PartTow className="partTowa1" />}
     </div>
-  </div>
-);
-
+  );
 }
 
 export default PartOneTest;
-export { words, colors };
-
-
-
+export { words };
 
 
 {/**

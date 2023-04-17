@@ -1,0 +1,323 @@
+.partOneTestContainer{
+    display: flex;
+    justify-content: center;
+      align-items: center;
+    background-color: blue;
+  }
+  
+  .p1Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    gap: 80px;
+  }
+  .partTowa1{
+    border-radius: 4PX;
+    box-shadow: 1px 1px 4px 4px rgb(123, 126, 151);
+    background-color:#16264c;
+  display: none;
+  }
+  
+  .disappear-none{
+    display: none;
+  }
+  .words-elements {
+    margin-top: 20rem;
+
+    border-radius: 50%;
+    animation: drop 1.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+  @keyframes drop {
+    0% {
+      transform: translateY(-50%);
+      opacity: 5;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+ 
+  .span-words-elements {
+    font-size: 40px;
+      border-radius: 50% 50% 50% 0;
+      background-color: steelblue;
+      opacity: 0.8;
+  }
+  
+  .partOneButtons {
+    display: flex;
+    justify-content: space-between;
+    right: 40rem;
+    position: fixed;
+  }
+  
+  .prev-partOneButtons {
+    right: 20rem;
+  
+  }
+ 
+.word-animation {
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    position: fixed;
+   
+  }
+   
+  
+  @keyframes appear {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .disappear{
+    display: none !important;
+  }
+  .word-animation.disappear {
+    animation-name: disappear;
+    animation-duration: 0s; /* Add this line to make it disappear immediately */
+  }
+  @keyframes disappear {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  
+  .word-animation.appear {
+    animation-name: appear;
+  }
+  
+
+  
+ 
+  .word-0 {
+    width: 23.3rem;
+          height: 23.3rem;
+          box-shadow: 16px 14px 20px #0000008c;
+          border-radius: 10px;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+  }
+ 
+  .word-0::before{
+    content: "";
+    position: absolute;
+  }
+  .word-0::after{
+    content: "";
+    width: 23.3rem;
+    height: 23.3rem;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: inset 20px 20px 20px #0000008c;
+  }
+    
+  .word-1 {
+     width: 23.3rem;
+    width: 23.3rem;
+    height: 23.3rem;
+    box-shadow: 16px 14px 20px #0000008c;
+    border-radius: 10px;
+    
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+   .word-1::before{
+    content: "";
+    position: absolute;
+  }
+  .word-1::after{
+    content: "";
+    width: 23.3rem;
+    height: 23.3rem;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: inset 20px 20px 20px #0000008c;
+  }
+  
+  
+  .word-2 {
+    width: 23.3rem;
+    width: 23.3rem;
+    height: 23.3rem;
+    box-shadow: 16px 14px 20px #0000008c;
+    border-radius: 10px;
+    
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .word-2::before{
+    content: "";
+    position: absolute;
+  }
+  .word-2::after{
+    content: "";
+    width: 23.3rem;
+    height: 23.3rem;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: inset 20px 20px 20px #0000008c;
+  }
+  .word-3 {
+    width: 23.3rem;
+    width: 23.3rem;
+    height: 23.3rem;
+    box-shadow: 16px 14px 20px #0000008c;
+    border-radius: 10px;
+  
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .word-3::before{
+    content: "";
+    position: absolute;
+  }
+  .word-3::after{
+    content: "";
+    width: 23.3rem;
+    height: 23.3rem;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: inset 20px 20px 20px #0000008c;
+  }
+  
+  .word-4 {
+    width: 23.3rem;
+    width: 23.3rem;
+    height: 23.3rem;
+    box-shadow: 16px 14px 20px #0000008c;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .word-4::before{
+    content: "";
+    position: absolute;
+  }
+  .word-4::after{
+    content: "";
+    width: 23.3rem;
+    height: 23.3rem;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: inset 20px 20px 20px #0000008c;
+  }
+  .word-5 {
+    width: 23.3rem;
+    width: 23.3rem;
+    height: 23.3rem;
+    box-shadow: 16px 14px 20px #0000008c;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .word-5::before{
+    content: "";
+    position: absolute;
+  }
+  .word-5::after{
+    content: "";
+    width: 23.3rem;
+    height: 23.3rem;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: inset 20px 20px 20px #0000008c;
+  }
+  .word-6 {
+    width: 23.3rem;
+    width: 23.3rem;
+    height: 23.3rem;
+    box-shadow: 16px 14px 20px #0000008c;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .word-6::before{
+    content: "";
+    position: absolute;
+  }
+  .word-6::after{
+    content: "";
+    width: 23.3rem;
+    height: 23.3rem;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: inset 20px 20px 20px #0000008c;
+  }
+  .word-7 {
+    width: 23.3rem;
+    width: 23.3rem;
+    height: 23.3rem;
+    box-shadow: 16px 14px 20px #0000008c;
+    border-radius: 10px;
+   
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .word-7::before{
+    content: "";
+    position: absolute;
+  }
+  .word-7::after{
+    content: "";
+    width: 23.3rem;
+    height: 23.3rem;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: inset 20px 20px 20px #0000008c;
+  }
+  .word-8 {
+    width: 23.3rem;
+    width: 23.3rem;
+    height: 23.3rem;
+    box-shadow: 16px 14px 20px #0000008c;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .word-8::before{
+    content: "";
+    position: absolute;
+  }
+  .word-8::after{
+    content: "";
+    width: 23.3rem;
+    height: 23.3rem;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: inset 20px 20px 20px #0000008c;
+  }
+
+  

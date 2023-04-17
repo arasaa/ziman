@@ -74,27 +74,31 @@ display: none;
     transform: translateY(0);
   }
 }
-
+.disappear{
+  display: none !important;
+}
+.word-animation.disappear {
+  animation-name: disappear;
+  animation-duration: 0s; /* Add this line to make it disappear immediately */
+}
 @keyframes disappear {
   from {
     opacity: 1;
-    transform: translateY(0);
-    
   }
   to {
     opacity: 0;
-    transform: translateY(10px);
-
   }
 }
+
 
 .word-animation.appear {
   animation-name: appear;
 }
 
+/*
 .word-animation.disappear {
   animation-name: disappear;
-}
+}*/
  
 /*
 .word-0 {
