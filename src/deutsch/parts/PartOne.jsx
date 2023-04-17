@@ -29,7 +29,7 @@ function PartOne() {
       <p className="words-elements">
         <span className="span-words-elements">{word.word}</span>
       </p>
-      <p>{word.bedeutung[word.currectBedeutungIndex]}</p>
+      <p className="bedeutung">{word.bedeutung[word.currectBedeutungIndex]}</p>
     </div>
   );
 
@@ -51,18 +51,19 @@ function PartOne() {
             </div>
           ))}
 
-          {count > 0 && (
+       
+
+          {count < words.length - 1 && (
+            <button className="partOneButtons next-partOneButtons " onClick={handleNextClick}>
+             <span className="partOneButtons-next"> next </span>
+            </button>
+          )}
+             {count > 0 && (
             <button
               className="partOneButtons prev-partOneButtons"
               onClick={() => setCount((count) => count - 1)}
             >
-              prev
-            </button>
-          )}
-
-          {count < words.length - 1 && (
-            <button className="partOneButtons next-partOneButtons" onClick={handleNextClick}>
-              next
+             <span className="partOneButtons-prev">prev</span> 
             </button>
           )}
 
