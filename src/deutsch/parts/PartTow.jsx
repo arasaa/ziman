@@ -47,7 +47,9 @@ const PartTow = ({handleFinish}) => {
         )}
 
         {currentIndex === imagesData.length - 1 && (
-        <button onClick={() => setCurrentIndex(0)}>Wiederholen</button>
+        <button className='part-tow-buttons' onClick={() => setCurrentIndex(0)}>
+         <span className=' part-tow-prev-button'>Wiederholen</span> 
+          </button>
         )}
 
           {currentIndex === imagesData.length -1 && !showPartThree &&(

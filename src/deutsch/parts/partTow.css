@@ -1,5 +1,12 @@
 .part-tow-container{
     z-index: 1;
+    background-color: #191970 ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 .elements-container{
     justify-content: center;
@@ -75,8 +82,7 @@
 .part-tow-buttons:hover .part-tow-next-button {
     transform: translateX(0.15em);
 }
-
-.partOneButtons .partOneButtons-prev {
+.part-tow-buttons .part-tow-prev-button{
     position: relative;
     height: 120%;
     top: -10%;
@@ -91,7 +97,7 @@
     transform: translateX(calc(-0.15em * 3 - 0.08em * 2));
     transition: 0.3s;
 }
-
-.partOneButtons:hover .partOneButtons-prev {
-    transform: translateY(0.15em);
+.part-tow-buttons:hover .part-tow-prev-button {
+    transform: translateX(0.15em);
 }
+
