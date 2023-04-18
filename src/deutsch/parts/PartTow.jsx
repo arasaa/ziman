@@ -39,7 +39,7 @@ const PartTow = ({handleFinish}) => {
         <p>{currentImage.bedeutung}</p>
       </div>
 
-      <div className='partTow-button-container'>
+      
         {currentIndex < imagesData.length - 1 && (
         <button className='part-tow-buttons' onClick={handelNextClick}>
         <span className=' part-tow-next-button'>nächste</span>
@@ -56,7 +56,7 @@ const PartTow = ({handleFinish}) => {
             <button  onClick={hadleFinishImages}>quiz</button>
           )}
         
-      </div>
+   
 
       
 

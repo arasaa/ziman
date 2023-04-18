@@ -35,13 +35,9 @@
     height: 2em;
     color: orange;
     border-left: 0.08em solid;
-    position: relative;
-    margin-top: 0.8em;
+    margin-top: 3em;
     cursor: pointer;
-        top: 15rem;
-        margin-left: 50px;
-        right: 20px;
-
+    margin-left: 50px;
 }
 .part-tow-buttons::before,
 .part-tow-buttons::after
