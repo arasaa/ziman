@@ -53,7 +53,7 @@ const PartTow = ({handleFinish}) => {
         )}
 
           {currentIndex === imagesData.length -1 && !showPartThree &&(
-            <button  onClick={hadleFinishImages}>quiz</button>
+            <button className='quiz-button'  onClick={hadleFinishImages}>quiz</button>
           )}
         
    
