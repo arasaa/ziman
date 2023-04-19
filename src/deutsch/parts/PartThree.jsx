@@ -13,8 +13,13 @@ const PartThree = () => {
 
   
     const handleFinish = () => {
-        alert('Quiz finished!');
-      }
+      console.log('Quiz finished!');
+      alert(`Quiz beendet! Sie haben ${score} von ${words.length} Punkten erzielt.`);
+      setCurrentWordIndex(0);
+      setScore(0);
+      setSelectBedeutungIndex(null);
+    };
+    
     useEffect(() => {
         const timer = setInterval(() => {
           setCountdown(countdown => countdown - 1);
@@ -32,11 +37,23 @@ const PartThree = () => {
       }, [countdown]);
 
 
-    const handleBeudeutngOptionClick = (index) => {
+   {/* const handleBeudeutngOptionClick = (index) => {
         setSelectBedeutungIndex(index);
+    };*/}
+
+    const handleBeudeutngOptionClick = (index) => {
+      setSelectBedeutungIndex(index);
+    
+      const isCorrect = index === words[currentWordIndex]?.currectBedeutungIndex;
+      const newScore = isCorrect ? score + 1 : score;
+    
+      setCurrentWordIndex(currentWordIndex + 1);
+      setScore(newScore);
+      setCountdown(5);
     };
+    
  
-          const handleNextWordClick = () => {
+         {/* const handleNextWordClick = () => {
             const isLastWord = currentWordIndex === words.length - 1;
           
             if (isLastWord) {
@@ -56,16 +73,69 @@ const PartThree = () => {
                 setCountdown(5);
               }
             }
+          };*/}
+
+
+
+          const handleNextWordClick = () => {
+            const isLastWord = currentWordIndex === words.length - 1;
+          
+            if (isLastWord) {
+              console.log("last word", isLastWord);
+              alert(`Quiz beendet! Sie haben ${score} von ${words.length} Punkten erzielt.`);
+              handleFinish();
+            } else {
+              const isAnswered = selectBedeutungIndex !== null;
+              const isTimeout = countdown === 0;
+          
+              if (isAnswered || isTimeout) {
+                const isCorrect = selectBedeutungIndex === words[currentWordIndex]?.currectBedeutungIndex;
+                const newScore = isCorrect ? score + 1 : score;
+          
+                setSelectBedeutungIndex(null);
+                setCurrentWordIndex(currentWordIndex + 1);
+                setScore(newScore);
+                setCountdown(5);
+              }
+            }
           };
-       
+          
+          
+
+          //here is the second handel
+         {/* const handleNextWordClick = () => {
+            const isLastWord = currentWordIndex === words.length - 1;
+            
+            if (isLastWord) {
+              alert(`Quiz beendet! Sie haben ${score} von ${words.length} Punkten erzielt.`);
+              // onFinish();
+            } else {
+              const isAnswered = selectBedeutungIndex !== null;
+              const isTimeout = countdown === 0;
+            
+              if (isAnswered || isTimeout) {
+                const isCorrect = selectBedeutungIndex === words[currentWordIndex]?.currectBedeutungIndex;
+                const newScore = isCorrect ? score + 1 : score;
+            
+                setSelectBedeutungIndex(null);
+                setCurrentWordIndex(currentWordIndex + 1);
+                setScore(newScore);
+                setCountdown(5);
+              }
+            }
+          };*/}
+          
+       //<p>{`Wort ${currentWordIndex + 1}/${words.length}: ${words[currentWordIndex].word}`}</p>
     
   return (
     <div className='part-three-container'>
         <h2>Wortschatztest</h2>
         <p>{`Punkt: ${score}/${words.length}`}</p>
-        <p>{`Wort ${currentWordIndex + 1}/${words.length}: ${words[currentWordIndex].word}`}</p>
+        
+        <p>{`Wort ${currentWordIndex + 1}/${words.length}: ${words[currentWordIndex]?.word}`}</p>
+
         <ul>
-            {words[currentWordIndex].bedeutung.map((bedeutung, index) => (
+            {words[currentWordIndex]?.bedeutung.map((bedeutung, index) => (
                 <li key={index}>
                     <button onClick={() => handleBeudeutngOptionClick (index)}>{bedeutung}</button>
                 </li>
