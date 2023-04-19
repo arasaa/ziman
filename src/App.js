@@ -21,7 +21,7 @@ function App() {
         />
       </div>
       {/*<PartOneTest />*/}
-    {/**  <div  className="parthree"><Testp /></div> */ }   
+    {/*<div><Testp /></div>*/}
     </div>
   );
 }
