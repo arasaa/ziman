@@ -1,29 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { words } from '../data/words';
+import PartFour from './PartFour'
 
 const ThreeTest = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [selectBedeutungIndex, setSelectBedeutungIndex] = useState(null);
   const [countdown, setCountdown] = useState(5);
+  const [isLastWord, setIsLastWord] = useState(false);
 
   const handleFinish = () => {
     alert(`Quiz beendet! Sie haben ${score} von ${words.length} Punkten erzielt.`);
     setCurrentWordIndex(0);
     setScore(0);
     setSelectBedeutungIndex(null);
+    setIsLastWord(false);
   };
-  let isLastWord = false
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCountdown(countdown => countdown - 1);
     }, 1000);
     
-    if (isLastWord) {
-        clearInterval(timer);
-        return;
-      };
-
     return () => {
       clearInterval(timer);
     };
@@ -44,11 +42,13 @@ const ThreeTest = () => {
     setCurrentWordIndex(currentWordIndex + 1);
     setScore(newScore);
     setCountdown(5);
+
+    if (currentWordIndex === words.length - 1) {
+      setIsLastWord(true);
+    }
   };
 
   const handleNextWordClick = () => {
-    const isLastWord = currentWordIndex === words.length - 1;
-
     if (isLastWord) {
       handleFinish();
     } else {
@@ -63,6 +63,10 @@ const ThreeTest = () => {
         setCurrentWordIndex(currentWordIndex + 1);
         setScore(newScore);
         setCountdown(5);
+
+        if (currentWordIndex === words.length - 1) {
+          setIsLastWord(true);
+        }
       }
     }
   };
@@ -82,17 +86,20 @@ const ThreeTest = () => {
         ))}
       </ul>
 
-      {currentWordIndex === words.length - 1 ? (
+
+      {currentWordIndex === words.length  ? (
         <p>{`Quiz beendet! Sie haben ${score} von ${words.length} Punkten erzielt.`}</p>
       ) : (
         <button onClick={handleNextWordClick}>Nächstes Wort</button>
       )}
-
       <p>{`Verbleibende Zeit: ${countdown} Sek...`}</p>
+      
+      {currentWordIndex === words.length - 1 && <PartFour /> }
     </div>
   );
 };
 
 
-export default ThreeTest
+
+export default ThreeTest;
 export { words };

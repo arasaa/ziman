@@ -3,7 +3,7 @@ import './partFour.css';
 //import words from '../data/words';
 import wordsPartFour from '../data/wordsPartFour';
 
-const partFour = () => {
+const PartFour = () => {
   const [boxPosition, setBoxPosition] = useState({ x: 5, y: 3 });
   const containerSize = { width: 350, height: 400 };
   const boxSize = { width: 50, height: 50 };
@@ -179,5 +179,5 @@ const partFour = () => {
   );
 };
 
-export default partFour;
+export default PartFour;
 //export {words}
