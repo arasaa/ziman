@@ -8,7 +8,7 @@ import MessageParser from './chatBot/MessageParser';
 //import ParFour from './deutsch/parts/PartFour';
 import Testp from './deutsch/parts/Testp'
 import PartOneTest from './deutsch/parts/PartOneTest'
-import ThreeTest from './deutsch/parts/ThreeTest';
+import PartThree from './deutsch/parts/PartThree';
 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         actionProvider={ActionProvider}
         />
       </div>
-      <ThreeTest />
+      <PartThree />
     {/*<div><Testp /></div>*/}
     </div>
   );

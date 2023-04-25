@@ -79,13 +79,15 @@ const ThreeTest = () => {
         <>
           <h2>Quiz beendet!</h2>
           <p>{`Sie haben ${score} von ${words.length} Punkten erzielt.`}</p>
-          <button onClick={() => setShowPartFour(true)}>Zeige Teil 4</button>
+          <button onClick={() => setShowPartFour(true)}>nächste</button>
         </>
       ) : (
         <>
           <h2>Wortschatztest</h2>
-          <p>{`Punkt: ${score}/${words.length}`}</p>
-          <p>{`Wort ${currentWordIndex + 1}/${words.length}: ${words[currentWordIndex]?.word}`}</p>
+          <p>{`Punkte: ${score}/${words.length}`}</p>
+          <div>  Wort {currentWordIndex + 1}/ {words.length}: <br></br><br></br>
+          <p>{words[currentWordIndex]?.word}</p>
+           </div>
           <ul>
             {words[currentWordIndex]?.bedeutung.map((bedeutung, index) => (
               <li key={index}>
@@ -93,8 +95,7 @@ const ThreeTest = () => {
               </li>
             ))}
           </ul>
-          <button onClick={handleNextWordClick}>Nächstes Wort</button>
-          <p>{`Verbleibende Zeit: ${countdown} Sek...`}</p>
+          <p>{`Verbleibende Zeit: ${countdown} Sekunden...`}</p>
         </>
       )}
       {showPartFour && <PartFour />}
