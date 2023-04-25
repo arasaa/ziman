@@ -8,9 +8,10 @@ const ThreeTest = () => {
   const [selectBedeutungIndex, setSelectBedeutungIndex] = useState(null);
   const [countdown, setCountdown] = useState(5);
   const [isLastWord, setIsLastWord] = useState(false);
+  const [showPartFour, setShowPartFour] = useState(false);
 
   const handleFinish = () => {
-    alert(`Quiz beendet! Sie haben ${score} von ${words.length} Punkten erzielt.`);
+  
     setCurrentWordIndex(0);
     setScore(0);
     setSelectBedeutungIndex(null);
@@ -70,33 +71,37 @@ const ThreeTest = () => {
       }
     }
   };
+ 
 
   return (
     <div className="part-three-container">
-      <h2>Wortschatztest</h2>
-      <p>{`Punkt: ${score}/${words.length}`}</p>
-
-      <p>{`Wort ${currentWordIndex + 1}/${words.length}: ${words[currentWordIndex]?.word}`}</p>
-
-      <ul>
-        {words[currentWordIndex]?.bedeutung.map((bedeutung, index) => (
-          <li key={index}>
-            <button onClick={() => handleBeudeutngOptionClick(index)}>{bedeutung}</button>
-          </li>
-        ))}
-      </ul>
-
-
-      {currentWordIndex === words.length  ? (
-        <p>{`Quiz beendet! Sie haben ${score} von ${words.length} Punkten erzielt.`}</p>
+      {currentWordIndex === words.length ? (
+        <>
+          <h2>Quiz beendet!</h2>
+          <p>{`Sie haben ${score} von ${words.length} Punkten erzielt.`}</p>
+          <button onClick={() => setShowPartFour(true)}>Zeige Teil 4</button>
+        </>
       ) : (
-        <button onClick={handleNextWordClick}>Nächstes Wort</button>
+        <>
+          <h2>Wortschatztest</h2>
+          <p>{`Punkt: ${score}/${words.length}`}</p>
+          <p>{`Wort ${currentWordIndex + 1}/${words.length}: ${words[currentWordIndex]?.word}`}</p>
+          <ul>
+            {words[currentWordIndex]?.bedeutung.map((bedeutung, index) => (
+              <li key={index}>
+                <button onClick={() => handleBeudeutngOptionClick(index)}>{bedeutung}</button>
+              </li>
+            ))}
+          </ul>
+          <button onClick={handleNextWordClick}>Nächstes Wort</button>
+          <p>{`Verbleibende Zeit: ${countdown} Sek...`}</p>
+        </>
       )}
-      <p>{`Verbleibende Zeit: ${countdown} Sek...`}</p>
-      
-      {currentWordIndex === words.length - 1 && <PartFour /> }
+      {showPartFour && <PartFour />}
     </div>
   );
+  
+  
 };
 
 
