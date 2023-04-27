@@ -62,3 +62,8 @@
     transform: scale(1);
   }
 
+  .punkte-wort{
+    display: flex;
+    gap: 3rem;
+  }
+
