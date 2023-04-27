@@ -83,7 +83,7 @@ const PartThree = () => {
           <button onClick={() => setShowPartFour(true)}>nächste</button>
         </>
       ) : (
-        <div>
+        <div className='quiz-container'>
           <h2>Wortschatztest</h2>
           <p>{`Punkte: ${score}/${words.length}`}</p>
           <div>  Wort {currentWordIndex + 1}/ {words.length}: <br></br><br></br>

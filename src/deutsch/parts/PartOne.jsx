@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PartTow from "./PartTow";
 import { words } from "../data/words";
-import "./tee.css";
+import "./partOne.css";
 
 function PartOne() {
   const [count, setCount] = useState(0);

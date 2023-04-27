@@ -1,70 +1,362 @@
+.partOneTestContainer{
+  display: flex;
+  justify-content: center;
+    align-items: center;
+  background-color: blue;
+}
+
+.p1Container {
+  flex-direction: column;
+  gap: 80px;
+  background-color: blue;
+}
 .partTowa1{
-    border-radius: 4PX;
-    box-shadow: 1px 1px 4px 4px rgb(123, 126, 151);
-    background-color:#16264c;
-   /** display: none;*/
-}
-.p1Container{
-    display: flex;
-    justify-content: center; /* Center content horizontally */
-    flex-direction: column;
-    margin-left: 2.5rem;
-    color: #020302;
-    border-radius: 5%;
-    height: 28rem;
-    width: 45rem;
-    background-color: #581845 ;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-.partOne-hallo{
-    background-color: #058509;
-    width: 150px;
-    margin: 0 auto; /* Center element horizontally and vertically */
-    line-height: 7.5;
-    
-}
-.Deut-hallo{
-    
+  width: 30rem;
+  height: 30rem;
+  border-radius: 4PX;
+  box-shadow: 1px 1px 4px 4px rgb(123, 126, 151);
+  background-color:#f1f3f8;
+  display: none;
 }
 
-
-/** .word-animation {
-    animation-name: drop;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: both;
-    opacity: 0;
+.disappear-none{
+  display: none;
+}
+.words-elements {
+  border-radius: 50%;
+  animation: drop 1.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes drop {
+  0% {
+    transform: translateY(-50%);
+    opacity: 5;
   }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.span-words-elements {
+  font-size: 40px;
+    border-radius: 50% 50% 50% 0;
+    background-color: #61dafb;
+    opacity: 0.8;
+}
+.bedeutung{
+  color: wheat;
+}
+
+
+
+.word-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  position: fixed;
+  background-color: rgb(12, 12, 98);
+  height: 100%;
+  width: 100%;
+  box-shadow: inset 20px 20px 20px #0000008c;
+ 
+}
+ 
+
+
+
+
+.word-0 {
+  width: 23.3rem;
+  height: 23.3rem;
+  box-shadow: 16px 14px 20px #0000008c;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.word-0::before{
+  content: "";
+  position: absolute;
+}
+.word-0::after{
+  content: "";
+  width: 23.3rem;
+  height: 23.3rem;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: inset 20px 20px 20px #0000008c;
+}
   
-  @keyframes drop {
-    from {
-      transform: translateY(-50%);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }*/
-
-  /***
-
-return (
-  <>
-    {renderGreeting(wordsWithClassName[count])}
-
-    {count > 0 && <button className='partOneButtons prev-partOneButtons' onClick={() =>
-       setCount(count - 1)}>prev</button>}
-    {count < words.length - 1 && (
-      <button className='partOneButtons' onClick={handleNextClick}>next</button>
-    )}
-
-    <div className='partTowa1' id='box' onClick={handleButtonClick}>
-      {isShown && <PartTow />}
-    </div>
-  </>
-);
+.word-1 {
+  width: 23.3rem;
+  height: 23.3rem;
+  box-shadow: 16px 14px 20px #0000008c;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .word-1::before{
+  content: "";
+  position: absolute;
+}
+.word-1::after{
+  content: "";
+  width: 23.3rem;
+  height: 23.3rem;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: inset 30px 10px 60px 20px #0609418c;
+}
 
 
+.word-2 {
+  width: 23.3rem;
+  width: 23.3rem;
+  height: 23.3rem;
+  box-shadow: 16px 14px 20px #0000008c;
+  border-radius: 10px;
+  
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+.word-2::before{
+  content: "";
+  position: absolute;
+}
+.word-2::after{
+  content: "";
+  width: 23.3rem;
+  height: 23.3rem;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: inset 20px 20px 20px #0000008c;
+}
+.word-3 {
+  width: 23.3rem;
+  width: 23.3rem;
+  height: 23.3rem;
+  box-shadow: 16px 14px 20px #0000008c;
+  border-radius: 10px;
 
-  */
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+.word-3::before{
+  content: "";
+  position: absolute;
+}
+.word-3::after{
+  content: "";
+  width: 23.3rem;
+  height: 23.3rem;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: inset 20px 20px 20px #0000008c;
+}
+
+.word-4 {
+  width: 23.3rem;
+  width: 23.3rem;
+  height: 23.3rem;
+  box-shadow: 16px 14px 20px #0000008c;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+.word-4::before{
+  content: "";
+  position: absolute;
+}
+.word-4::after{
+  content: "";
+  width: 23.3rem;
+  height: 23.3rem;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: inset 20px 20px 20px #0000008c;
+}
+.word-5 {
+  width: 23.3rem;
+  width: 23.3rem;
+  height: 23.3rem;
+  box-shadow: 16px 14px 20px #0000008c;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+.word-5::before{
+  content: "";
+  position: absolute;
+}
+.word-5::after{
+  content: "";
+  width: 23.3rem;
+  height: 23.3rem;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: inset 20px 20px 20px #0000008c;
+}
+.word-6 {
+  width: 23.3rem;
+  width: 23.3rem;
+  height: 23.3rem;
+  box-shadow: 16px 14px 20px #0000008c;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+.word-6::before{
+  content: "";
+  position: absolute;
+}
+.word-6::after{
+  content: "";
+  width: 23.3rem;
+  height: 23.3rem;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: inset 20px 20px 20px #0000008c;
+}
+.word-7 {
+  width: 23.3rem;
+  width: 23.3rem;
+  height: 23.3rem;
+  box-shadow: 16px 14px 20px #0000008c;
+  border-radius: 10px;
+ 
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+.word-7::before{
+  content: "";
+  position: absolute;
+}
+.word-7::after{
+  content: "";
+  width: 23.3rem;
+  height: 23.3rem;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: inset 20px 20px 20px #0000008c;
+}
+.word-8 {
+  width: 23.3rem;
+  width: 23.3rem;
+  height: 23.3rem;
+  box-shadow: 16px 14px 20px #0000008c;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+.word-8::before{
+  content: "";
+  position: absolute;
+}
+.word-8::after{
+  content: "";
+  width: 23.3rem;
+  height: 23.3rem;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: inset 20px 20px 20px #0000008c;
+}
+
+/*buttons design*/
+.partOneButtons {
+  font-size: 25px;
+  width: 8em;
+  height: 2em;
+  color: orange;
+  border-left: 0.08em solid;
+  position: relative;
+  margin-top: 0.8em;
+  cursor: pointer;
+      top: 15rem;
+      margin-left: 50px;
+      right: 20px;
+}
+
+.partOneButtons::before,
+.partOneButtons::after
+{
+  content: '';
+  position: absolute;
+  width: inherit;
+  border-left: inherit;
+  z-index: -1;
+}
+
+.partOneButtons::before {
+  height: 80%;
+  top: 10%;
+  left: calc(-0.15em - 0.08em * 2);
+  filter: brightness(0.8);
+}
+
+.partOneButtons::after {
+  height: 60%;
+  top: 20%;
+  left: calc(-0.15em * 2 - 0.08em * 3);
+  filter: brightness(0.6);
+}
+
+.partOneButtons .partOneButtons-next {
+  position: relative;
+  height: 120%;
+  top: -10%;
+  box-sizing: border-box;
+  border: 0.08em solid;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  text-transform: capitalize;
+  transform: translateX(calc(-0.15em * 3 - 0.08em * 2));
+  transition: 0.3s;
+}
+
+.partOneButtons:hover .partOneButtons-next {
+  transform: translateX(0.15em);
+}
+
+.partOneButtons .partOneButtons-prev {
+  position: relative;
+  height: 120%;
+  top: -10%;
+  box-sizing: border-box;
+  border: 0.08em solid;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  text-transform: capitalize;
+  transform: translateX(calc(-0.15em * 3 - 0.08em * 2));
+  transition: 0.3s;
+}
+
+.partOneButtons:hover .partOneButtons-prev {
+  transform: translateY(0.15em);
+}
