@@ -21,4 +21,44 @@
     width: 80%;
     height: 90%;
 }
+.wortschatzWrapper{
+    background: radial-gradient(#272727, #1b1b1b);
+    display: grid;
+    grid-template-areas: 'overlap';
+    place-content: center;
+    text-transform: uppercase;
+    height: 40vh;
+    width: fit-content;
+    block-size: fit-content;
+    box-shadow: 20px 20px 20px hsl(239, 91%, 54%);
+}
+.wortschatzWrapper > div {
+    background-clip: text;  
+    -webkit-background-clip: text;
+    color: #363833;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: clamp( 3em, 2vw, 14rem);
+    grid-area: overlap;
+    letter-spacing: 1px;
+    -webkit-text-stroke: 4px transparent;
+  }
+  div.wortschatOne {
+    background-image: repeating-linear-gradient( 105deg, 
+    #ffb338 0% , 
+    #3e2904 5%,
+      #ffb338 12%);
+    color: transparent;
+    filter: drop-shadow(5px 15px 15px black);
+    transform: scaleY(1.05);
+    transform-origin: top;
+  }
+ div.wortschatTow{
+    background-image: repeating-linear-gradient( 5deg,  
+    #ffb338 0% , 
+    #77571d 23%, 
+      #ffb338 31%);
+    color: #1e2127;
+    transform: scale(1);
+  }
 
