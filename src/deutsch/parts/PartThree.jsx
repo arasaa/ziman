@@ -99,11 +99,11 @@ const PartThree = () => {
           <ul className='bedeutung-ul'>
             {words[currentWordIndex]?.bedeutung.map((bedeutung, index) => (
               <li key={index}>
-                <button onClick={() => handleBeudeutngOptionClick(index)}>{bedeutung}</button>
+                <button className='bedeutung-button' onClick={() => handleBeudeutngOptionClick(index)}>{bedeutung}</button>
               </li>
             ))}
           </ul>
-          <p>{`Verbleibende Zeit: ${countdown} Sekunden...`}</p>
+          <p className='verbleibende-zeit'>{`Verbleibende Zeit: ${countdown} Sekunden...`}</p>
         </div>
       )}
       {showPartFour && <PartFour />}
