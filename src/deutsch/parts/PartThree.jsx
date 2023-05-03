@@ -89,14 +89,14 @@ const PartThree = () => {
           <div className='wortschatTow'>Wortschatztest</div>
           </div>
           <div className='punkte-wort'>
-          <p>Punkte: {score}/{words.length}</p>
-          <p>  Wort: {currentWordIndex + 1}/ {words.length}</p>
+          <p className='punkt-wort'>Punkt: {score}/{words.length}</p>
+          <p className='punkt-wort'>  Wort: {currentWordIndex + 1}/ {words.length}</p>
           </div>
           
           <div>
-          <p>{words[currentWordIndex]?.word}</p>
+          <p className='word'>{words[currentWordIndex]?.word}</p>
            </div>
-          <ul>
+          <ul className='bedeutung-ul'>
             {words[currentWordIndex]?.bedeutung.map((bedeutung, index) => (
               <li key={index}>
                 <button onClick={() => handleBeudeutngOptionClick(index)}>{bedeutung}</button>
