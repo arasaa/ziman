@@ -3,4 +3,4 @@ Satz: color: Blue area
 Nomen: color: Yellow area
 Adjektive: color: Orange area
 Verb: color: brown area
-Wortverbindung: color: Gay area {guten morgen}
+Wortverbindung: color: Gray area {guten morgen}

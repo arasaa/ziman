@@ -51,58 +51,60 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: blue;
-    color: blanchedalmond;
+    width: 7rem;
+    height: 2.5rem;
+    background-color: #063906;
+    color: #76c106;
+    box-shadow: rgb(188, 233, 24) 0.5px 0.5px 5px;
     transition: all 0.5s ease-out;
-    border-radius: 45%;
     cursor: pointer;
+    border-radius: 70%;
+    font-size: 1.8vw;
   }
   .gutenMorgen{
     display: flex;
     justify-content: center;
     align-items: center;
     position: sticky;
-    width: 50px;
-    height: 50px;
-    background-color: rgb(12, 12, 98);
-    color: rgb(238, 207, 160);
+    width: 10rem;
+    height: 3.5rem;
+    background-color: #525151;
+    color: #9c8f8f;
     transition: all 0.8s ease-out;
-    border-radius: 45%;
-    font-size: 10px;
-    box-shadow: rgb(85, 3, 3) 0.5px 0.5px 5px;
+    border-radius: 50%;
+    box-shadow: rgb(158, 158, 146) 0.9px 0.9px 7px;
     cursor: pointer;
+    font-size: 1.3vw;
   }
   .gutenTag{
     display: flex;
     justify-content: center;
     align-items: center;
     position: sticky;
-    width: 50px;
-    height: 50px;
-    background-color: rgb(12, 12, 98);
-    color: rgb(238, 207, 160);
+    width: 9rem;
+    height: 3.5rem;
+    background-color: #3d3c3c;
+    color: #a7a3a3;
     transition: all 0.8s ease-out;
-    border-radius: 45%;
-    font-size: 10px;
-    box-shadow: rgb(85, 3, 3) 0.5px 0.5px 5px;
+    border-radius: 50%;
+    box-shadow: rgb(140, 140, 136) 0.9px 0.9px 7px;
     cursor: pointer;
+    font-size: 1.3vw;
   }
   .gutenAbend{
     display: flex;
     justify-content: center;
     align-items: center;
     position: sticky;
-    width: 50px;
-    height: 50px;
-    background-color: rgb(12, 12, 98);
-    color: rgb(238, 207, 160);
+    width: 9rem;
+    height: 3rem;
+    background-color: #3a3737;
+    color: hsl(0, 0%, 48%);
     transition: all 0.8s ease-out;
-    border-radius: 45%;
-    font-size: 10px;
-    box-shadow: rgb(85, 3, 3) 0.5px 0.5px 5px;
+    border-radius: 50%;
+    box-shadow: rgb(146, 146, 137) 0.9px 0.9px 7px;
     cursor: pointer;
+    font-size: 1.3vw;
   }
   .aufWiedersehen{
     display: flex;
@@ -169,13 +171,13 @@
     justify-content: center;
     align-items: center;
     position: sticky;
-    width: 50px;
-    height: 50px;
-    background-color: rgb(12, 12, 98);
-    color: rgb(238, 207, 160);
-    transition: all 0.8s ease-out;
-    border-radius: 45%;
-    font-size: 10px;
-    box-shadow: rgb(85, 3, 3) 0.5px 0.5px 5px;
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: #6d6e70;
+    width: 10rem;
+    height: 3rem;
+    opacity: .8;
     cursor: pointer;
+    transition: all 0.8s ease-out;
   }
+  

@@ -5,10 +5,6 @@ import './App.css';
 import config from './chatBot/config';
 import ActionProvider from './chatBot/ActionProvider';
 import MessageParser from './chatBot/MessageParser';
-//import ParFour from './deutsch/parts/PartFour';
-import Testp from './deutsch/parts/Testp'
-import PartOneTest from './deutsch/parts/PartOneTest'
-import PartThree from './deutsch/parts/PartThree';
 
 
 function App() {
@@ -21,7 +17,6 @@ function App() {
         actionProvider={ActionProvider}
         />
       </div>
-      {/*<PartThree />}
     {/*<div><Testp /></div>*/}
     </div>
   );
