@@ -12,6 +12,10 @@
     color: white;
     justify-content: center;
   }
+  .word-space{
+    width: 90%;
+    height: 90%;
+  }
   .wrong-answer {
     background-color: red;
   }
@@ -60,21 +64,23 @@
     cursor: pointer;
     border-radius: 70%;
     font-size: 1.8vw;
+    font-weight: bolder;
   }
   .gutenMorgen{
     display: flex;
     justify-content: center;
     align-items: center;
     position: sticky;
-    width: 10rem;
+    width: 11rem;
     height: 3.5rem;
-    background-color: #525151;
+    background-color: #3a3737;
     color: #9c8f8f;
     transition: all 0.8s ease-out;
     border-radius: 50%;
     box-shadow: rgb(158, 158, 146) 0.9px 0.9px 7px;
     cursor: pointer;
-    font-size: 1.3vw;
+    font-size: 1.5vw;
+    font-weight: bolder;
   }
   .gutenTag{
     display: flex;
@@ -83,21 +89,38 @@
     position: sticky;
     width: 9rem;
     height: 3.5rem;
-    background-color: #3d3c3c;
+    background-color: #3a3737;
     color: #a7a3a3;
     transition: all 0.8s ease-out;
     border-radius: 50%;
     box-shadow: rgb(140, 140, 136) 0.9px 0.9px 7px;
     cursor: pointer;
     font-size: 1.3vw;
+    font-weight: bolder;
   }
   .gutenAbend{
     display: flex;
     justify-content: center;
     align-items: center;
     position: sticky;
-    width: 9rem;
-    height: 3rem;
+    width: 11rem;
+    height: 4rem;
+    background-color: #3a3737;
+    color: hsl(0, 0%, 48%);
+    transition: all 0.8s ease-out;
+    border-radius: 50%;
+    box-shadow: rgb(146, 146, 137) 0.9px 0.9px 7px;
+    cursor: pointer;
+    font-size: 1.5vw;
+    font-weight: bolder;
+  }
+  .aufWiedersehen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    width: 11.3rem;
+    height: 4rem;
     background-color: #3a3737;
     color: hsl(0, 0%, 48%);
     transition: all 0.8s ease-out;
@@ -105,79 +128,70 @@
     box-shadow: rgb(146, 146, 137) 0.9px 0.9px 7px;
     cursor: pointer;
     font-size: 1.3vw;
-  }
-  .aufWiedersehen{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    width: 50px;
-    height: 50px;
-    background-color: rgb(12, 12, 98);
-    color: rgb(238, 207, 160);
-    transition: all 0.8s ease-out;
-    border-radius: 45%;
-    font-size: 10px;
-    box-shadow: rgb(85, 3, 3) 0.5px 0.5px 5px;
-    cursor: pointer;
+    font-weight: bolder;
   }
   .WieGehtsIhnen{
     display: flex;
     justify-content: center;
     align-items: center;
     position: sticky;
-    width: 50px;
-    height: 50px;
-    background-color: rgb(12, 12, 98);
-    color: rgb(238, 207, 160);
+    width: 11.9rem;
+    height: 3rem;
+    background-color: #3a3737;
+    color: hsl(0, 2%, 56%);
     transition: all 0.8s ease-out;
-    border-radius: 45%;
-    font-size: 10px;
-    box-shadow: rgb(85, 3, 3) 0.5px 0.5px 5px;
+    border-radius: 50%;
+    box-shadow: rgb(146, 146, 137) 0.9px 0.9px 7px;
     cursor: pointer;
+    font-size: 1.3vw;
+    font-weight: bolder;
   }
   .ichHeiß{
     display: flex;
     justify-content: center;
     align-items: center;
     position: sticky;
-    width: 50px;
-    height: 50px;
-    background-color: rgb(12, 12, 98);
-    color: rgb(238, 207, 160);
+    width: 9rem;
+    height: 3rem;
+    background-color: #002db3;
+    color: hsl(232, 81%, 68%);
     transition: all 0.8s ease-out;
-    border-radius: 45%;
-    font-size: 10px;
-    box-shadow: rgb(85, 3, 3) 0.5px 0.5px 5px;
+    border-radius: 50%;
+    box-shadow: rgb(77, 102, 242) 0.9px 0.9px 7px;
     cursor: pointer;
+    font-size: 1.3vw;
+    font-weight: bolder;
   }
   .ichHeißAli{
     display: flex;
     justify-content: center;
     align-items: center;
     position: sticky;
-    width: 50px;
-    height: 50px;
-    background-color: rgb(12, 12, 98);
-    color: rgb(238, 207, 160);
+    width: 9rem;
+    height: 3rem;
+    background-color: #002db3;
+    color: hsl(232, 81%, 68%);
     transition: all 0.8s ease-out;
-    border-radius: 45%;
-    font-size: 10px;
-    box-shadow: rgb(85, 3, 3) 0.5px 0.5px 5px;
+    border-radius: 50%;
+    box-shadow: rgb(77, 102, 242) 0.9px 0.9px 7px;
     cursor: pointer;
+    font-size: 1.3vw;
+    font-weight: bolder;
   }
   .wieHeißenSie{
     display: flex;
     justify-content: center;
     align-items: center;
     position: sticky;
-    font-size: 20px;
-    border-radius: 50%;
-    background-color: #6d6e70;
-    width: 10rem;
+    width: 11rem;
     height: 3rem;
-    opacity: .8;
-    cursor: pointer;
+    background-color: #002db3;
+    color: hsl(232, 81%, 68%);
     transition: all 0.8s ease-out;
+    border-radius: 50%;
+    box-shadow: rgb(77, 102, 242) 0.9px 0.9px 7px;
+    cursor: pointer;
+    font-size: 1.3vw;
+    font-weight: bolder;
   }
   

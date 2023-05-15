@@ -20,7 +20,7 @@ const PartFour = () => {
         const nextX = Math.floor(Math.random() * maxX);
         const nextY = Math.floor(Math.random() * maxY);
         setBoxPosition({ x: nextX, y: nextY });
-      }, 1000);
+      }, 30000);
       return () => clearInterval(intervalId);
     }
   }, [gameOver]);
@@ -68,7 +68,7 @@ const PartFour = () => {
       </div>
 
       {!gameOver && (
-        <div>
+        <div className='word-space'>
           <div
             className='hallo'
             data-word="مرحبا"
