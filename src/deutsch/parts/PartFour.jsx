@@ -20,7 +20,7 @@ const PartFour = () => {
         const nextX = Math.floor(Math.random() * maxX);
         const nextY = Math.floor(Math.random() * maxY);
         setBoxPosition({ x: nextX, y: nextY });
-      }, 30000);
+      }, 20000);
       return () => clearInterval(intervalId);
     }
   }, [gameOver]);

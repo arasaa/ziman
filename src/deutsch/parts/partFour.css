@@ -9,8 +9,19 @@
   }
   .bedeutung-container{
     display: flex;
-    color: white;
     justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 15rem;
+    height: 3.5rem;
+    background-color: #fff9f9;
+    color: #083f0b;
+    transition: all 0.8s ease-out;
+    border-radius: 50%;
+    box-shadow: rgb(76, 76, 5) 0.9px 0.9px 7px;
+    font-size: 1.5vw;
+    font-weight: bolder;
+
   }
   .word-space{
     width: 90%;
