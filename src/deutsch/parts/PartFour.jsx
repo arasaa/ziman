@@ -20,14 +20,14 @@ const PartFour = () => {
         const nextX = Math.floor(Math.random() * maxX);
         const nextY = Math.floor(Math.random() * maxY);
         setBoxPosition({ x: nextX, y: nextY });
-      }, 20000);
+      }, 10000);
       return () => clearInterval(intervalId);
     }
   }, [gameOver]);
 
 
   const currentWord = wordsPartFour[currentWordIndex]
-  const currentMeaning = currentWord.bedeutung[0];
+  const currentMeaning = currentWord .bedeutung[0];
  const handleBoxClick = (event) => {
   if (!gameOver) {
     const box = event.target;

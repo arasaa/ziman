@@ -1,10 +1,16 @@
 import React from 'react'
+import hallo from '../sounds/hallo.mp3'
 
 const PartFiveAudio = () => {
+
+  function play(){
+    new Audio(hallo).play()
+  }
   return (
     <div>
     <h2>Audio</h2>
-    <audio src="example.mp3" controls />
+    <audio src="hallo.mp3" controls />
+    <button onClick={play}>play</button>
   </div>
   )
 }

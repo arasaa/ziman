@@ -5,6 +5,7 @@ import './App.css';
 import config from './chatBot/config';
 import ActionProvider from './chatBot/ActionProvider';
 import MessageParser from './chatBot/MessageParser';
+import PartFiveAudio from './deutsch/parts/PartFiveAudio';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
         actionProvider={ActionProvider}
         />
       </div>
-    {/*<div><Testp /></div>*/}
+    <div><PartFiveAudio /></div>
     </div>
   );
 }
