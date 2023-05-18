@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './partFieve.css'
 import hallo from '../sounds/hallo.mp3';
 import aufWiederSehen from '../sounds/aufWiederSehen.mp3';
 import gutenAbend from '../sounds/gutenAbend.mp3';
@@ -25,23 +26,20 @@ const PartFiveAudio = () => {
   ];
 
   const handleNext = () => {
-    setCount((count) => count + 1);
+    if (count < audioList.length - 1) {
+      setCount((count) => count + 1);
+    }
   };
 
-{/*  useEffect(() => {
-    playAudio(); // Play the first audio element automatically when the component mounts
-  }, []);*/}
   const playAudio = () => {
     audioList[count].play();
-    setCount((count) => count + 1); // Increment count after playing audio
   };
 
   return (
-    <div>
-      <h2>Audio</h2>
-      
+    <div className='part-fieve-container'>
+      <p>{audioList[count].word}</p>
       <button onClick={playAudio}>Play</button>
-      <p>Word: {audioList[count].word}</p>
+      <button onClick={handleNext}>Next</button>
     </div>
   );
 };

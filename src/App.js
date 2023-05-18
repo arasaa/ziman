@@ -18,7 +18,7 @@ function App() {
         actionProvider={ActionProvider}
         />
       </div>
-    <div><PartFiveAudio /></div>
+    <PartFiveAudio />
     </div>
   );
 }
