@@ -4,33 +4,31 @@ import './partSex.css';
 function PartSex() {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  const containerRef = React.useRef(null);
+  const [dragStartPos, setDragStartPos] = useState({ x: 0, y: 0 });
 
   const handleMouseDown = (event) => {
     setIsDragging(true);
-    setPosition({
-      x: event.clientX,
-      y: event.clientY,
+    setDragStartPos({
+      x: event.clientX - position.x,
+      y: event.clientY - position.y,
     });
   };
 
   const handleMouseMove = (event) => {
     if (isDragging) {
-      const containerBounds = containerRef.current.getBoundingClientRect();
       const newPosition = {
-        x: position.x + event.movementX,
-        y: position.y + event.movementY,
+        x: event.clientX - dragStartPos.x,
+        y: event.clientY - dragStartPos.y,
       };
 
-      // Limit the position within the container boundaries
-      const minX = 0;
-      const minY = 0;
-      const maxX = containerBounds.width - event.target.offsetWidth;
-      const maxY = containerBounds.height - event.target.offsetHeight;
+      const containerBounds = document.querySelector('.part-sex-container').getBoundingClientRect();
+      const elementBounds = document.querySelector('.draggable-element').getBoundingClientRect();
 
-      newPosition.x = Math.max(minX, Math.min(newPosition.x, maxX));
-      newPosition.y = Math.max(minY, Math.min(newPosition.y, maxY));
+      const maxX = containerBounds.width - elementBounds.width;
+      const maxY = containerBounds.height - elementBounds.height;
+
+      newPosition.x = Math.max(0, Math.min(newPosition.x, maxX));
+      newPosition.y = Math.max(0, Math.min(newPosition.y, maxY));
 
       setPosition(newPosition);
     }
@@ -41,7 +39,11 @@ function PartSex() {
   };
 
   return (
-    <div className="part-sex-container" ref={containerRef}>
+    <div
+      className="part-sex-container"
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+    >
       <div
         className="draggable-element"
         style={{
@@ -51,8 +53,6 @@ function PartSex() {
           cursor: isDragging ? 'grabbing' : 'grab',
         }}
         onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
       >
         Drag me!
       </div>
