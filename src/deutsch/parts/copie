@@ -1,48 +1,84 @@
-{/***import React, { useState, useEffect } from 'react';
-import './partFour.css';
+{/***
 
-const ParFour = () => {
-  const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
-  const containerSize = { width: 400, height: 400 };
-  const boxSize = { width: 50, height: 50 };
+import React, { useState } from 'react';
+import './partSex.css';
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const maxX = containerSize.width - boxSize.width;
-      const maxY = containerSize.height - boxSize.height;
-      const nextX = Math.floor(Math.random() * maxX);
-      const nextY = Math.floor(Math.random() * maxY);
-      setBoxPosition({ x: nextX, y: nextY });
-    }, 1000);
+function PartSex() {
+  const [isDragging, setIsDragging] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [dragStartPos, setDragStartPos] = useState({ x: 0, y: 0 });
 
-    return () => clearInterval(intervalId);
-  }, []);
+  const handleMouseDown = (event) => {
+    setIsDragging(true);
+    setDragStartPos({
+      x: event.clientX - position.x,
+      y: event.clientY - position.y,
+    });
+  };
+
+  const handleMouseMove = (event) => {
+    if (isDragging) {
+      const newPosition = {
+        x: event.clientX - dragStartPos.x,
+        y: event.clientY - dragStartPos.y,
+      };
+
+      const containerBounds = document.querySelector('.part-sex-container').getBoundingClientRect();
+      const elementBounds = document.querySelector('.hallo-h').getBoundingClientRect();
+
+      const maxX = containerBounds.width - elementBounds.width;
+      const maxY = containerBounds.height - elementBounds.height;
+
+      newPosition.x = Math.max(0, Math.min(newPosition.x, maxX));
+      newPosition.y = Math.max(0, Math.min(newPosition.y, maxY));
+
+      setPosition(newPosition);
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
 
   return (
-    <div className='part-four-container'
-      style={{
-        position: 'relative',
-        width: `${containerSize.width}px`,
-        height: `${containerSize.height}px`,
-        border: '1px solid black',
-      }}
+    <div
+      className="part-sex-container"
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
     >
       <div
+        className="hallo-h"
         style={{
           position: 'absolute',
-          top: `${boxPosition.y}px`,
-          left: `${boxPosition.x}px`,
-          width: `${boxSize.width}px`,
-          height: `${boxSize.height}px`,
-          backgroundColor: 'blue',
-          transition: 'all 0.5s ease-out',
+          left: position.x,
+          top: position.y,
+          cursor: isDragging ? 'grabbing' : 'grab',
         }}
-      ></div>
+        onMouseDown={handleMouseDown}
+      >
+        Drag me!
+      </div>
+      <div
+        className="tag"
+        style={{
+          position: 'absolute',
+          left: position.x,
+          top: position.y,
+          cursor: isDragging ? 'grabbing' : 'grab',
+        }}
+        onMouseDown={handleMouseDown}
+      >
+        Guten Tag
+      </div>
     </div>
   );
-};
+}
 
-export default ParFour;*/}
+export default PartSex;
+
+
+
+*/}
 
 
 

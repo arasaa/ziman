@@ -5,7 +5,6 @@ import PartThree from './PartThree';
 import words from '../data/words';
 
 
-
 const PartTow = ({handleFinish}) => {
 
   const [currentIndex, setCurrentIndex] = useState(0);

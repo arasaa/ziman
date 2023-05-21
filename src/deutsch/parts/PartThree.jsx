@@ -3,6 +3,7 @@ import { words } from '../data/words';
 import PartFour from './PartFour'
 import './partThree.css'
 
+
 const PartThree = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [score, setScore] = useState(0);
