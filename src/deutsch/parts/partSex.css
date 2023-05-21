@@ -1,0 +1,11 @@
+.part-sex-container{
+    margin-right: 100px;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 2px blue solid;
+}
+.drageble-element{
+border: 2px green solid;
+width: 50px;
+}

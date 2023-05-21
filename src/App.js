@@ -6,6 +6,7 @@ import config from './chatBot/config';
 import ActionProvider from './chatBot/ActionProvider';
 import MessageParser from './chatBot/MessageParser';
 import PartFiveAudio from './deutsch/parts/PartFiveAudio';
+import PartSex from './deutsch/parts/PartSex'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         />
       </div>
     <PartFiveAudio />
+    <PartSex />
     </div>
   );
 }
