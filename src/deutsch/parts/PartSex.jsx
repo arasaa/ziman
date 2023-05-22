@@ -19,6 +19,8 @@ function PartSex() {
       y: event.clientY - updatedDivs[index].position.y,
     };
     setDivs(updatedDivs);
+
+    document.addEventListener('mouseup', () => handleMouseUp(id), { once: true });
   };
 
   const handleMouseMove = (event) => {
@@ -46,9 +48,9 @@ function PartSex() {
     setDivs(updatedDivs);
   };
 
-  const handleMouseUp = () => {
+  const handleMouseUp = (id) => {
     const updatedDivs = divs.map((div) => {
-      if (div.isDragging) {
+      if (div.id === id) {
         return { ...div, isDragging: false };
       }
       return div;
@@ -74,7 +76,6 @@ function PartSex() {
     <div
       className="part-sex-container"
       onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
     >
       {divs.map((div) => (
         <div

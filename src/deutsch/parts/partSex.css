@@ -1,4 +1,5 @@
 .part-sex-container{
+    display: flex;
     margin-right: -180px;
     position: absolute;
     width: 300px;
@@ -6,14 +7,16 @@
     border: 2px blue solid;
     background-color: antiquewhite;
 }
-.draggable-element{
+.draggable-div{
 border: 2px green solid;
-width: 50px;
+width: 70px;
 
 }
+
 .icon-container{
-    display: flex;
-    justify-content: end;
+        display: flex;
+        justify-content: center;
+        align-items: end;
 }
 .tag{
     width: 70px;

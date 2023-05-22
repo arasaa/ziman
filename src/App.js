@@ -6,7 +6,9 @@ import config from './chatBot/config';
 import ActionProvider from './chatBot/ActionProvider';
 import MessageParser from './chatBot/MessageParser';
 import PartFiveAudio from './deutsch/parts/PartFiveAudio';
-import PartSex from './deutsch/parts/PartSex'
+import PartSex from './deutsch/parts/PartSex';
+import PartSeven from './deutsch/parts/partSeven';
+import text from '../src/deutsch/sounds/text.mp3'
 
 
 function App() {
@@ -19,8 +21,11 @@ function App() {
         actionProvider={ActionProvider}
         />
       </div>
-    <PartFiveAudio />
-    <PartSex />
+  {/**  <PartFiveAudio />
+    <PartSex /> */}
+    <PartSeven text="Hallo! Mein Name ist Anna. Ich komme aus Deutschland. Ich spreche Deutsch und Englisch.
+      Tschüss!" audioSrc={text} />
+
     </div>
   );
 }
