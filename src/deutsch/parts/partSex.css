@@ -11,8 +11,16 @@ border: 2px green solid;
 width: 50px;
 
 }
-
+.icon-container{
+    display: flex;
+    justify-content: end;
+}
 .tag{
+    width: 70px;
+    height: 70px;
+    background-color: aquamarine;
+}
+.hallo-h{
     width: 70px;
     height: 70px;
     background-color: aquamarine;
