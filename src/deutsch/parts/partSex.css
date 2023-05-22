@@ -9,20 +9,21 @@
 .draggable-element{
 border: 2px green solid;
 width: 50px;
-margin: 30px;
+
 }
 
 .tag{
-    width: 150px;
-    height: 150px;
+    width: 70px;
+    height: 70px;
     background-color: aquamarine;
 }
 .morgen{
-    width: 150px;
-    height: 150px;
+    width: 70px;
+    height: 70px;
+    margin-left: 15px;
     background-color: rgb(67, 67, 67);
 }
 
 .matched{
-background-color: rgb(4, 4, 4);
+background-color: rgb(255, 3, 3);
 }

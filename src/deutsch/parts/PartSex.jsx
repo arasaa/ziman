@@ -5,11 +5,11 @@ import gutenMorgen from '../data/image/gutenMorgen.png';
 
 function PartSex() {
   const [elements, setElements] = useState([
-    { id: 1, text: 'Guten Morgen', position: { x: 0, y: 0 }, isDragging: false, offsetX: 0, offsetY: 0 },
-    { id: 2, text: 'Guten Tag', position: { x: 0, y: 0 }, isDragging: false, offsetX: 0, offsetY: 0 },
+    { id: 1, text: "Guten Morgen", dataWord: "Guten Morgen", position: { x: 0, y: 0 }, isDragging: false },
+    { id: 2, text: "Guten Tag", dataWord: "Guten Tag", position: { x: 0, y: 0 }, isDragging: false },
   ]);
 
-  const [matches, setMatches] = useState([]);
+  const [matchedElements, setMatchedElements] = useState([]);
 
   const handleMouseDown = (event, element) => {
     const { id, position } = element;
@@ -70,45 +70,37 @@ function PartSex() {
     checkMatches(element);
   };
 
-  const checkMatches = (element) => {
+  const handleIconClick = (dataWord) => {
     const matchedElement = elements.find(
       (el) =>
-        el.text === element.text &&
-        el.id !== element.id
+        el.dataWord === dataWord &&
+        !isElementMatched(el.id)
     );
 
     if (matchedElement) {
-      setMatches((prevMatches) => [...prevMatches, { id1: element.id, id2: matchedElement.id }]);
+      setMatchedElements((prevMatchedElements) => [...prevMatchedElements, matchedElement.id]);
     } else {
-      const isMatched = elements.some(
-        (el) =>
-          el.text === element.text &&
-          el.id !== element.id &&
-          isElementMatched(el.id)
-      );
+      alert('No match!');
+    }
+  };
 
-      if (isMatched) {
-        alert('Already matched!');
-      } else {
-        const isOverIcon =
-          element.position.x >= 0 &&
-          element.position.y >= 0 &&
-          element.position.x <= 150 &&
-          element.position.y <= 150;
+  const checkMatches = (element) => {
+    const matchedElement = elements.find(
+      (el) =>
+        el.id !== element.id &&
+        el.dataWord === element.dataWord &&
+        !isElementMatched(el.id)
+    );
 
-        if (!isOverIcon) {
-          alert('Wrong match!');
-        }
-      }
+    if (matchedElement) {
+      setMatchedElements((prevMatchedElements) => [...prevMatchedElements, element.id, matchedElement.id]);
+    } else {
+      alert('No match!');
     }
   };
 
   const isElementMatched = (elementId) => {
-    return matches.some((match) => match.id1 === elementId || match.id2 === elementId);
-  };
-
-  const isMatched = (elementId) => {
-    return matches.some((match) => match.id1 === elementId || match.id2 === elementId);
+    return matchedElements.includes(elementId);
   };
 
   return (
@@ -117,7 +109,7 @@ function PartSex() {
         <div
           key={element.id}
           id={`element-${element.id}`}
-          className={`draggable-element ${isMatched(element.id) ? 'matched' : ''}`}
+          className={`draggable-element ${isElementMatched(element.id) ? 'matched' : ''}`}
           style={{
             position: 'absolute',
             left: element.position.x,
@@ -132,8 +124,20 @@ function PartSex() {
         </div>
       ))}
       <div className="icon-container">
-        <img className="tag" dataWord="Guten Tag" src={gutenTag} alt="" />
-        <img className="morgen" dataWord="Guten Morgen" src={gutenMorgen} alt="" />
+        <img
+          className="tag"
+          dataWord="Guten Tag"
+          src={gutenTag}
+          alt=""
+          onClick={() => handleIconClick("Guten Tag")}
+        />
+        <img
+          className="morgen"
+          dataWord="Guten Morgen"
+          src={gutenMorgen}
+          alt=""
+          onClick={() => handleIconClick("Guten Morgen")}
+        />
       </div>
     </div>
   );
