@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import textAudio from '../sounds/textAudio.mp3'
 
 
+
 const PartSeven = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [highlightedIndex, setHighlightedIndex] = useState(0);
-  
+
   useEffect(() => {
     const audioElement = document.getElementById('audio');
 
@@ -20,7 +21,7 @@ const PartSeven = () => {
       audioElement.removeEventListener('timeupdate', handleTimeUpdate);
     };
   }, []);
-  
+
   useEffect(() => {
     // Find the index of the word to highlight based on the current time
     const newIndex = findHighlightedIndex();
@@ -30,15 +31,15 @@ const PartSeven = () => {
   const findHighlightedIndex = () => {
     const words = text.split(' ');
 
+    const totalDuration = 7; // Total duration in seconds
+    const wordDuration = totalDuration / words.length;
+
     let totalTime = 0;
     let index = 0;
 
-    // Iterate over the words and calculate their durations
+    // Iterate over the words and assign the same duration to each word
     for (let i = 0; i < words.length; i++) {
       const word = words[i];
-
-      // Estimate the word duration based on the number of characters
-      const wordDuration = Math.max(word.length * 0.15, 0.5);
 
       // Check if the current time falls within the word duration
       if (currentTime >= totalTime && currentTime < totalTime + wordDuration) {
@@ -74,9 +75,9 @@ const PartSeven = () => {
         {text.split(' ').map((word, index) => (
           <span
             key={index}
-            className={highlightedIndex === index ? 'highlighted' : ''}
+            className={index <= highlightedIndex ? 'highlighted' : ''}
             style={{
-              backgroundColor: highlightedIndex === index ? 'yellow' : 'transparent',
+              backgroundColor: index <= highlightedIndex ? 'yellow' : 'transparent',
             }}
           >
             {word}{' '}
@@ -86,7 +87,10 @@ const PartSeven = () => {
       <audio
         id="audio"
         src={textAudio}
-        onEnded={() => setIsPlaying(false)}
+        onEnded={() => {
+          setIsPlaying(false);
+          setHighlightedIndex(text.split(' ').length - 1);
+        }}
       ></audio>
       <button onClick={handlePlayPause}>{isPlaying ? 'Pause' : 'Play'}</button>
     </div>
@@ -94,4 +98,5 @@ const PartSeven = () => {
 };
 
 export default PartSeven;
+
 
