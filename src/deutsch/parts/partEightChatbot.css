@@ -1,0 +1,8 @@
+.part-eight-container{
+   margin: auto 0;
+   margin-left: -10rem;
+   margin-bottom: -5rem;
+   width: 20rem;
+   height: 20rem;
+   border: 2px red solid;
+}

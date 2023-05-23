@@ -9,6 +9,8 @@ import PartFiveAudio from './deutsch/parts/PartFiveAudio';
 import PartSex from './deutsch/parts/PartSex';
 import PartSeven from './deutsch/parts/partSeven';
 //import text from '../src/deutsch/sounds/text.mp3'
+import Lessons from './deutsch/Lessons';
+import PartEightChatbot from '../src/deutsch/parts/PartEightChatbot';
 
 
 function App() {
@@ -22,8 +24,11 @@ function App() {
         />
       </div>
   {/**  <PartFiveAudio />
-    <PartSex /> */}
+    <PartSex /> 
     <PartSeven />
+    <Lessons />
+    */}
+    <PartEightChatbot />
 
     </div>
   );
