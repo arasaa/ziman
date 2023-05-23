@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import textAudio from '../sounds/textAudio.mp3'
 
-const PartSeven = ({ text, audioSrc }) => {
+
+const PartSeven = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [highlightedIndex, setHighlightedIndex] = useState(0);
@@ -26,7 +28,6 @@ const PartSeven = ({ text, audioSrc }) => {
   }, [currentTime]);
 
   const findHighlightedIndex = () => {
-    // Split the text into words
     const words = text.split(' ');
 
     let totalTime = 0;
@@ -64,19 +65,33 @@ const PartSeven = ({ text, audioSrc }) => {
     setIsPlaying(!isPlaying);
   };
 
+  const text = "Hallo! Mein Name ist Anna. Ich komme aus Deutschland. Ich spreche Deutsch und Englisch. Tschüss!";
+  const audioSrc = {textAudio};
+
   return (
     <div>
       <p>
         {text.split(' ').map((word, index) => (
-          <span key={index} className={highlightedIndex === index ? 'highlighted' : ''}>
+          <span
+            key={index}
+            className={highlightedIndex === index ? 'highlighted' : ''}
+            style={{
+              backgroundColor: highlightedIndex === index ? 'yellow' : 'transparent',
+            }}
+          >
             {word}{' '}
           </span>
         ))}
       </p>
-      <audio id="audio" src={audioSrc}></audio>
+      <audio
+        id="audio"
+        src={textAudio}
+        onEnded={() => setIsPlaying(false)}
+      ></audio>
       <button onClick={handlePlayPause}>{isPlaying ? 'Pause' : 'Play'}</button>
     </div>
   );
 };
 
 export default PartSeven;
+
