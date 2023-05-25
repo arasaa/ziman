@@ -35,6 +35,12 @@
     background-color: lightgray;
     width: 15rem;
   }
+
+  .chatbot-name{
+    margin-right: 5px;
+    color: #005c7d;
+    text-decoration: underline;
+  }
   
   form {
     display: flex;

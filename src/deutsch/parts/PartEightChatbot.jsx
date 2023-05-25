@@ -17,7 +17,7 @@ const PartEightChatbot = () => {
     // Add user message to chat history
     setChatHistory((prevChatHistory) => [
       ...prevChatHistory,
-      { message: userMessage, sender: 'user' },
+      { message: userMessage, sender: 'user', name: 'User' },
     ]);
 
     // Clear user message input
@@ -34,7 +34,7 @@ const PartEightChatbot = () => {
       // Add chatbot response to chat history
       setChatHistory((prevChatHistory) => [
         ...prevChatHistory,
-        { message: chatbotResponse, sender: 'chatbot' },
+        { message: chatbotResponse, sender: 'chatbot', name: 'Chatbot' },
       ]);
 
       // Hide typing animation
@@ -78,6 +78,12 @@ const PartEightChatbot = () => {
             key={index}
             className={`chat-message ${chat.sender === 'user' ? 'user' : 'chatbot'}`}
           >
+            {chat.sender === 'user' && (
+              <span className="user-name">{chat.name}: </span>
+            )}
+            {chat.sender === 'chatbot' && (
+              <span className="chatbot-name">{chat.name}: </span>
+            )}
             {chat.message}
           </div>
         ))}
