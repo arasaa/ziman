@@ -40,7 +40,7 @@
         id: 8,
     },
     {
-        wieHeissenSie: "wie heißen Sie?",
+        wieHeissenSie: "Wie heißen Sie?",
         maIsmuk: "مااسم حضرتك؟",
         id: 9,
     },

@@ -1,100 +1,109 @@
 .part-eight-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    width: 40rem;
-    height: 20rem;
-    border: 2px red solid;
-  }
-  
-  .chat-history {
-    display: contents;
-    flex-grow: 1;
-    overflow-y: auto;
-    padding: 1rem;
-  }
-  
-  .chat-message {
-    display: inline-block;
-    max-width: 80%;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-  }
-  
-  .user {
-    align-self: flex-end;
-    background-color: lightblue;
-    width: 15rem;
-  }
-  
-  .chatbot {
-    align-self: flex-start;
-    background-color: lightgray;
-    width: 15rem;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 20rem;
+  border: 2px red solid;
+  overflow-y: auto; /* Added scrollable overflow for the container */
+}
 
-  .chatbot-name{
-    margin-right: 5px;
-    color: #005c7d;
-    text-decoration: underline;
+.chat-history {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+
+.chat-message {
+  display: inline-block;
+  max-width: 80%;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.chat-messages{
+  display: flex;
+  flex-direction: column;
+}
+
+.user {
+  align-self: flex-end;
+  background-color: lightblue;
+  width: 15rem;
+  margin-right: 1rem; /* Added margin to push the user messages to the right */
+  margin-bottom: 30px; /* Added margin to create separation */
+}
+
+.chatbot {
+  align-self: flex-start;
+  background-color: lightgray;
+  width: 15rem;
+  margin-left: 1rem; /* Added margin to push the chatbot messages to the left */
+  margin-bottom: 30px; /* Added margin to create separation */
+}
+
+
+.chatbot-name {
+  margin-right: 5px;
+  color: #005c7d;
+  text-decoration: underline;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+form input[type="text"] {
+  flex-grow: 1;
+  margin-right: 0.5rem;
+}
+
+form button {
+  margin-left: 0.5rem;
+}
+
+.typing-indicator {
+  display: flex;
+  width: 45px;
+  height: 10px;
+}
+
+.typing-indicator span {
+  display: flex;
+  width: 15px;
+  height: 10px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background-color: #005c7d;
+  animation: typing 1.5s infinite;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes typing {
+  0% {
+    opacity: 0.5;
   }
-  
-  form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
+  50% {
+    opacity: 1;
   }
-  
-  form input[type="text"] {
-    flex-grow: 1;
-    margin-right: 0.5rem;
+  100% {
+    opacity: 0.5;
   }
-  
-  form button {
-    margin-left: 0.5rem;
-  }
-  
-  .typing-indicator {
-    display: flex;
-    width: 45px;
-    height: 10px;
-  }
-  
-  .typing-indicator span {
-    display: flex;
-    width: 15px;
-    height: 10px;
-    margin-right: 4px;
-    border-radius: 50%;
-    background-color: #005c7d;
-    animation: typing 1.5s infinite;
-  }
-  
-  .typing-indicator span:nth-child(1) {
-    animation-delay: 0s;
-  }
-  
-  .typing-indicator span:nth-child(2) {
-    animation-delay: 0.5s;
-  }
-  
-  .typing-indicator span:nth-child(3) {
-    animation-delay: 1s;
-  }
-  
-  @keyframes typing {
-    0% {
-      opacity: 0.5;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0.5;
-    }
-  }
-  
+}

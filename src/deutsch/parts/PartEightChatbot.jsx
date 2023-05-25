@@ -45,12 +45,12 @@ const PartEightChatbot = () => {
   const generateChatbotResponse = (userMessage) => {
     // Predefined responses or language resources
     const responseMapping = {
-      'hello': 'Hello! How can I help you?',
-      'name': 'My name is Chatbot. Nice to meet you!',
-      'how are you': 'I am doing well, thank you. How about you?',
-      'fine': 'That\'s great to hear!',
-      'thank you': 'You\'re welcome!',
-      'default': 'I\'m sorry, but I don\'t understand. Can you please rephrase or ask a different question?',
+      'hallo': 'Hallo, wie kann ich Ihnen helfen?',
+      'name': 'Mein Name ist Chatbot, Freut mich, Sie kennenzulernen!',
+      'wie geht es Ihnen': 'Es geht mir gut, danke. Und du?',
+      'gut': 'Das ist schön zu hören!',
+      'danke': 'Gern geschehen!',
+      'default': 'Es tut mir leid, aber ich verstehe es nicht. Können Sie die Frage bitte umformulieren oder eine andere Frage stellen?',
     };
 
     // Convert user message to lowercase for case-insensitive matching
@@ -66,27 +66,32 @@ const PartEightChatbot = () => {
   };
 
   useEffect(() => {
-    // Scroll to the top of the chat history section
-    chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
+    const chatHistoryElement = chatHistoryRef.current;
+    chatHistoryElement.scrollTop = chatHistoryElement.scrollHeight;
   }, [chatHistory]);
 
   return (
     <div className="part-eight-container">
       <div className="chat-history" ref={chatHistoryRef}>
-        {chatHistory.map((chat, index) => (
-          <div
-            key={index}
-            className={`chat-message ${chat.sender === 'user' ? 'user' : 'chatbot'}`}
-          >
-            {chat.sender === 'user' && (
-              <span className="user-name">{chat.name}: </span>
-            )}
-            {chat.sender === 'chatbot' && (
-              <span className="chatbot-name">{chat.name}: </span>
-            )}
-            {chat.message}
-          </div>
-        ))}
+        <div className="chat-messages">
+          {chatHistory.map((chat, index) => {
+            const isUser = chat.sender === 'user';
+
+            return (
+              <div
+                key={index}
+                className={`chat-message ${isUser ? 'user' : 'chatbot'}`}
+              >
+                {isUser ? (
+                  <span className="user-name">{chat.name}: </span>
+                ) : (
+                  <span className="chatbot-name">{chat.name}: </span>
+                )}
+                {chat.message}
+              </div>
+            );
+          })}
+        </div>
         {isChatbotTyping && (
           <div className="chat-message chatbot">
             <span className="typing-indicator">
