@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import textAudio from '../sounds/textAudio.mp3'
+import vorstellung from '../sounds/vorstellung.mp3'
 
 
 
@@ -31,7 +32,7 @@ const PartSeven = () => {
   const findHighlightedIndex = () => {
     const words = text.split(' ');
 
-    const totalDuration = 7; // Total duration in seconds
+    const totalDuration = 30; // Total duration in seconds
     const wordDuration = totalDuration / words.length;
 
     let totalTime = 0;
@@ -66,8 +67,8 @@ const PartSeven = () => {
     setIsPlaying(!isPlaying);
   };
 
-  const text = "Hallo! Mein Name ist Anna. Ich komme aus Deutschland. Ich spreche Deutsch und Englisch. Tschüss!";
-  const audioSrc = {textAudio};
+  const text = "Hallo.-Hallo. Wie geht es Ihnen?-Mir geht es gut. Dankeschön und Ihnen? Mir geht es auch gut, danke. -Ich habe eine Frage. Bitte!-Wie heißen Sie?Ich heiße Ali und wie heißen Sie?-Ich heiße Lisa. Woher kommen Sie Ali?Ich komme aus Syrien und Sie?-Ich komme aus Deutschland";
+  const audioSrc = {vorstellung};
 
   return (
     <div>
@@ -86,7 +87,7 @@ const PartSeven = () => {
       </p>
       <audio
         id="audio"
-        src={textAudio}
+        src={vorstellung}
         onEnded={() => {
           setIsPlaying(false);
           setHighlightedIndex(text.split(' ').length - 1);

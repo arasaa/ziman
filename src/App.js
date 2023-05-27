@@ -27,8 +27,10 @@ function App() {
     <PartSex /> 
     <PartSeven />
     <Lessons />
-    */}
-    <PartEightChatbot />
+    
+    <PartEightChatbot />*/}
+    <PartSeven />
+    <PartFiveAudio />
 
     </div>
   );
