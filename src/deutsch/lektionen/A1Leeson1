@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import "./lektion.css"
 import LektionEins from './lektionen/LektionEins';
 
 const A1Leeson1 = () => {

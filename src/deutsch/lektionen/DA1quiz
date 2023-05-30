@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+{/**import React,{useState} from 'react'
 import DA1FlaschCard from './DA1FlaschCard';
 import Lessons from './Lessons';
 
@@ -28,3 +28,4 @@ const DA1quiz = (props) => {
 }
 
 export default DA1quiz
+*/}

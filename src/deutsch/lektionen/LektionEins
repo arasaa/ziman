@@ -1,4 +1,4 @@
-import React from 'react'
+{/**import React from 'react'
 import EmblaCarousel from './EmblaCarousel';
 
 
@@ -15,3 +15,4 @@ const LektionEins = () => {
 }
 
 export default LektionEins
+*/}

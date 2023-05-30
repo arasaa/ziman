@@ -1,10 +1,10 @@
 /* import logo from './logo.svg'; */
 import React from 'react';
-import Chatbot from 'react-chatbot-kit';
+//import Chatbot from 'react-chatbot-kit';
 import './App.css';
-import config from './chatBot/config';
-import ActionProvider from './chatBot/ActionProvider';
-import MessageParser from './chatBot/MessageParser';
+//import config from './chatBot/config';
+//import ActionProvider from './chatBot/ActionProvider';
+//import MessageParser from './chatBot/MessageParser';
 import PartFiveAudio from './deutsch/parts/PartFiveAudio';
 import PartSex from './deutsch/parts/PartSex';
 import PartSeven from './deutsch/parts/partSeven';
@@ -13,24 +13,32 @@ import Lessons from './deutsch/Lessons';
 import PartEightChatbot from '../src/deutsch/parts/PartEightChatbot';
 
 
-function App() {
-  return (
-    <div className="App">
-     
-      <div style={{maxWidth: "300px"}}>
+{/**
+
+     <div style={{maxWidth: "300px"}}>
         <Chatbot config={config} 
         messageParser={MessageParser}
         actionProvider={ActionProvider}
         />
-      </div>
+        </div>
+
+
+*/}
+
+function App() {
+  return (
+    <div className="#">
+     
+     <Lessons />
+      
   {/**  <PartFiveAudio />
     <PartSex /> 
     <PartSeven />
-    <Lessons />
-    
-    <PartEightChatbot />*/}
-    <PartSeven />
+   
+     <PartSeven />
     <PartFiveAudio />
+    <PartEightChatbot />*/}
+   
 
     </div>
   );

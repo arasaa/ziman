@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import A1Leeson1 from './A1Leeson1';
 //import A1Eins from './A1/A1Eins';
 import PartOne from './parts/PartOne';
 import './lessons.css'
@@ -33,6 +32,7 @@ const Lessons = () => {
       <div className='lessons-partOne-container'>
         <button onClick={showA1} onChange={onClick} className='add-button'>A1</button>
         
+        
         {
           show && (<PartOne />)
         }
@@ -43,3 +43,4 @@ const Lessons = () => {
 }
 
 export default Lessons
+

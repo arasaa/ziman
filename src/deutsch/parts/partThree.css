@@ -4,10 +4,10 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 94.8rem;
+    width: 100%;
     border-radius: 4PX;
     box-shadow: 1px 1px 4px 4px rgb(123, 126, 151);
-    background-color: #a3b108;
+    background-color: #0821b1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -17,25 +17,20 @@
     flex-direction: column;
     align-items: center;
     gap: 60px;
-    background-color: blue;
-    width: 80%;
-    height: 90%;
 }
 .wortschatzWrapper{
-    background: radial-gradient(#272727, #1b1b1b);
+  margin-top: -15rem;
     display: grid;
     grid-template-areas: 'overlap';
     place-content: center;
     text-transform: uppercase;
-    height: 40vh;
     width: fit-content;
     block-size: fit-content;
-    box-shadow: 20px 20px 20px hsl(239, 91%, 54%);
 }
 .wortschatzWrapper > div {
     background-clip: text;  
     -webkit-background-clip: text;
-    color: #363833;
+    color: #087bff;
     font-family: 'Poppins', sans-serif;
     font-weight: 900;
     font-size: clamp( 3em, 2vw, 14rem);
@@ -49,16 +44,15 @@
     #3e2904 5%,
       #ffb338 12%);
     color: transparent;
-    filter: drop-shadow(5px 15px 15px black);
     transform: scaleY(1.05);
     transform-origin: top;
   }
  div.wortschatTow{
     background-image: repeating-linear-gradient( 5deg,  
-    #ffb338 0% , 
-    #77571d 23%, 
-      #ffb338 31%);
-    color: #1e2127;
+    #38b6ff 0% , 
+    #0f80d6 23%, 
+      #38acff 31%);
+    color: #042b79;
     transform: scale(1);
   }
 

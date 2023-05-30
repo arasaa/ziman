@@ -77,6 +77,10 @@ const PartThree = () => {
 
   return (
     <div className="part-three-container">
+       <div className='wortschatzWrapper'>
+          <div className='wortschatOne'>Wortschatztest</div>
+          <div className='wortschatTow'>Wortschatztest</div>
+          </div>
       {currentWordIndex === words.length ? (
         <>
           <h2>Quiz beendet!</h2>
@@ -85,10 +89,7 @@ const PartThree = () => {
         </>
       ) : (
         <div className='quiz-container'>
-          <div className='wortschatzWrapper'>
-          <div className='wortschatOne'>Wortschatztest</div>
-          <div className='wortschatTow'>Wortschatztest</div>
-          </div>
+         
           <div className='punkte-wort'>
           <p className='punkt-wort'>Punkt: {score}/{words.length}</p>
           <p className='punkt-wort'>  Wort: {currentWordIndex + 1}/ {words.length}</p>
