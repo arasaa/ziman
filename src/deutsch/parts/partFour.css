@@ -43,6 +43,16 @@
   .wrong-answer {
     background-color: red;
   }
+  .gam{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    position: relative;
+    top: 5rem;
+}
+  
   .game-over{
     font-size: 2rem;
     font-weight: bolder;
@@ -62,7 +72,8 @@
     overflow: hidden;
     transition: 0.5s;
     cursor: pointer;
-    width: 220px;
+    width: 300px;
+
   }
   
   .gam-over-button:hover{

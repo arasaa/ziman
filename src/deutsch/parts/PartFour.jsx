@@ -125,8 +125,8 @@ const PartFour = () => {
 
   return (
     <div className='part-four-container'>
-      <div>
-          <p className='bedeutung-container' key={0}>{currentMeaning}</p>
+      <div className='bedeutung-container'>
+          <p  key={0}>{currentMeaning}</p>
       </div>
 
       {!gameOver && (
@@ -224,7 +224,7 @@ const PartFour = () => {
 </div>)}
 
         {gameOver && (
-      <div >
+      <div className='gam'>
         <p className='game-over'>Spiel ist aus</p>
       <button className='gam-over-button' onClick={handleRefreshClick}>nochmal abspielen</button>
        
