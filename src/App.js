@@ -11,6 +11,7 @@ import PartSeven from './deutsch/parts/partSeven';
 //import text from '../src/deutsch/sounds/text.mp3'
 import Lessons from './deutsch/Lessons';
 import PartEightChatbot from '../src/deutsch/parts/PartEightChatbot';
+import PartFour from './deutsch/parts/PartFour';
 
 
 {/**
@@ -28,10 +29,11 @@ import PartEightChatbot from '../src/deutsch/parts/PartEightChatbot';
 function App() {
   return (
     <div className="#">
-     
      <Lessons />
+
       
   {/**  <PartFiveAudio />
+   * 
     <PartSex /> 
     <PartSeven />
    

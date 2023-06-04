@@ -12,14 +12,9 @@
     justify-content: center;
     align-items: center;
 }
-.quiz-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 60px;
-}
+
 .wortschatzWrapper{
-  margin-top: -15rem;
+  margin-top: -10rem;
     display: grid;
     grid-template-areas: 'overlap';
     place-content: center;
@@ -55,7 +50,13 @@
     color: #042b79;
     transform: scale(1);
   }
-
+  .quiz-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    margin-top: 8rem;
+}
   .punkte-wort{
     display: flex;
     justify-content: center;
@@ -64,7 +65,9 @@
     font-size: 1.7rem;
   }
 .punkt-wort{
-  background: radial-gradient(#3e3e3e, #1b1b1b);
+  background: radial-gradient(#223aed, #0e6779);
+  color: rgb(164, 163, 161);
+  border-radius: 5px;
   place-content: center;
   text-transform: uppercase;
   width: fit-content;
