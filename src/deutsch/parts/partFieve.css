@@ -1,11 +1,61 @@
 .part-fieve-container{
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 2rem;
-    margin-top: 200px;
-    border: 2px red solid;
-    width: 500px;
-    height: 400px;
+    border: 2px rgb(88, 6, 6) solid;
+    width: 100%;
+    height: 100%;
+    margin-top: -11.8rem;
+    background-color: #002db3;
 }
+.wor-play-container{
+    width: 35rem;
+    height: 30rem;
+    box-shadow: 16px 14px 20px #1c04738c;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    
+}
+.audio-word{
+    position: relative;
+    bottom: 3rem;
+    box-shadow: rgba(165, 194, 3, 0.4) 5px 5px, rgba(145, 5, 94, 0.3) 10px 10px, rgba(46, 185, 240, 0.2) 15px 15px, rgba(246, 4, 72, 0.1) 20px 20px, rgba(4, 254, 62, 0.05) 25px 25px;
+    font-size: 3rem;
+}
+
+.audio-play-button{
+
+}
+.audio-play-button {
+    border: 0;
+    background: transparent;
+    box-sizing: border-box;
+    width: 0;
+    height: 74px;
+  
+    border-color: transparent transparent transparent #202020;
+    transition: 100ms all ease;
+    cursor: pointer;
+  
+     /* play state*/
+    border-style: solid;
+    border-width: 37px 0 37px 60px;
+  
+    &.paused {
+      border-style: double;
+      border-width: 0px 0 0px 60px;
+    }
+  
+    &:hover {
+      border-color: transparent transparent transparent #404040;
+    }
+   
+   
+  }
