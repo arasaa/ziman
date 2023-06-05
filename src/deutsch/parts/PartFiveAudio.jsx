@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './partFieve.css';
+import PartSex from './PartSex';
 import hallo from '../sounds/hallo.mp3';
 import aufWiederSehen from '../sounds/aufWiederSehen.mp3';
 import gutenAbend from '../sounds/gutenAbend.mp3';
@@ -14,6 +15,7 @@ const PartFiveAudio = () => {
   const [count, setCount] = useState(0);
   const [isPaused, setIsPaused] = useState(true);
   const [audio, setAudio] = useState(null);
+  const [showPartSex, setShowPartSex] = useState(false);
 
   const audioList = [
     { path: hallo, word: 'hallo' },
@@ -29,8 +31,10 @@ const PartFiveAudio = () => {
 
   const handleNext = () => {
     if (count < audioList.length - 1) {
-      setCount((count) => count + 1);
+      setCount(count + 1);
       setIsPaused(true);
+    } else {
+      setShowPartSex(true);
     }
   };
 
@@ -43,7 +47,7 @@ const PartFiveAudio = () => {
       setAudio(newAudio);
     }
 
-    if (audio.paused) {
+    if (isPaused) {
       audio.play();
       setIsPaused(false);
     } else {
@@ -70,18 +74,35 @@ const PartFiveAudio = () => {
     };
   }, [audio]);
 
+  useEffect(() => {
+    const handleAudioEnded = () => {
+      setIsPaused(true);
+    };
+
+    if (audio) {
+      audio.addEventListener('ended', handleAudioEnded);
+      return () => {
+        audio.removeEventListener('ended', handleAudioEnded);
+      };
+    }
+  }, [audio]);
+
+  if (showPartSex) {
+    return <PartSex />;
+  }
+
   return (
     <div className='part-fieve-container'>
       <div className='wor-play-container'>
         <p className='audio-word'>{audioList[count].word}</p>
         <button
-          className={`audio-play-button ${audio && audio.paused ? 'play' : 'paused'}`}
+          className={`audio-play-button ${isPaused ? 'play' : 'paused'}`}
           onClick={playAudio}
         >
-          {audio && audio.paused ? 'Play' : 'Pause'}
+          <span className='abspielen'> {isPaused ? 'abspielen' : ''}</span>
         </button>
-        <button className='audio-next-button' onClick={handleNext}>
-          Next
+        <button className='audio-next-button audio-next-button1' onClick={handleNext}>
+        <span className=' audio-next-button1'>nächste{count === audioList.length - 1 ? 'Next' : ''} </span> 
         </button>
       </div>
     </div>
