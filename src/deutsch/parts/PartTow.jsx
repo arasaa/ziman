@@ -68,23 +68,3 @@ const PartTow = ({handleFinish}) => {
 }
 
 export default PartTow
-
-
-{ /**   <div className='part-tow-container'>
-     <div className='elements-container' >
-      <img className='image-container' src={currentImage.src} alt={`imgData ${currentImage.id}`} />
-      <p className='word-container'>{currentImage.word}</p>
-    <p>{currentImage.bedeutung}</p>
-     </div>
-     <div className='partTow-button-container'>
-      {currentIndex < imagesData.length - 1 && (
-        <button onClick={handelNextClick}>next</button>
-      )}
-     {currentIndex === imagesData.length -1 && (
-      <p>could add button here</p>,
-      <button onClick={handlePartThree}>quiz</button>
-     )}
-    
-      </div>
-    
-      </div>  */}

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './partFour.css';
-//import words from '../data/words';
-//import wordsPartFour from '../data/wordsPartFour';
-//import fou from '../data/fou';
-
+import PartFiveAudio from './PartFiveAudio';
 const PartFour = () => {
   const [boxPosition, setBoxPosition] = useState({ x: 5, y: 3 });
   const containerSize = { width: 350, height: 400 };
@@ -72,20 +69,23 @@ const PartFour = () => {
 
 
 
-  useEffect(() => {
-    if (!gameOver) {
-      const intervalId = setInterval(() => {
-        const maxX = containerSize.width - boxSize.width;
-        const maxY = containerSize.height - boxSize.height;
-        const nextX = Math.floor(Math.random() * maxX);
-        const nextY = Math.floor(Math.random() * maxY);
-        setBoxPosition({ x: nextX, y: nextY });
-      }, 16000);
-      return () => clearInterval(intervalId);
-    }
-  }, [gameOver]);
+useEffect(() => {
+  if (gameOver) {
+    // Clear the interval if the game is over
+    return;
+  }
 
-  console.log("Current word index:", currentWordIndex);
+  const intervalId = setInterval(() => {
+    const maxX = containerSize.width - boxSize.width;
+    const maxY = containerSize.height - boxSize.height;
+    const nextX = Math.floor(Math.random() * maxX);
+    const nextY = Math.floor(Math.random() * maxY);
+    setBoxPosition({ x: nextX, y: nextY });
+  }, 1000);
+
+  // Cleanup function to clear the interval when the component unmounts
+  return () => clearInterval(intervalId);
+}, [gameOver, containerSize, boxSize]);
 
   const currentWord = fou[currentWordIndex]
   const currentMeaning = currentWord?.bedeutung[0];
@@ -108,9 +108,6 @@ const PartFour = () => {
     }
   }
 };
-
-
-  //const currectWord = box.getAttribute('data-word');
   
   
   const handleRefreshClick = () => {
@@ -120,6 +117,12 @@ const PartFour = () => {
     setCurrentWordIndex(0);
     
   }; 
+
+  const [renderPartFiveAudio, setRenderPartFiveAudio] = useState(false);
+
+  const handleRenderPartFiveAudio = () => {
+    setRenderPartFiveAudio(true);
+  };
 
   
 
@@ -227,11 +230,20 @@ const PartFour = () => {
       <div className='gam'>
         <p className='game-over'>Spiel ist aus</p>
       <button className='gam-over-button' onClick={handleRefreshClick}>nochmal abspielen</button>
-       
+      
       </div>
       )}
 
+{gameOver && (
+        <div className='render-part-five'>
+          <button className='render-part-five-button' onClick={handleRenderPartFiveAudio}>Render PartFiveAudio</button>
+          {renderPartFiveAudio && <PartFiveAudio />}
+        </div>
+      )}
+
     </div>
+
+    
   );
 };
 

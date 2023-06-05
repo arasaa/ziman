@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-//import A1Eins from './A1/A1Eins';
 import PartOne from './parts/PartOne';
 import './lessons.css'
 

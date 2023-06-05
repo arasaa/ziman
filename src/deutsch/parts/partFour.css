@@ -86,6 +86,18 @@
                   0 0 200px #03e9f4;
        -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
   }
+
+  .render-part-five{
+    background-color: #03e9f4;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 25rem;
+    left: 38rem;
+    width: 300px;
+    
+  }
   
   .hallo {
     display: flex;
