@@ -236,7 +236,7 @@ useEffect(() => {
 
 {gameOver && (
         <div className='render-part-five'>
-          <button className='render-part-five-button' onClick={handleRenderPartFiveAudio}>Render PartFiveAudio</button>
+          <button className='render-part-five-button' onClick={handleRenderPartFiveAudio}>nächste</button>
           {renderPartFiveAudio && <PartFiveAudio />}
         </div>
       )}
