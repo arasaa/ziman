@@ -516,4 +516,21 @@ function PartSex() {
 
 export default PartSex;
 
+
+/////////////////////
+ <div className='modul-container'>
+
+      <div className='modul-details'>   
+      <p class="information">" Let's spread the joy 
+      , here is Christmas , the most awaited day of the year.
+      Christmas Tree is what one need the most. 
+      Here is the correct tree which will enhance your Christmas.
+      </p>
+      </div>
+      <div class="modul-image">
+	
+        <img src={gutenMorgen} alt="morgen"></img>
+        </div>
+       </div>
+
 */}

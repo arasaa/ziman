@@ -13,26 +13,27 @@ function PartSex() {
     // Add more div objects as needed
   ]);
 
-// Event handler for when the mouse button is pressed on a draggable element
-const handleMouseDown = (event, id) => {
-  const index = divs.findIndex((div) => div.id === id);
-  const updatedDivs = [...divs];
-  const targetElement = event.target;
+  const [isPopUpVisible, setIsPopUpVisible] = useState(false);
 
-  if (targetElement.classList.contains(`div-${id}`)) {
-    const audio = new Audio(updatedDivs[index].path);
-    audio.play();
-    updatedDivs[index].isDragging = true;
-    updatedDivs[index].dragStartPos = {
-      x: event.clientX - updatedDivs[index].position.x,
-      y: event.clientY - updatedDivs[index].position.y,
-    };
-    setDivs(updatedDivs);
+  // Event handler for when the mouse button is pressed on a draggable element
+  const handleMouseDown = (event, id) => {
+    const index = divs.findIndex((div) => div.id === id);
+    const updatedDivs = [...divs];
+    const targetElement = event.target;
 
-    document.addEventListener('mouseup', () => handleMouseUp(id), { once: true });
-  }
-};
+    if (targetElement.classList.contains(`div-${id}`)) {
+      const audio = new Audio(updatedDivs[index].path);
+      audio.play();
+      updatedDivs[index].isDragging = true;
+      updatedDivs[index].dragStartPos = {
+        x: event.clientX - updatedDivs[index].position.x,
+        y: event.clientY - updatedDivs[index].position.y,
+      };
+      setDivs(updatedDivs);
 
+      document.addEventListener('mouseup', () => handleMouseUp(id), { once: true });
+    }
+  };
 
   // Check if the draggable element is over the icon
   const isOverIcon = (position) => {
@@ -89,6 +90,7 @@ const handleMouseDown = (event, id) => {
       if (div.text === dragText && !div.isMatched) {
         if (dragText === dataWord) {
           alert('Match!');
+          setIsPopUpVisible(true); // Show the pop-up container
           return { ...div, isMatched: true };
         } else {
           alert('Not a match!');
@@ -109,6 +111,10 @@ const handleMouseDown = (event, id) => {
   const handleClick = (path) => {
     const audio = new Audio(path);
     audio.play();
+  };
+
+  const handleClosePopUp = () => {
+    setIsPopUpVisible(false); // Hide the pop-up container
   };
 
   return (
@@ -158,6 +164,24 @@ const handleMouseDown = (event, id) => {
           />
         )}
       </div>
+
+      {/* Render the pop-up container */}
+      {isPopUpVisible && (
+        <div className="modul-container">
+          <div className="modul-details">
+            <p className="information">
+              " Let's spread the joy, here is Christmas, the most awaited day of the year.
+              Christmas Tree is what one need the most. Here is the correct tree which will enhance your Christmas."
+            </p>
+          </div>
+          <div className="modul-image">
+            <img src={gutenMorgen} alt="morgen" />
+          </div>
+          <button className="module-close-button" onClick={handleClosePopUp}>
+            Close
+          </button>
+        </div>
+      )}
     </div>
   );
 }
