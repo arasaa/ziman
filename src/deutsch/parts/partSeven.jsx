@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import textAudio from '../sounds/textAudio.mp3'
-import vorstellung from '../sounds/vorstellung.mp3'
+//import vorstellung from '../sounds/vorstellung.mp3'
 
 
 
@@ -68,7 +67,7 @@ const PartSeven = () => {
   };
 
   const text = "Hallo.-Hallo. Wie geht es Ihnen?-Mir geht es gut. Dankeschön und Ihnen? Mir geht es auch gut, danke. -Ich habe eine Frage. Bitte!-Wie heißen Sie?Ich heiße Ali und wie heißen Sie?-Ich heiße Lisa. Woher kommen Sie Ali?Ich komme aus Syrien und Sie?-Ich komme aus Deutschland";
-  const audioSrc = {vorstellung};
+  //const audioSrc = {vorstellung};
 
   return (
     <div>
@@ -87,7 +86,7 @@ const PartSeven = () => {
       </p>
       <audio
         id="audio"
-        src={vorstellung}
+        //src={vorstellung}
         onEnded={() => {
           setIsPlaying(false);
           setHighlightedIndex(text.split(' ').length - 1);

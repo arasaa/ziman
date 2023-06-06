@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './partFieve.css';
 import PartSex from './PartSex';
 import hallo from '../sounds/hallo.mp3';
-import aufWiederSehen from '../sounds/aufWiederSehen.mp3';
-import gutenAbend from '../sounds/gutenAbend.mp3';
-import gutenMorgen from '../sounds/gutenMorgen.mp3';
-import ichHeise from '../sounds/ichHeise.mp3';
-import gutenTag from '../sounds/gutenTag.mp3';
-import ichHeiseAli from '../sounds/ichHeiseAli.mp3';
-import wieGehtsIhnen from '../sounds/wieGehtsIhnen.mp3';
-import wieHeisenSie from '../sounds/wieHeisenSie.mp3';
+import wiederSehen from '../sounds/wiederSehen.mp3';
+import abend from '../sounds/abend.mp3';
+import morgen from '../sounds/morgen.mp3';
+import ichHeiße from '../sounds/ichHeiße.mp3';
+import tag from '../sounds/tag.mp3';
+import aliHeißen from '../sounds/aliHeißen.mp3';
+import gehtsIhen from '../sounds/gehtsIhen.mp3';
+import wieHeißen from '../sounds/wieHeißen.mp3';
 
 const PartFiveAudio = () => {
   const [count, setCount] = useState(0);
@@ -19,14 +19,14 @@ const PartFiveAudio = () => {
 
   const audioList = [
     { path: hallo, word: 'hallo' },
-    { path: gutenMorgen, word: 'guten Morgen' },
-    { path: gutenTag, word: 'guten Tag' },
-    { path: gutenAbend, word: 'guten Abend' },
-    { path: aufWiederSehen, word: 'auf wieder sehen' },
-    { path: wieGehtsIhnen, word: 'wie geht es Ihnen' },
-    { path: ichHeise, word: 'ich heiß' },
-    { path: ichHeiseAli, word: 'ich heiße Ali' },
-    { path: wieHeisenSie, word: 'wie heißen Sie?' },
+    { path: morgen, word: 'guten Morgen' },
+    { path: tag, word: 'guten Tag' },
+    { path: abend, word: 'guten Abend' },
+    { path: wiederSehen, word: 'auf wieder sehen' },
+    { path: gehtsIhen, word: 'wie geht es Ihnen' },
+    { path: ichHeiße, word: 'ich heiße' },
+    { path: aliHeißen, word: 'ich heiße Ali' },
+    { path: wieHeißen, word: 'wie heißen Sie?' },
   ];
 
   const handleNext = () => {

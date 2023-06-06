@@ -5,8 +5,8 @@ import gutenMorgen from '../data/image/gutenMorgen.png';
 
 function PartSex() {
   const [divs, setDivs] = useState([
-    { id: 1, isDragging: false, position: { x: 0, y: 0 }, text: 'Guten Morgen' },
-    { id: 2, isDragging: false, position: { x: 0, y: 0 }, text: 'Guten Tag' },
+    { id: 1, isDragging: false, position: { x: 800, y: 0 }, text: 'Guten Morgen', isMatched: false },
+    { id: 2, isDragging: false, position: { x: 500, y: 0 }, text: 'Guten Tag', isMatched: false },
     // Add more div objects as needed
   ]);
 
@@ -23,6 +23,21 @@ function PartSex() {
     document.addEventListener('mouseup', () => handleMouseUp(id), { once: true });
   };
 
+  const isOverIcon = (position) => {
+    const iconBounds = document.querySelector('.icon-container').getBoundingClientRect();
+    const draggableBounds = document.querySelector('.draggable-div').getBoundingClientRect();
+
+    const draggableCenterX = position.x + draggableBounds.width / 2;
+    const draggableCenterY = position.y + draggableBounds.height / 2;
+
+    return (
+      draggableCenterX >= iconBounds.left &&
+      draggableCenterX <= iconBounds.right &&
+      draggableCenterY >= iconBounds.top &&
+      draggableCenterY <= iconBounds.bottom
+    );
+  };
+
   const handleMouseMove = (event) => {
     const updatedDivs = divs.map((div) => {
       if (div.isDragging) {
@@ -31,16 +46,10 @@ function PartSex() {
           y: event.clientY - div.dragStartPos.y,
         };
 
-        const containerBounds = document.querySelector('.part-sex-container').getBoundingClientRect();
-        const elementBounds = document.querySelector(`.div-${div.id}`).getBoundingClientRect();
+        div.position = newPosition;
+        div.isOverIcon = isOverIcon(newPosition);
 
-        const maxX = containerBounds.width - elementBounds.width;
-        const maxY = containerBounds.height - elementBounds.height;
-
-        newPosition.x = Math.max(0, Math.min(newPosition.x, maxX));
-        newPosition.y = Math.max(0, Math.min(newPosition.y, maxY));
-
-        return { ...div, position: newPosition };
+        return div;
       }
       return div;
     });
@@ -61,11 +70,19 @@ function PartSex() {
 
   const handleDrop = (event, dataWord) => {
     const dragText = event.dataTransfer.getData('text');
-    if (dragText === dataWord) {
-      alert('Match!');
-    } else {
-      alert('Not a match!');
-    }
+    const updatedDivs = divs.map((div) => {
+      if (div.text === dragText && !div.isMatched) {
+        if (dragText === dataWord) {
+          alert('Match!');
+          return { ...div, isMatched: true };
+        } else {
+          alert('Not a match!');
+        }
+      }
+      return div;
+    });
+
+    setDivs(updatedDivs);
   };
 
   const handleDragStart = (event, text) => {
@@ -73,14 +90,11 @@ function PartSex() {
   };
 
   return (
-    <div
-      className="part-sex-container"
-      onMouseMove={handleMouseMove}
-    >
+    <div className="part-sex-container" onMouseMove={handleMouseMove}>
       {divs.map((div) => (
         <div
           key={div.id}
-          className={`draggable-div div-${div.id}`}
+          className={`draggable-div div-${div.id} ${div.isMatched ? 'matched' : ''}`}
           style={{
             position: 'absolute',
             left: div.position.x,
@@ -95,22 +109,26 @@ function PartSex() {
         </div>
       ))}
       <div className="icon-container">
-        <img
-          className="tag"
-          dataWord="Guten Tag"
-          src={gutenTag}
-          alt=""
-          onDragOver={(event) => event.preventDefault()}
-          onDrop={(event) => handleDrop(event, 'Guten Tag')}
-        />
-        <img
-          className="morgen"
-          dataWord="Guten Morgen"
-          src={gutenMorgen}
-          alt=""
-          onDragOver={(event) => event.preventDefault()}
-          onDrop={(event) => handleDrop(event, 'Guten Morgen')}
-        />
+        {!divs.find((div) => div.isMatched && div.text === 'Guten Tag') && (
+          <img
+            className="tag"
+            dataWord="Guten Tag"
+            src={gutenTag}
+            alt=""
+            onDragOver={(event) => event.preventDefault()}
+            onDrop={(event) => handleDrop(event, 'Guten Tag')}
+          />
+        )}
+        {!divs.find((div) => div.isMatched && div.text === 'Guten Morgen') && (
+          <img
+            className="morgen"
+            dataWord="Guten Morgen"
+            src={gutenMorgen}
+            alt=""
+            onDragOver={(event) => event.preventDefault()}
+            onDrop={(event) => handleDrop(event, 'Guten Morgen')}
+          />
+        )}
       </div>
     </div>
   );
