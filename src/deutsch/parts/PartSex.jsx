@@ -165,22 +165,25 @@ function PartSex() {
       </div>
 
       {isPopUpVisible && (
-        <div className="modal-container">
-          <div className="modal-details">
-            <p className="information">
-              " Let's spread the joy, here is Christmas, the most awaited day of the year.
-              Christmas Tree is what one need the most. Here is the correct tree which will enhance your Christmas."
-            </p>
-          </div>
-          <div className="modal-image">
-            <img src={gutenMorgen} alt="morgen" />
-          </div>
-          <button className="modal-close-button" onClick={handleClosePopUp}>
-            Close
-          </button>
-          <i class="fa fa-check-circle" aria-hidden="true"></i>
-        </div>
-      )}
+  <div className="modal-container">
+    <button className="modal-close-button" onClick={handleClosePopUp}>
+      <i className="fa fa-times fa-3x"></i>
+    </button>
+    <div className="modal-check-icon">
+      <i className="fa fa-check-circle fa-3x"></i>
+    </div>
+    <div className="modal-image">
+      <img src={gutenMorgen} alt="morgen" />
+    </div>
+    <div className="modal-details">
+      <p className="information">
+        "Let's spread the joy, here is Christmas, the most awaited day of the year.
+        Christmas Tree is what one needs the most. Here is the correct tree that will enhance your Christmas."
+      </p>
+    </div>
+  </div>
+)}
+
     </div>
   );
 }
