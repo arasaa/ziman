@@ -29,12 +29,12 @@ import PartFour from './deutsch/parts/PartFour';
 function App() {
   return (
     <div className="#">
-  <PartSex /> 
+  <PartSeven />
      <Lessons />
 
       
   {/**  <PartFiveAudio />
-   * 
+   * <PartSex /> 
    
     <PartSeven />
    

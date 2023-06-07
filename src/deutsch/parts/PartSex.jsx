@@ -144,7 +144,7 @@ function PartSex() {
       <div className="icon-container">
         {!divs.find((div) => div.isMatched && div.text === 'Guten Tag') && (
           <img
-            className="tag"
+            className="tag divs-icon"
             dataWord="Guten Tag"
             src={gutenTag}
             alt=""
@@ -154,7 +154,7 @@ function PartSex() {
         )}
         {!divs.find((div) => div.isMatched && div.text === 'Guten Morgen') && (
           <img
-            className="morgen"
+            className="morgen divs-icon"
             dataWord="Guten Morgen"
             src={gutenMorgen}
             alt=""

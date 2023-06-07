@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './partSeven.css'
 //import vorstellung from '../sounds/vorstellung.mp3'
 
 
@@ -66,12 +67,20 @@ const PartSeven = () => {
     setIsPlaying(!isPlaying);
   };
 
-  const text = "Hallo.-Hallo. Wie geht es Ihnen?-Mir geht es gut. Dankeschön und Ihnen? Mir geht es auch gut, danke. -Ich habe eine Frage. Bitte!-Wie heißen Sie?Ich heiße Ali und wie heißen Sie?-Ich heiße Lisa. Woher kommen Sie Ali?Ich komme aus Syrien und Sie?-Ich komme aus Deutschland";
+  const text = `Hallo.
+-Hallo, Wie geht es Ihnen?
+Mir geht es gut. Dankeschön und Ihnen? Mir geht es auch gut, danke.
+-Ich habe eine Frage. Bitte!
+ Wie heißen Sie? Ich heiße Ali und wie heißen Sie?
+-Ich heiße Lisa.
+ Woher kommen Sie Ali? Ich komme aus Syrien und Sie?
+-Ich komme aus Deutschland`;
+
   //const audioSrc = {vorstellung};
 
   return (
-    <div>
-      <p>
+    <div className='part-seven-container'>
+      <p className='text-container'>
         {text.split(' ').map((word, index) => (
           <span
             key={index}
@@ -92,7 +101,7 @@ const PartSeven = () => {
           setHighlightedIndex(text.split(' ').length - 1);
         }}
       ></audio>
-      <button onClick={handlePlayPause}>{isPlaying ? 'Pause' : 'Play'}</button>
+      <button className='audio-button' onClick={handlePlayPause}>{isPlaying ? 'Pause' : 'Play'}</button>
     </div>
   );
 };
