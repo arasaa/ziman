@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './partSex.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 import gutenTag from '../data/image/gutenTag.png';
 import tag from '../sounds/tag.mp3';
 import gutenMorgen from '../data/image/gutenMorgen.png';
 import morgen from '../sounds/morgen.mp3';
 
 function PartSex() {
-  // Define the state for the draggable elements
   const [divs, setDivs] = useState([
     { id: 1, isDragging: false, position: { x: 800, y: 0 }, text: 'Guten Morgen', path: morgen, isMatched: false },
     { id: 2, isDragging: false, position: { x: 500, y: 0 }, text: 'Guten Tag', path: tag, isMatched: false },
-    // Add more div objects as needed
   ]);
 
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
 
-  // Event handler for when the mouse button is pressed on a draggable element
   const handleMouseDown = (event, id) => {
     const index = divs.findIndex((div) => div.id === id);
     const updatedDivs = [...divs];
@@ -30,12 +28,9 @@ function PartSex() {
         y: event.clientY - updatedDivs[index].position.y,
       };
       setDivs(updatedDivs);
-
-      document.addEventListener('mouseup', () => handleMouseUp(id), { once: true });
     }
   };
 
-  // Check if the draggable element is over the icon
   const isOverIcon = (position) => {
     const iconBounds = document.querySelector('.icon-container').getBoundingClientRect();
     const draggableBounds = document.querySelector('.draggable-div').getBoundingClientRect();
@@ -51,7 +46,6 @@ function PartSex() {
     );
   };
 
-  // Event handler for when the mouse is moved
   const handleMouseMove = (event) => {
     const updatedDivs = divs.map((div) => {
       if (div.isDragging) {
@@ -71,7 +65,6 @@ function PartSex() {
     setDivs(updatedDivs);
   };
 
-  // Event handler for when the mouse button is released
   const handleMouseUp = (id) => {
     const updatedDivs = divs.map((div) => {
       if (div.id === id) {
@@ -83,14 +76,13 @@ function PartSex() {
     setDivs(updatedDivs);
   };
 
-  // Event handler for when a draggable element is dropped on the icon
   const handleDrop = (event, dataWord) => {
     const dragText = event.dataTransfer.getData('text');
     const updatedDivs = divs.map((div) => {
       if (div.text === dragText && !div.isMatched) {
         if (dragText === dataWord) {
           alert('Match!');
-          setIsPopUpVisible(true); // Show the pop-up container
+          setIsPopUpVisible(true);
           return { ...div, isMatched: true };
         } else {
           alert('Not a match!');
@@ -102,24 +94,34 @@ function PartSex() {
     setDivs(updatedDivs);
   };
 
-  // Event handler for when a draggable element starts being dragged
   const handleDragStart = (event, text) => {
     event.dataTransfer.setData('text', text);
   };
 
-  // Event handler for playing audio when a draggable element is clicked
   const handleClick = (path) => {
     const audio = new Audio(path);
     audio.play();
   };
 
   const handleClosePopUp = () => {
-    setIsPopUpVisible(false); // Hide the pop-up container
+    setIsPopUpVisible(false);
   };
+
+  useEffect(() => {
+    const handleDocumentMouseUp = () => {
+      const updatedDivs = divs.map((div) => ({ ...div, isDragging: false }));
+      setDivs(updatedDivs);
+    };
+
+    document.addEventListener('mouseup', handleDocumentMouseUp);
+
+    return () => {
+      document.removeEventListener('mouseup', handleDocumentMouseUp);
+    };
+  }, [divs]);
 
   return (
     <div className="part-sex-container" onMouseMove={handleMouseMove}>
-      {/* Render the draggable elements */}
       {divs.map((div) => (
         <div
           key={div.id}
@@ -139,9 +141,7 @@ function PartSex() {
         </div>
       ))}
 
-      {/* Render the icon container */}
       <div className="icon-container">
-        {/* Render the Guten Tag icon if it hasn't been matched */}
         {!divs.find((div) => div.isMatched && div.text === 'Guten Tag') && (
           <img
             className="tag"
@@ -152,7 +152,6 @@ function PartSex() {
             onDrop={(event) => handleDrop(event, 'Guten Tag')}
           />
         )}
-        {/* Render the Guten Morgen icon if it hasn't been matched */}
         {!divs.find((div) => div.isMatched && div.text === 'Guten Morgen') && (
           <img
             className="morgen"
@@ -165,21 +164,21 @@ function PartSex() {
         )}
       </div>
 
-      {/* Render the pop-up container */}
       {isPopUpVisible && (
-        <div className="modul-container">
-          <div className="modul-details">
+        <div className="modal-container">
+          <div className="modal-details">
             <p className="information">
               " Let's spread the joy, here is Christmas, the most awaited day of the year.
               Christmas Tree is what one need the most. Here is the correct tree which will enhance your Christmas."
             </p>
           </div>
-          <div className="modul-image">
+          <div className="modal-image">
             <img src={gutenMorgen} alt="morgen" />
           </div>
-          <button className="module-close-button" onClick={handleClosePopUp}>
+          <button className="modal-close-button" onClick={handleClosePopUp}>
             Close
           </button>
+          <i class="fa fa-check-circle" aria-hidden="true"></i>
         </div>
       )}
     </div>
