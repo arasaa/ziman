@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import TowPSex from './TowPSex';
 import './partSex.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import gutenTag from '../data/image/gutenTag.png';
@@ -7,7 +6,8 @@ import tag from '../sounds/tag.mp3';
 import gutenMorgen from '../data/image/gutenMorgen.png';
 import morgen from '../sounds/morgen.mp3';
 
-function PartSex() {
+
+function TowPSex() {
   const [divs, setDivs] = useState([
     { id: 1, isDragging: false, position: { x: 800, y: 0 }, text: 'Guten Morgen', path: morgen, isMatched: false },
     { id: 2, isDragging: false, position: { x: 500, y: 0 }, text: 'Guten Tag', path: tag, isMatched: false },
@@ -121,10 +121,8 @@ function PartSex() {
     };
   }, [divs]);
 
-
-  const areAllMatched = divs.every((div) => div.isMatched);
   return (
-    <div className="part-sex-container" onMouseMove={handleMouseMove}>
+    <div className="tow-p-sex-container" onMouseMove={handleMouseMove}>
       {divs.map((div) => (
         <div
           key={div.id}
@@ -144,7 +142,7 @@ function PartSex() {
         </div>
       ))}
 
-<div className="icon-container">
+      <div className="icon-container">
         {!divs.find((div) => div.isMatched && div.text === 'Guten Tag') && (
           <img
             className="tag divs-icon"
@@ -168,29 +166,27 @@ function PartSex() {
       </div>
 
       {isPopUpVisible && (
-        <div className="modal-container">
-          <button className="modal-close-button" onClick={handleClosePopUp}>
-            <i className="fa fa-times fa-3x"></i>
-          </button>
-          <div className="modal-check-icon">
-            <i className="fa fa-check-circle fa-3x"></i>
-          </div>
-          <div className="modal-image">
-            <img src={gutenMorgen} alt="morgen" />
-          </div>
-          <div className="modal-details">
-            <p className="information">
-              "Let's spread the joy, here is Christmas, the most awaited day of the year.
-              Christmas Tree is what one needs the most. Here is the correct tree that will enhance your Christmas."
-            </p>
-          </div>
-        </div>
-      )}
+  <div className="modal-container">
+    <button className="modal-close-button" onClick={handleClosePopUp}>
+      <i className="fa fa-times fa-3x"></i>
+    </button>
+    <div className="modal-check-icon">
+      <i className="fa fa-check-circle fa-3x"></i>
+    </div>
+    <div className="modal-image">
+      <img src={gutenMorgen} alt="morgen" />
+    </div>
+    <div className="modal-details">
+      <p className="information">
+        "Let's spread the joy, here is Christmas, the most awaited day of the year.
+        Christmas Tree is what one needs the most. Here is the correct tree that will enhance your Christmas."
+      </p>
+    </div>
+  </div>
+)}
 
-      {/* Conditionally render TowPSex component */}
-      {areAllMatched && <TowPSex />}
     </div>
   );
 }
 
-export default PartSex;
+export default TowPSex;
