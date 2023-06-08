@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ThreePSex from './ThreePSex';
 import './partSex.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import gutenTag from '../data/image/gutenTag.png';
@@ -12,7 +13,9 @@ function FourPSex() {
     { id: 2, isDragging: false, position: { x: 500, y: 0 }, text: 'Guten Tag', path: tag, isMatched: false },
   ]);
 
-  const [isPopUpVisible, setIsPopUpVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [matchedWord, setMatchedWord] = useState('');
+  const [isLastModalClosed, setIsLastModalClosed] = useState(false);
 
   const handleMouseDown = (event, id) => {
     const index = divs.findIndex((div) => div.id === id);
@@ -81,8 +84,8 @@ function FourPSex() {
     const updatedDivs = divs.map((div) => {
       if (div.text === dragText && !div.isMatched) {
         if (dragText === dataWord) {
-          alert('Match!');
-          setIsPopUpVisible(true);
+          setMatchedWord(dragText);
+          setShowModal(true);
           return { ...div, isMatched: true };
         } else {
           alert('Not a match!');
@@ -103,10 +106,6 @@ function FourPSex() {
     audio.play();
   };
 
-  const handleClosePopUp = () => {
-    setIsPopUpVisible(false);
-  };
-
   useEffect(() => {
     const handleDocumentMouseUp = () => {
       const updatedDivs = divs.map((div) => ({ ...div, isDragging: false }));
@@ -120,8 +119,18 @@ function FourPSex() {
     };
   }, [divs]);
 
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  useEffect(() => {
+    if (!showModal && divs.every((div) => div.isMatched)) {
+      setIsLastModalClosed(true);
+    }
+  }, [showModal, divs]);
+
   return (
-    <div className="part-sex-container" onMouseMove={handleMouseMove}>
+    <div className="four-psex-container" onMouseMove={handleMouseMove}>
       {divs.map((div) => (
         <div
           key={div.id}
@@ -164,26 +173,18 @@ function FourPSex() {
         )}
       </div>
 
-      {isPopUpVisible && (
-  <div className="modal-container">
-    <button className="modal-close-button" onClick={handleClosePopUp}>
-      <i className="fa fa-times fa-3x"></i>
-    </button>
-    <div className="modal-check-icon">
-      <i className="fa fa-check-circle fa-3x"></i>
-    </div>
-    <div className="modal-image">
-      <img src={gutenMorgen} alt="morgen" />
-    </div>
-    <div className="modal-details">
-      <p className="information">
-        "Let's spread the joy, here is Christmas, the most awaited day of the year.
-        Christmas Tree is what one needs the most. Here is the correct tree that will enhance your Christmas."
-      </p>
-    </div>
-  </div>
-)}
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Match!</h2>
+            <p>The word "{matchedWord}" is matched.</p>
+            <img className="modal-img" src={matchedWord === 'Guten Morgen' ? gutenMorgen : gutenTag} alt={matchedWord} />
+            <button onClick={closeModal}>Close</button>
+          </div>
+        </div>
+      )}
 
+      {isLastModalClosed && <ThreePSex />}
     </div>
   );
 }

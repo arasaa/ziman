@@ -1,35 +1,416 @@
-import React, { useState, useEffect } from 'react';
-import TowPSex from './TowPSex';
+{/***
+
+import React, { useState } from 'react';
 import './partSex.css';
-import '@fortawesome/fontawesome-free/css/all.css';
 import gutenTag from '../data/image/gutenTag.png';
-import tag from '../sounds/tag.mp3';
 import gutenMorgen from '../data/image/gutenMorgen.png';
-import morgen from '../sounds/morgen.mp3';
+
+function PartSex() {
+  const [elements, setElements] = useState([
+    { id: 1, text: "Guten Morgen", dataWord: "Guten Morgen", position: { x: 0, y: 0 }, isDragging: false },
+    { id: 2, text: "Guten Tag", dataWord: "Guten Tag", position: { x: 0, y: 0 }, isDragging: false },
+  ]);
+
+  const [matchedElements, setMatchedElements] = useState([]);
+
+  const handleMouseDown = (event, element) => {
+    const { id, position } = element;
+    const offsetX = event.clientX - position.x;
+    const offsetY = event.clientY - position.y;
+
+    setElements((prevElements) =>
+      prevElements.map((el) => {
+        if (el.id === id) {
+          return { ...el, isDragging: true, offsetX, offsetY };
+        }
+        return el;
+      })
+    );
+  };
+
+  const handleMouseMove = (event, element) => {
+    const { id, isDragging, offsetX, offsetY } = element;
+
+    if (isDragging) {
+      const containerBounds = document.querySelector('.part-sex-container').getBoundingClientRect();
+      const elementBounds = document.getElementById(`element-${id}`).getBoundingClientRect();
+
+      const maxX = containerBounds.width - elementBounds.width;
+      const maxY = containerBounds.height - elementBounds.height;
+
+      const newPosition = {
+        x: event.clientX - offsetX,
+        y: event.clientY - offsetY,
+      };
+
+      newPosition.x = Math.max(0, Math.min(newPosition.x, maxX));
+      newPosition.y = Math.max(0, Math.min(newPosition.y, maxY));
+
+      setElements((prevElements) =>
+        prevElements.map((el) => {
+          if (el.id === id) {
+            return { ...el, position: newPosition };
+          }
+          return el;
+        })
+      );
+    }
+  };
+
+  const handleMouseUp = (element) => {
+    const { id } = element;
+
+    setElements((prevElements) =>
+      prevElements.map((el) => {
+        if (el.id === id) {
+          return { ...el, isDragging: false };
+        }
+        return el;
+      })
+    );
+
+    checkMatches(element);
+  };
+
+  const handleIconClick = (dataWord) => {
+    const matchedElement = elements.find(
+      (el) =>
+        el.dataWord === dataWord &&
+        !isElementMatched(el.id)
+    );
+
+    if (matchedElement) {
+      setMatchedElements((prevMatchedElements) => [...prevMatchedElements, matchedElement.id]);
+    } else {
+      alert('No match!');
+    }
+  };
+
+  const checkMatches = (element) => {
+    const matchedElement = elements.find(
+      (el) =>
+        el.id !== element.id &&
+        el.dataWord === element.dataWord &&
+        !isElementMatched(el.id)
+    );
+
+    if (matchedElement) {
+      setMatchedElements((prevMatchedElements) => [...prevMatchedElements, element.id, matchedElement.id]);
+    } else {
+      alert('No match!');
+    }
+  };
+
+  const isElementMatched = (elementId) => {
+    return matchedElements.includes(elementId);
+  };
+
+  return (
+    <div className="part-sex-container">
+      {elements.map((element) => (
+        <div
+          key={element.id}
+          id={`element-${element.id}`}
+          className={`draggable-element ${isElementMatched(element.id) ? 'matched' : ''}`}
+          style={{
+            position: 'absolute',
+            left: element.position.x,
+            top: element.position.y,
+            cursor: element.isDragging ? 'grabbing' : 'grab',
+          }}
+          onMouseDown={(event) => handleMouseDown(event, element)}
+          onMouseMove={(event) => handleMouseMove(event, element)}
+          onMouseUp={() => handleMouseUp(element)}
+        >
+          {element.text}
+        </div>
+      ))}
+      <div className="icon-container">
+        <img
+          className="tag"
+          dataWord="Guten Tag"
+          src={gutenTag}
+          alt=""
+          onClick={() => handleIconClick("Guten Tag")}
+        />
+        <img
+          className="morgen"
+          dataWord="Guten Morgen"
+          src={gutenMorgen}
+          alt=""
+          onClick={() => handleIconClick("Guten Morgen")}
+        />
+      </div>
+    </div>
+  );
+}
+
+
+
+******************************************
+import React, { useState } from 'react';
+import './partSex.css';
+import gutenTag from '../data/image/gutenTag.png';
+import gutenMorgen from '../data/image/gutenMorgen.png';
+
+function PartSex() {
+  const [isDragging, setIsDragging] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [dragStartPos, setDragStartPos] = useState({ x: 0, y: 0 });
+
+  const handleMouseDown = (event) => {
+    setIsDragging(true);
+    setDragStartPos({
+      x: event.clientX - position.x,
+      y: event.clientY - position.y,
+    });
+  };
+
+  const handleMouseMove = (event) => {
+    if (isDragging) {
+      const newPosition = {
+        x: event.clientX - dragStartPos.x,
+        y: event.clientY - dragStartPos.y,
+      };
+
+      const containerBounds = document.querySelector('.part-sex-container').getBoundingClientRect();
+      const elementBounds = document.querySelector('.hallo-h').getBoundingClientRect();
+
+      const maxX = containerBounds.width - elementBounds.width;
+      const maxY = containerBounds.height - elementBounds.height;
+
+      newPosition.x = Math.max(0, Math.min(newPosition.x, maxX));
+      newPosition.y = Math.max(0, Math.min(newPosition.y, maxY));
+
+      setPosition(newPosition);
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  return (
+    <div
+      className="part-sex-container"
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+    >
+      <div
+        className="hallo-h"
+        style={{
+          position: 'absolute',
+          left: position.x,
+          top: position.y,
+          cursor: isDragging ? 'grabbing' : 'grab',
+        }}
+        onMouseDown={handleMouseDown}
+      >
+        Drag me!
+      </div>
+      <div
+        className="tag"
+        style={{
+          position: 'absolute',
+          left: position.x,
+          top: position.y,
+          cursor: isDragging ? 'grabbing' : 'grab',
+        }}
+        onMouseDown={handleMouseDown}
+      >
+        Guten Tag
+      </div>
+
+      <div className="icon-container">
+        <img
+          className="tag"
+          dataWord="Guten Tag"
+          src={gutenTag}
+          alt=""
+        />
+        <img
+          className="morgen"
+          dataWord="Guten Morgen"
+          src={gutenMorgen}
+          alt=""
+        />
+      </div>
+    </div>
+  );
+}
+
+export default PartSex;
+
+
+export default PartSex;
+
+
+
+*/}
+
+
+
+
+
+
+
+
+
+
+//part sex origin 6.6.2023
+{/**import React, { useState } from 'react';
+import './partSex.css';
+import gutenTag from '../data/image/gutenTag.png';
+import gutenMorgen from '../data/image/gutenMorgen.png';
 
 function PartSex() {
   const [divs, setDivs] = useState([
-    { id: 1, isDragging: false, position: { x: 800, y: 0 }, text: 'Guten Morgen', path: morgen, isMatched: false },
-    { id: 2, isDragging: false, position: { x: 500, y: 0 }, text: 'Guten Tag', path: tag, isMatched: false },
+    { id: 1, isDragging: false, position: { x: 800, y: 0 }, text: 'Guten Morgen' },
+    { id: 2, isDragging: false, position: { x: 500, y: 0 }, text: 'Guten Tag' },
+    // Add more div objects as needed
   ]);
-
-  const [isPopUpVisible, setIsPopUpVisible] = useState(false);
 
   const handleMouseDown = (event, id) => {
     const index = divs.findIndex((div) => div.id === id);
     const updatedDivs = [...divs];
-    const targetElement = event.target;
+    updatedDivs[index].isDragging = true;
+    updatedDivs[index].dragStartPos = {
+      x: event.clientX - updatedDivs[index].position.x,
+      y: event.clientY - updatedDivs[index].position.y,
+    };
+    setDivs(updatedDivs);
 
-    if (targetElement.classList.contains(`div-${id}`)) {
-      const audio = new Audio(updatedDivs[index].path);
-      audio.play();
-      updatedDivs[index].isDragging = true;
-      updatedDivs[index].dragStartPos = {
-        x: event.clientX - updatedDivs[index].position.x,
-        y: event.clientY - updatedDivs[index].position.y,
-      };
-      setDivs(updatedDivs);
+    document.addEventListener('mouseup', () => handleMouseUp(id), { once: true });
+  };
+
+  const handleMouseMove = (event) => {
+    const updatedDivs = divs.map((div) => {
+      if (div.isDragging) {
+        const newPosition = {
+          x: event.clientX - div.dragStartPos.x,
+          y: event.clientY - div.dragStartPos.y,
+        };
+
+        const containerBounds = document.querySelector('.part-sex-container').getBoundingClientRect();
+        const elementBounds = document.querySelector(`.div-${div.id}`).getBoundingClientRect();
+
+        const maxX = containerBounds.width - elementBounds.width;
+        const maxY = containerBounds.height - elementBounds.height;
+
+        newPosition.x = Math.max(0, Math.min(newPosition.x, maxX));
+        newPosition.y = Math.max(0, Math.min(newPosition.y, maxY));
+
+        return { ...div, position: newPosition };
+      }
+      return div;
+    });
+
+    setDivs(updatedDivs);
+  };
+
+  const handleMouseUp = (id) => {
+    const updatedDivs = divs.map((div) => {
+      if (div.id === id) {
+        return { ...div, isDragging: false };
+      }
+      return div;
+    });
+
+    setDivs(updatedDivs);
+  };
+
+  const handleDrop = (event, dataWord) => {
+    const dragText = event.dataTransfer.getData('text');
+    if (dragText === dataWord) {
+      alert('Match!');
+    } else {
+      alert('Not a match!');
     }
+  };
+
+  const handleDragStart = (event, text) => {
+    event.dataTransfer.setData('text', text);
+  };
+
+  return (
+    <div
+      className="part-sex-container"
+      onMouseMove={handleMouseMove}
+    >
+      {divs.map((div) => (
+        <div
+          key={div.id}
+          className={`draggable-div div-${div.id}`}
+          style={{
+            position: 'absolute',
+            left: div.position.x,
+            top: div.position.y,
+            cursor: div.isDragging ? 'grabbing' : 'grab',
+          }}
+          draggable
+          onDragStart={(event) => handleDragStart(event, div.text)}
+          onMouseDown={(event) => handleMouseDown(event, div.id)}
+        >
+          {div.text}
+        </div>
+      ))}
+      <div className="icon-container">
+        <img
+          className="tag"
+          dataWord="Guten Tag"
+          src={gutenTag}
+          alt=""
+          onDragOver={(event) => event.preventDefault()}
+          onDrop={(event) => handleDrop(event, 'Guten Tag')}
+        />
+        <img
+          className="morgen"
+          dataWord="Guten Morgen"
+          src={gutenMorgen}
+          alt=""
+          onDragOver={(event) => event.preventDefault()}
+          onDrop={(event) => handleDrop(event, 'Guten Morgen')}
+        />
+      </div>
+    </div>
+  );
+}
+
+export default PartSex;
+
+
+
+
+
+
+
+
+
+
+
+import React, { useState } from 'react';
+import './partSex.css';
+import gutenTag from '../data/image/gutenTag.png';
+import gutenMorgen from '../data/image/gutenMorgen.png';
+
+function PartSex() {
+  const [divs, setDivs] = useState([
+    { id: 1, isDragging: false, position: { x: 800, y: 0 }, text: 'Guten Morgen' },
+    { id: 2, isDragging: false, position: { x: 500, y: 0 }, text: 'Guten Tag' },
+    // Add more div objects as needed
+  ]);
+
+  const handleMouseDown = (event, id) => {
+    const index = divs.findIndex((div) => div.id === id);
+    const updatedDivs = [...divs];
+    updatedDivs[index].isDragging = true;
+    updatedDivs[index].dragStartPos = {
+      x: event.clientX - updatedDivs[index].position.x,
+      y: event.clientY - updatedDivs[index].position.y,
+    };
+    setDivs(updatedDivs);
+
+    document.addEventListener('mouseup', () => handleMouseUp(id), { once: true });
   };
 
   const isOverIcon = (position) => {
@@ -79,56 +460,25 @@ function PartSex() {
 
   const handleDrop = (event, dataWord) => {
     const dragText = event.dataTransfer.getData('text');
-    const updatedDivs = divs.map((div) => {
-      if (div.text === dragText && !div.isMatched) {
-        if (dragText === dataWord) {
-          alert('Match!');
-          setIsPopUpVisible(true);
-          return { ...div, isMatched: true };
-        } else {
-          alert('Not a match!');
-        }
-      }
-      return div;
-    });
+    const isMatch = dragText === dataWord;
 
-    setDivs(updatedDivs);
+    if (isMatch) {
+      alert('Match!');
+    } else {
+      alert('Not a match!');
+    }
   };
 
   const handleDragStart = (event, text) => {
     event.dataTransfer.setData('text', text);
   };
 
-  const handleClick = (path) => {
-    const audio = new Audio(path);
-    audio.play();
-  };
-
-  const handleClosePopUp = () => {
-    setIsPopUpVisible(false);
-  };
-
-  useEffect(() => {
-    const handleDocumentMouseUp = () => {
-      const updatedDivs = divs.map((div) => ({ ...div, isDragging: false }));
-      setDivs(updatedDivs);
-    };
-
-    document.addEventListener('mouseup', handleDocumentMouseUp);
-
-    return () => {
-      document.removeEventListener('mouseup', handleDocumentMouseUp);
-    };
-  }, [divs]);
-
-
-  const areAllMatched = divs.every((div) => div.isMatched);
   return (
     <div className="part-sex-container" onMouseMove={handleMouseMove}>
       {divs.map((div) => (
         <div
           key={div.id}
-          className={`draggable-div div-${div.id} ${div.isMatched ? 'matched' : ''}`}
+          className={`draggable-div div-${div.id}`}
           style={{
             position: 'absolute',
             left: div.position.x,
@@ -138,59 +488,49 @@ function PartSex() {
           draggable
           onDragStart={(event) => handleDragStart(event, div.text)}
           onMouseDown={(event) => handleMouseDown(event, div.id)}
-          onClick={() => handleClick(div.path)}
         >
           {div.text}
         </div>
       ))}
-
-<div className="icon-container">
-        {!divs.find((div) => div.isMatched && div.text === 'Guten Tag') && (
-          <img
-            className="tag divs-icon"
-            dataWord="Guten Tag"
-            src={gutenTag}
-            alt=""
-            onDragOver={(event) => event.preventDefault()}
-            onDrop={(event) => handleDrop(event, 'Guten Tag')}
-          />
-        )}
-        {!divs.find((div) => div.isMatched && div.text === 'Guten Morgen') && (
-          <img
-            className="morgen divs-icon"
-            dataWord="Guten Morgen"
-            src={gutenMorgen}
-            alt=""
-            onDragOver={(event) => event.preventDefault()}
-            onDrop={(event) => handleDrop(event, 'Guten Morgen')}
-          />
-        )}
+      <div className="icon-container">
+        <img
+          className="tag"
+          dataWord="Guten Tag"
+          src={gutenTag}
+          alt=""
+          onDragOver={(event) => event.preventDefault()}
+          onDrop={(event) => handleDrop(event, 'Guten Tag')}
+        />
+        <img
+          className="morgen"
+          dataWord="Guten Morgen"
+          src={gutenMorgen}
+          alt=""
+          onDragOver={(event) => event.preventDefault()}
+          onDrop={(event) => handleDrop(event, 'Guten Morgen')}
+        />
       </div>
-
-      {isPopUpVisible && (
-        <div className="modal-container">
-          <button className="modal-close-button" onClick={handleClosePopUp}>
-            <i className="fa fa-times fa-3x"></i>
-          </button>
-          <div className="modal-check-icon">
-            <i className="fa fa-check-circle fa-3x"></i>
-          </div>
-          <div className="modal-image">
-            <img src={gutenMorgen} alt="morgen" />
-          </div>
-          <div className="modal-details">
-            <p className="information">
-              "Let's spread the joy, here is Christmas, the most awaited day of the year.
-              Christmas Tree is what one needs the most. Here is the correct tree that will enhance your Christmas."
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* Conditionally render TowPSex component */}
-      {areAllMatched && <TowPSex />}
     </div>
   );
 }
 
 export default PartSex;
+
+
+/////////////////////
+ <div className='modul-container'>
+
+      <div className='modul-details'>   
+      <p class="information">" Let's spread the joy 
+      , here is Christmas , the most awaited day of the year.
+      Christmas Tree is what one need the most. 
+      Here is the correct tree which will enhance your Christmas.
+      </p>
+      </div>
+      <div class="modul-image">
+	
+        <img src={gutenMorgen} alt="morgen"></img>
+        </div>
+       </div>
+
+*/}

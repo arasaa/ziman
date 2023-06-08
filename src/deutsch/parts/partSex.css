@@ -112,10 +112,23 @@ modul
     }
 
     /******************************************************************************/
-    .tow-p-sex-container{
+    .tow-psex-container{
         background-color: #a7bec6;
     width: 100vh;
     height: 100vh;
+    }
+
+    /******************************************************************************/
+   .three-psex-container{
+    background-color: #07212a;
+    width: 100vh;
+    height: 100vh;
+    }
+     /******************************************************************************/
+    .four-psex-container{
+        background-color: #16275f;
+        width: 100vh;
+        height: 100vh;
     }
 
 
