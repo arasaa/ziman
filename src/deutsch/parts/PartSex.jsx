@@ -176,10 +176,16 @@ function PartSex() {
       {showModal && (
         <div className="modal">
           <div className="modal-content">
-            <h2>Match!</h2>
+          <h2 className='modal-match'>Match!</h2>
+            <span className='fa-check-circle-container'>
+          <i className="fa fa-check-circle fa-3x"></i>
+          </span>
+            
             <p>The word "{matchedWord}" is matched.</p>
             <img className="modal-img" src={matchedWord === 'Guten Morgen' ? gutenMorgen : gutenTag} alt={matchedWord} />
-            <button onClick={closeModal}>Close</button>
+            <button className='modal-close-button' onClick={closeModal}>
+            <i className="fa fa-times fa-3x"></i>
+            </button>
           </div>
         </div>
       )}

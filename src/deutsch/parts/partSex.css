@@ -101,6 +101,9 @@ modul
         color: #145a4e;
         border: none;
         cursor: pointer;
+        display: flex;
+        top: 0;
+        left: 0;
     }
     .modal-check-icon{
         align-self: center;
@@ -109,6 +112,12 @@ modul
         position: absolute;
         top: 2px;
         color: green;
+    }
+    .fa-check-circle-container{
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: -4rem;
     }
 
     /******************************************************************************/
@@ -152,6 +161,13 @@ modul
         border-radius: 5px;
         text-align: center;
         position: relative;
+        gap: 2rem;
+        display: flex;
+        flex-direction: column;
+      }
+      .modal-match{
+        position: relative;
+        bottom: 1.5rem;
       }
       
       .close {
