@@ -7,6 +7,8 @@
   height: 20rem;
   border: 2px red solid;
   overflow-y: auto; /* Added scrollable overflow for the container */
+  position: absolute;
+  top: 100px;
 }
 
 .chat-history {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './partSeven.css'
 //import vorstellung from '../sounds/vorstellung.mp3'
+import morgen from '../sounds/morgen.mp3';
 
 
 
@@ -95,17 +96,16 @@ Mir geht es gut. Dankeschön und Ihnen? Mir geht es auch gut, danke.
       </p>
       <audio
         id="audio"
-        //src={vorstellung}
+        src={morgen}
         onEnded={() => {
           setIsPlaying(false);
           setHighlightedIndex(text.split(' ').length - 1);
         }}
-      ></audio>
-      <button className='audio-button' onClick={handlePlayPause}>{isPlaying ? 'Pause' : 'Play'}</button>
+        controls ><button className='audio-button' onClick={handlePlayPause}>{isPlaying ? 'Pause' : 'Play'}</button></audio>
+      
     </div>
   );
 };
 
 export default PartSeven;
-
 

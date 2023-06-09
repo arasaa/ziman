@@ -58,131 +58,89 @@ display: none;
 /**
 modul
 */
-.modal-container{
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    gap: 2rem;
     display: flex;
     flex-direction: column;
-    position: absolute;
-    box-shadow: 0 15px 30px 1px grey;
-    background: rgba(255, 255, 255, 0.90);
-    border-radius: 50px;
-    overflow: hidden;
-    height: 20rem;
-    width: 25rem;
-    border: 1px rgb(75, 58, 58) solid;
-    border-top-left-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-}
-.modal-details {
-    display: flex;
+  }
+  .modal-match{
     position: relative;
-    top: 2rem;
+    bottom: 1.5rem;
+  }
+  .fa-check-circle{
+    position: absolute;
+    top: 2px;
+    color: green;
 }
-.modal-container .modal-details > p {
-    font-family: 'EB Garamond', serif;
-        text-align: center;
-        font-size: 18px;
-        color: #7d7d7d;
-        
-    }
-    .modal-image {
-        transition: all 0.3s ease-out;
-        position: relative;
-        overflow: hidden;
-        align-self: center;
-        top: 2rem;
-    }
+.fa-check-circle-container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -4rem;
+}
+.modal-close-button{
+    position: absolute;
+    color: #145a4e;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    top: 0;
+    left: 0;
+}
+  .modal-img{
+    width: 300px;
+    height: 200px;
+  }
+ 
     
-    .modal-container img {
-        position: relative;
-        height: 10rem;
-    }
-    .modal-close-button{
-        position: absolute;
-        color: #145a4e;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        top: 0;
-        left: 0;
-    }
-    .modal-check-icon{
-        align-self: center;
-    }
-     .fa-check-circle{
-        position: absolute;
-        top: 2px;
-        color: green;
-    }
-    .fa-check-circle-container{
-        display: flex;
-        justify-content: center;
-        position: relative;
-        top: -4rem;
-    }
 
     /******************************************************************************/
     .tow-psex-container{
-        background-color: #a7bec6;
-    width: 100vh;
-    height: 100vh;
+        background-color: #075f80;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     /******************************************************************************/
    .three-psex-container{
-    background-color: #07212a;
-    width: 100vh;
+    background-color: #0c536d;
+    width: 100%;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     }
      /******************************************************************************/
     .four-psex-container{
-        background-color: #16275f;
-        width: 100vh;
-        height: 100vh;
-    }
-
-
-    /************/
-    .modal {
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
+        background-color: #02526f;
         width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-      }
+    }
+ 
       
-      .modal-content {
-        background-color: white;
-        padding: 20px;
-        border-radius: 5px;
-        text-align: center;
-        position: relative;
-        gap: 2rem;
-        display: flex;
-        flex-direction: column;
-      }
-      .modal-match{
-        position: relative;
-        bottom: 1.5rem;
-      }
-      
-      .close {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 20px;
-        cursor: pointer;
-      }
-      
-      .close:hover {
-        color: red;
-      }
-      .modal-img{
-        width: 300px;
-        height: 200px;
-      }
+     
+    
       

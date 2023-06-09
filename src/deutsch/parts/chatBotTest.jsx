@@ -5,6 +5,7 @@ const PartEightChatbot = () => {
   const [userMessage, setUserMessage] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
   const [isChatbotTyping, setIsChatbotTyping] = useState(false);
+  const [hasAskedName, setHasAskedName] = useState(false);
   const chatHistoryRef = useRef(null);
   const [userName, setUserName] = useState(null);
 
@@ -36,47 +37,47 @@ const PartEightChatbot = () => {
     }, 2000);
   };
 
-  const responsePatterns = [
-    { pattern: /hi|hello|hey/i, response: 'Hello! How can I assist you?' },
-    { pattern: /open account/i, response: 'To open an account, please visit our website and fill out the application form.', button: { label: 'Open Account', url: 'https://example.com/open-account' } },
-    { pattern: /balance/i, response: 'You can check your account balance by logging into your online banking account.' },
-    { pattern: /transfer money/i, response: 'You can transfer money between accounts using our mobile banking app.' },
-    // Add more response patterns and replies as needed
-  ];
-  
-
-  const questionPatterns = [
-    { pattern: /hello|wie geht es dir|hi/i, question: 'Woher kommen Sie?' },
-    { pattern: /was machst du/i, question: 'Ich bin ein Chatbot, der Ihnen bei Fragen und Anliegen helfen kann.' },
-    { pattern: /wer bist du/i, question: 'Ich bin ein Chatbot, der Ihnen bei Fragen und Anliegen helfen kann.' },
-    // Add more question patterns and questions as needed
-  ];
-
   const generateChatbotResponse = (userMessage) => {
+    const responseMapping = {
+      'hallo': 'Hallo, wie kann ich Ihnen helfen?',
+      'name': `Mein Name ist Chatbot, Freut mich, ${userName}, wie kann ich Ihnen helfen?`,
+      'wie heißen Sie': `Mein Name ist Chatbot, Freut mich, ${userName}, wie kann ich Ihnen helfen?`,
+      'wer bist du': `Mein Name ist Chatbot, Freut mich, ${userName}, wie kann ich Ihnen helfen?`,
+      'wie geht es Ihnen': 'Es geht mir gut, danke. Und dir?',
+      'gut': 'Das ist schön zu hören!',
+      'ich komme aus Syrien': 'Warum lernen Sie Deutsch?',
+      'ich bin aras': 'hallo aras',
+      'danke': 'Gern geschehen!',
+      'default': 'Es tut mir leid, aber ich verstehe es nicht. Können Sie die Frage bitte umformulieren oder eine andere Frage stellen?',
+    };
+  
+    const questionMapping = {
+      'ok': 'Woher kommen Sie?',
+      'ja': 'Woher kommen Sie?',
+      'frage1': 'Wie lautet Ihre erste Frage?',
+      'frage2': 'Wie lautet Ihre zweite Frage?',
+      // Add more questions as needed
+    };
+  
     const lowercaseUserMessage = userMessage.toLowerCase();
-
-    // Check if any response patterns match the user's message
-    for (const pattern of responsePatterns) {
-      if (pattern.pattern.test(lowercaseUserMessage)) {
-        return pattern.response;
-      }
+  
+    if (responseMapping.hasOwnProperty(lowercaseUserMessage)) {
+      return responseMapping[lowercaseUserMessage];
     }
-
+  
     if (!userName) {
+      setHasAskedName(true);
       setUserName(userMessage);
-      return `Hallo, ${userMessage}. Wie kann ich Ihnen helfen?`;
+      return `Hallo, ${userMessage}. Lass uns anfangen`;
     }
-
-    // Check if any question patterns match the user's message
-    for (const pattern of questionPatterns) {
-      if (pattern.pattern.test(lowercaseUserMessage)) {
-        return pattern.question;
-      }
+  
+    if (questionMapping.hasOwnProperty(lowercaseUserMessage)) {
+      return questionMapping[lowercaseUserMessage];
     }
-
-    return 'Es tut mir leid, aber ich verstehe Ihre Frage nicht. Wie kann ich Ihnen helfen?';
+  
+    return responseMapping['default'];
   };
-
+  
   useEffect(() => {
     const chatHistoryElement = chatHistoryRef.current;
     chatHistoryElement.scrollTop = chatHistoryElement.scrollHeight;

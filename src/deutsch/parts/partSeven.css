@@ -19,8 +19,8 @@
     position: absolute;
     right: 5rem;
   }
-  .audio-button{
+  #audio{
     align-self: flex-start;
     position: relative;
-    top: 3rem;
+    top: 2rem;
   }
