@@ -4,11 +4,10 @@
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  height: 20rem;
+  height: 100%;
   border: 2px red solid;
-  overflow-y: auto; /* Added scrollable overflow for the container */
+  overflow-y: auto;
   position: absolute;
-  top: 100px;
 }
 
 .chat-history {
