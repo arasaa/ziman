@@ -29,7 +29,12 @@ const PartEightChatbot = () => {
 
       setChatHistory((prevChatHistory) => [
         ...prevChatHistory,
-        { message: chatbotResponse.message, sender: 'chatbot', name: 'Chatbot', buttons: chatbotResponse.buttons },
+        {
+          message: chatbotResponse.message,
+          sender: 'chatbot',
+          name: 'Chatbot',
+          buttons: chatbotResponse.buttons,
+        },
       ]);
 
       setIsChatbotTyping(false);
@@ -38,7 +43,11 @@ const PartEightChatbot = () => {
 
   const responsePatterns = [
     { pattern: /hi|hey/i, response: 'Hello! How can I assist you?' },
-    { pattern: /open account/i, response: 'To open an account, please visit our website and fill out the application form.', buttons: { label: 'Open Account', url: 'https://example.com/open-account' } },
+    {
+      pattern: /open account/i,
+      response: 'To open an account, please visit our website and fill out the application form.',
+      buttons: [{ label: 'Open Account', url: 'https://example.com/open-account' }],
+    },
     { pattern: /balance/i, response: 'You can check your account balance by logging into your online banking account.' },
     { pattern: /transfer money/i, response: 'You can transfer money between accounts using our mobile banking app.' },
     // Add more response patterns and replies as needed
@@ -53,9 +62,9 @@ const PartEightChatbot = () => {
         buttons: [
           { label: 'Mehr erfahren', url: 'https://example.com/mehr-erfahren' },
           { label: 'Mehr', url: 'https://example.com/mehr' },
-          { label: 'Erfahren', url: 'https://example.com/erfahren' }
-        ]
-      }
+          { label: 'Erfahren', url: 'https://example.com/erfahren' },
+        ],
+      },
     },
     // Add more question patterns and questions as needed
   ];
@@ -92,7 +101,7 @@ const PartEightChatbot = () => {
           // User provided the correct answer
           const nextQuestion = getNextQuestion();
           if (nextQuestion) {
-            return { message: 'Excellent!', buttons: nextQuestion };
+            return { message: 'Excellent!', buttons: nextQuestion.buttons };
           } else {
             return { message: 'You answered all the questions correctly!' };
           }
@@ -110,7 +119,9 @@ const PartEightChatbot = () => {
       }
     }
 
-    return { message: 'Es tut mir leid, aber ich verstehe Ihre Frage nicht. Wie kann ich Ihnen helfen?' };
+    return {
+      message: 'Es tut mir leid, aber ich verstehe Ihre Frage nicht. Wie kann ich Ihnen helfen?',
+    };
   };
 
   const getNextQuestion = () => {
@@ -121,16 +132,16 @@ const PartEightChatbot = () => {
         buttons: [
           { label: 'العمر', isCorrect: true },
           { label: 'الوزن', isCorrect: false },
-          { label: 'الطول', isCorrect: false }
-        ]
+          { label: 'الطول', isCorrect: false },
+        ],
       },
       {
         question: 'Was bedeutet "Stadt"?',
         buttons: [
           { label: 'مدينة', isCorrect: true },
           { label: 'قرية', isCorrect: false },
-          { label: 'بلدة', isCorrect: false }
-        ]
+          { label: 'بلدة', isCorrect: false },
+        ],
       },
       // Add more questions and buttons as needed
     ];
@@ -141,101 +152,91 @@ const PartEightChatbot = () => {
   
     if (nextQuestionIndex < questions.length) {
       const nextQuestion = questions[nextQuestionIndex];
-      const buttons = nextQuestion.buttons.map((button, index) => (
-        <button
-          key={index}
-          onClick={() => handleUserMessageSubmit(button.label)}
-        >
-          {button.label}
-        </button>
-      ));
+      const buttons = nextQuestion.buttons.map((button, buttonIndex) => ({
+        label: button.label,
+        onClick: () => handleUserMessageSubmit({ target: { value: button.label } }),
+      }));
       return { question: nextQuestion.question, buttons };
     } else {
       return null; // All questions answered
     }
   };
   
+  
+
   useEffect(() => {
     const chatHistoryElement = chatHistoryRef.current;
     chatHistoryElement.scrollTop = chatHistoryElement.scrollHeight;
   }, [chatHistory]);
 
   useEffect(() => {
-    if (userName) {
+    if (!userName) {
+      setChatHistory((prevChatHistory) => [
+        ...prevChatHistory,
+        { message: 'Wie heißen Sie?', sender: 'chatbot', name: 'Chatbot' },
+      ]);
+    } else {
       const nextQuestion = getNextQuestion();
       if (nextQuestion) {
         setChatHistory((prevChatHistory) => [
           ...prevChatHistory,
-          { message: `Hallo, ${userName}! ${nextQuestion.question}`, sender: 'chatbot', name: 'Chatbot', buttons: nextQuestion.buttons },
+          {
+            message: `Hallo, ${userName}! ${nextQuestion.question}`,
+            sender: 'chatbot',
+            name: 'Chatbot',
+            buttons: nextQuestion.buttons,
+          },
         ]);
       } else {
         setChatHistory((prevChatHistory) => [
           ...prevChatHistory,
-          { message: `Hallo, ${userName}! You answered all the questions correctly!`, sender: 'chatbot', name: 'Chatbot' },
+          {
+            message: `Hallo, ${userName}! You answered all the questions correctly!`,
+            sender: 'chatbot',
+            name: 'Chatbot',
+          },
         ]);
       }
-    } else {
-      setChatHistory((prevChatHistory) => [
-        { message: 'Wie heißen Sie?', sender: 'chatbot', name: 'Chatbot' },
-      ]);
     }
   }, [userName]);
+  
+  
 
   return (
-    <div className="part-eight-container">
+    <div className="part-eight-chatbot">
       <div className="chat-history" ref={chatHistoryRef}>
-        <div className="chat-messages">
-          {chatHistory.map((chat, index) => {
-            const isUser = chat.sender === 'user';
-
-            return (
-              <div
-                key={index}
-                className={`chat-message ${isUser ? 'user' : 'chatbot'}`}
-              >
-                {isUser ? (
-                  <span className="user-name">{chat.name}: </span>
-                ) : (
-                  <span className="chatbot-name">{chat.name}: </span>
-                )}
-                {typeof chat.message === 'string' ? (
-                  <span>{chat.message}</span>
-                ) : (
-                  <div>
-                    <span>{chat.message.message}</span>
-                    {chat.message.buttons.map((button, buttonIndex) => (
-                      <button
-                        key={buttonIndex}
-                        onClick={() => handleUserMessageSubmit(button.label)}
-                      >
-                        {button.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
+        {chatHistory.map((chat, index) => (
+          <div key={index} className={`chat-bubble ${chat.sender}`}>
+            <span className="sender-name">{chat.name}</span>
+            <p className="message">{chat.message}</p>
+            {chat.buttons && (
+              <div className="buttons">
+                {chat.buttons.map((button, buttonIndex) => (
+                  <button
+                    key={buttonIndex}
+                    className="button"
+                    href={button.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {button.label}
+                  </button>
+                ))}
               </div>
-            );
-          })}
-          {isChatbotTyping && (
-            <div className="chat-message chatbot">
-              <span className="chatbot-name">Chatbot: </span>
-              <span className="typing-indicator">Typing...</span>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        ))}
+        {isChatbotTyping && <div className="chat-bubble chatbot typing"></div>}
       </div>
-      <div className="chat-input">
-        <form onSubmit={handleUserMessageSubmit}>
-          <input
-            type="text"
-            placeholder="Type a message..."
-            value={userMessage}
-            onChange={handleUserMessageChange}
-            autoFocus
-          />
-          <button type="submit">Send</button>
-        </form>
-      </div>
+      <form className="user-input" onSubmit={handleUserMessageSubmit}>
+        <input
+          type="text"
+          value={userMessage}
+          onChange={handleUserMessageChange}
+          placeholder="Type your message..."
+        />
+        <button type="submit">Send</button>
+      </form>
     </div>
   );
 };
