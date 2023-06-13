@@ -7,6 +7,7 @@ const PartEightChatbot = () => {
   const [isChatbotTyping, setIsChatbotTyping] = useState(false);
   const chatHistoryRef = useRef(null);
   const [userName, setUserName] = useState(null);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   const handleUserMessageChange = (e) => {
     setUserMessage(e.target.value);
@@ -70,6 +71,8 @@ const PartEightChatbot = () => {
   ];
 
   const generateChatbotResponse = (userMessage) => {
+    const lastChat = chatHistory[chatHistory.length - 1];
+
     const lowercaseUserMessage = userMessage.toLowerCase();
 
     // Check if any response patterns match the user's message
@@ -93,7 +96,6 @@ const PartEightChatbot = () => {
     }
 
     // Check if the user is currently being asked a question
-    const lastChat = chatHistory[chatHistory.length - 1];
     if (lastChat && lastChat.buttons) {
       const selectedButton = lastChat.buttons.find((button) => button.label === lowercaseUserMessage);
       if (selectedButton) {
@@ -101,6 +103,7 @@ const PartEightChatbot = () => {
           // User provided the correct answer
           const nextQuestion = getNextQuestion();
           if (nextQuestion) {
+            setCurrentQuestionIndex(currentQuestionIndex + 1);
             return { message: 'Excellent!', buttons: nextQuestion.buttons };
           } else {
             return { message: 'You answered all the questions correctly!' };
@@ -150,9 +153,9 @@ const PartEightChatbot = () => {
     const lastQuestionIndex = chatHistory.findIndex((chat) => chat.buttons);
     const nextQuestionIndex = lastQuestionIndex + 1;
   
-    if (nextQuestionIndex < questions.length) {
-      const nextQuestion = questions[nextQuestionIndex];
-      const buttons = nextQuestion.buttons.map((button, buttonIndex) => ({
+    if (currentQuestionIndex < questions.length) {
+      const nextQuestion = questions[currentQuestionIndex];
+      const buttons = nextQuestion.buttons.map((button) => ({
         label: button.label,
         onClick: () => handleUserMessageSubmit({ target: { value: button.label } }),
       }));
@@ -242,3 +245,139 @@ const PartEightChatbot = () => {
 };
 
 export default PartEightChatbot;
+
+
+
+
+.part-eight-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 2px red solid;
+  overflow-y: auto;
+  position: absolute;
+}
+
+.chat-history {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.chat-message {
+  display: inline-block;
+  max-width: 80%;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.chat-messages{
+  display: flex;
+  flex-direction: column;
+}
+
+.user {
+  align-self: flex-end;
+  background-color: lightblue;
+  width: 15rem;
+  margin-right: 1rem; /* Added margin to push the user messages to the right */
+  margin-bottom: 30px; /* Added margin to create separation */
+}
+.chatbot-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 2px red solid;
+  overflow-y: auto;
+  position: absolute;
+}
+
+
+.chatbot {
+  align-self: flex-start;
+  background-color: lightgray;
+  width: 15rem;
+  margin-left: 1rem; /* Added margin to push the chatbot messages to the left */
+  margin-bottom: 30px; /* Added margin to create separation */
+}
+
+
+.chatbot-name {
+  margin-right: 5px;
+  color: #005c7d;
+  text-decoration: underline;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+form input[type="text"] {
+  flex-grow: 1;
+  margin-right: 0.5rem;
+}
+
+form button {
+  margin-left: 0.5rem;
+}
+
+.typing-indicator {
+  display: flex;
+  width: 45px;
+  height: 10px;
+}
+
+.typing-indicator span {
+  display: flex;
+  width: 15px;
+  height: 10px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background-color: #005c7d;
+  animation: typing 1.5s infinite;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes typing {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+/*************************************/
+.question-buttons-container{
+  background-color: antiquewhite;
+}
+.question-buttons-container .question-buttons {
+  width: 50px;
+  height: 40px;
+  background-color: rgb(138, 122, 153);
+  color: rgb(100, 100, 0);
+  margin-right: 5px;
+}

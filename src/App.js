@@ -10,9 +10,11 @@ import PartSex from './deutsch/parts/PartSex';
 import PartSeven from './deutsch/parts/partSeven';
 //import text from '../src/deutsch/sounds/text.mp3'
 import Lessons from './deutsch/Lessons';
-import PartEightChatbot from '../src/deutsch/parts/PartEightChatbot';
+import PartEightChatbot from './deutsch/parts/PartEight';
 import PartFour from './deutsch/parts/PartFour';
 import ChatBotTest from './deutsch/parts/chatBotTest'
+import PartEight from './deutsch/parts/PartEight';
+
 
 
 {/**
@@ -30,7 +32,7 @@ import ChatBotTest from './deutsch/parts/chatBotTest'
 function App() {
   return (
     <div className="#">
- <PartEightChatbot />
+      <PartEight />
      <Lessons />
      
 
@@ -43,7 +45,6 @@ function App() {
      <PartSeven />
     <PartFiveAudio />
     <PartEightChatbot />*/}
-   
 
     </div>
   );
