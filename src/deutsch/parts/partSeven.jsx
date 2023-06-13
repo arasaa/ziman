@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import './partSeven.css'
-//import vorstellung from '../sounds/vorstellung.mp3'
+import './partSeven.css';
+import PartEight from './PartEight';
+//import vorstellung from '../sounds/vorstellung.mp3';
 import morgen from '../sounds/morgen.mp3';
-
-
 
 const PartSeven = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [highlightedIndex, setHighlightedIndex] = useState(0);
+  const [showPartEight, setShowPartEight] = useState(false);
 
   useEffect(() => {
     const audioElement = document.getElementById('audio');
@@ -68,6 +68,10 @@ const PartSeven = () => {
     setIsPlaying(!isPlaying);
   };
 
+  const handleNextClick = () => {
+    setShowPartEight(true);
+  };
+
   const text = `Hallo.
 -Hallo, Wie geht es Ihnen?
 Mir geht es gut. Dankeschön und Ihnen? Mir geht es auch gut, danke.
@@ -101,11 +105,21 @@ Mir geht es gut. Dankeschön und Ihnen? Mir geht es auch gut, danke.
           setIsPlaying(false);
           setHighlightedIndex(text.split(' ').length - 1);
         }}
-        controls ><button className='audio-button' onClick={handlePlayPause}>{isPlaying ? 'Pause' : 'Play'}</button></audio>
-      
+        controls
+      >
+        <button className='audio-button' onClick={handlePlayPause}>
+          {isPlaying ? 'Pause' : 'Play'}
+        </button>
+      </audio>
+        
+      <button className='render-part-seven-button' onClick={handleNextClick}>
+        <span className='render-part-seven-button-span'>nächste</span>
+        </button>
+
+      {showPartEight && <PartEight />}
+
     </div>
   );
 };
 
 export default PartSeven;
-

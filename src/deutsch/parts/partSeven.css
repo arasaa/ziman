@@ -24,3 +24,59 @@
     position: relative;
     top: 2rem;
   }
+  .render-part-seven-button{
+    font-size: 25px;
+    width: 8em;
+    height: 2em;
+    color: orange;
+    border-left: 0.08em solid;
+    position: relative;
+    margin-top: 0.8em;
+    cursor: pointer;
+    top: 18rem;
+    left: 30rem;
+    margin-left: 50px;
+    right: 20px;
+  }
+  .render-part-seven-button::after
+  .render-part-seven-button::before
+  {
+    content: '';
+    position: absolute;
+    width: inherit;
+    border-left: inherit;
+    z-index: -1;
+  }
+
+  .render-part-seven-button::before
+  {
+    height: 80%;
+    top: 10%;
+    left: calc(-0.15em - 0.08em * 2);
+    filter: brightness(0.8);
+  }
+  .render-part-seven-button::after
+  {
+    height: 60%;
+    top: 20%;
+    left: calc(-0.15em * 2 - 0.08em * 3);
+    filter: brightness(0.6);
+  }
+  .render-part-seven-button .render-part-seven-button-span{
+    position: relative;
+    height: 120%;
+    top: -10%;
+    box-sizing: border-box;
+    border: 0.08em solid;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    transform: translateX(calc(-0.15em * 3 - 0.08em * 2));
+    transition: 0.3s;
+  }
+  .render-part-seven-button:hover .render-part-seven-button-span{
+    transform: translateX(0.15em);
+  }

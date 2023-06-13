@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './partEight.css'
 import hallo from '../sounds/hallo.mp3'
 import bitte from '../sounds/bitte.mp3'
 import abend from '../sounds/abend.mp3'
@@ -90,7 +91,7 @@ const PartEight = () => {
   };
 
   return (
-    <div className="chatbot" style={{ position: 'absolute', top: '300px', left: '300px' }}>
+    <div className="part-eight-container">
       {showResults ? (
         <div>
           <h3>Quiz Results</h3>

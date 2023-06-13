@@ -32,7 +32,7 @@ import PartEight from './deutsch/parts/PartEight';
 function App() {
   return (
     <div className="#">
-      <PartEight />
+      
      <Lessons />
      
 
@@ -42,10 +42,11 @@ function App() {
     <PartSeven />
     <PartSeven />
    <ChatBotTest />
-     <PartSeven />
+     
     <PartFiveAudio />
-    <PartEightChatbot />*/}
-
+    <PartEightChatbot />
+         
+    */}
     </div>
   );
 }
